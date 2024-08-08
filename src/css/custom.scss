@@ -1,0 +1,50 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+@import "@phosphor-icons/web/regular/style.css";
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #4271ae;
+  --ifm-color-primary-dark: #3b669d;
+  --ifm-color-primary-darker: #386094;
+  --ifm-color-primary-darkest: #2e4f7a;
+  --ifm-color-primary-light: #4d7dbb;
+  --ifm-color-primary-lighter: #5583bf;
+  --ifm-color-primary-lightest: #6f96c9;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #81a2be;
+  --ifm-color-primary-dark: #6c92b3;
+  --ifm-color-primary-darker: #618bae;
+  --ifm-color-primary-darkest: #4c7393;
+  --ifm-color-primary-light: #96b2c9;
+  --ifm-color-primary-lighter: #a1b9ce;
+  --ifm-color-primary-lightest: #c0d1df;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.navbar__item.ph {
+  font-size: 24px;
+}
+
+.current {
+  scroll-margin-top: 32em;
+  &.week {
+    border-left: 2px solid var(--ifm-color-primary);
+    border-right: 2px solid var(--ifm-color-primary);
+  }
+  &.weekend-before {
+    border-top: 2px solid var(--ifm-color-primary);
+  }
+  &.weekend-after {
+    border-bottom: 2px solid var(--ifm-color-primary);
+  }
+}
