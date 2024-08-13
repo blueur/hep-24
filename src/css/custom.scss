@@ -9,33 +9,65 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #4271ae;
-  --ifm-color-primary-dark: #3b669d;
-  --ifm-color-primary-darker: #386094;
-  --ifm-color-primary-darkest: #2e4f7a;
-  --ifm-color-primary-light: #4d7dbb;
-  --ifm-color-primary-lighter: #5583bf;
-  --ifm-color-primary-lightest: #6f96c9;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary-dark: #8e908c;
+  --ifm-color-success: #718c00;
+  --ifm-color-info: #3e999f;
+  --ifm-color-warning: #eab700;
+  --ifm-color-danger: #c82829;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
   --ifm-color-primary: #81a2be;
-  --ifm-color-primary-dark: #6c92b3;
-  --ifm-color-primary-darker: #618bae;
-  --ifm-color-primary-darkest: #4c7393;
-  --ifm-color-primary-light: #96b2c9;
-  --ifm-color-primary-lighter: #a1b9ce;
-  --ifm-color-primary-lightest: #c0d1df;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary-dark: #969896;
+  --ifm-color-success: #b5bd68;
+  --ifm-color-info: #8abeb7;
+  --ifm-color-warning: #f0c674;
+  --ifm-color-danger: #cc6666;
 }
 
-.navbar__item.ph {
-  font-size: 24px;
+div.reveal {
+  --r-link-color: var(--ifm-link-color);
+  --r-link-color-hover: var(--ifm-color-primary-dark);
+  --r-block-margin: 10px;
+  --r-heading-text-transform: none;
+
+  border: 1px solid var(--ifm-color-emphasis-300);
+
+  &.embedded {
+    aspect-ratio: 16 / 9;
+  }
+
+  p:has(> .reference) {
+    line-height: 0.4;
+  }
+  pre {
+    padding: inherit;
+
+    tr {
+      border: inherit;
+    }
+  }
+  strong {
+    color: var(--ifm-color-danger);
+  }
+  table {
+    display: unset;
+  }
+
+  .code-wrapper {
+    width: var(--slide-width);
+  }
+  .reference {
+    font-size: small;
+  }
+  .mermaid {
+    max-height: var(--slide-height);
+    max-width: var(--slide-width);
+  }
 }
 
-.current {
+tr.current {
   scroll-margin-top: 32em;
   &.week {
     border-left: 2px solid var(--ifm-color-primary);
@@ -47,4 +79,8 @@
   &.weekend-after {
     border-bottom: 2px solid var(--ifm-color-primary);
   }
+}
+
+.navbar__item.ph {
+  font-size: 24px;
 }
