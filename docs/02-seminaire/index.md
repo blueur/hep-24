@@ -1,5 +1,5 @@
 import DocCardList from '@theme/DocCardList';
 
-# Laboratoires
+# Séminaire
 
 <DocCardList />

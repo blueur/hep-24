@@ -47,8 +47,8 @@ const config: Config = {
           position: "left",
         },
         {
-          to: "/docs/labos",
-          html: "<i class='ph ph-flask'></i> Laboratoires",
+          to: "/docs/seminaire",
+          html: "<i class='ph ph-flask'></i> Séminaire",
           position: "left",
         },
         {
@@ -62,7 +62,7 @@ const config: Config = {
           className: "ph ph-linkedin-logo",
         },
         {
-          href: "mailto:david.tang@etu.hepl.ch",
+          href: "mailto:david.tang@hepl.ch",
           position: "right",
           className: "ph ph-envelope-simple",
         },
