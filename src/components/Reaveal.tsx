@@ -24,8 +24,8 @@ export default class Reaveal extends React.Component<{
     import("reveal.js").then((reveal) => {
       import("reveal.js/plugin/highlight/highlight").then((highlight) => {
         new reveal.default({
-          width: 1280,
-          height: 720,
+          width: 1440,
+          height: 900,
           autoAnimateDuration: 0.25,
           embedded: !this.props.full,
           hash: true,
