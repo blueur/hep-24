@@ -4,33 +4,47 @@
  * work well for content-centric websites.
  */
 
-@import "@phosphor-icons/web/regular/style.css";
+@import "open-color";
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #4271ae;
-  --ifm-color-primary-dark: #8e908c;
-  --ifm-color-success: #718c00;
-  --ifm-color-info: #3e999f;
-  --ifm-color-warning: #eab700;
-  --ifm-color-danger: #c82829;
+  --ifm-font-family-base: "Inconsolata Variable", sans-serif;
+  --ifm-font-family-monospace: "Inconsolata Variable", monospace;
+  --ifm-font-weight-bold: 800;
+  --ifm-table-cell-padding: 0.5rem;
+  font-weight: 500;
+
+  --docusaurus-highlighted-code-line-bg: #{$oc-gray-4};
+  --ifm-background-color: #{$oc-white};
+  --ifm-font-color-base: #{$oc-black};
+  --ifm-color-primary: #{$oc-blue-7};
+  --ifm-color-primary-dark: #{$oc-blue-9};
+  --ifm-color-success: #{$oc-green-7};
+  --ifm-color-info: #{$oc-teal-7};
+  --ifm-color-warning: #{$oc-yellow-7};
+  --ifm-color-danger: #{$oc-red-7};
+  --ifm-color-accent: #{$oc-orange-7};
+  --ifm-color-emphasis: #{$oc-violet-7};
+  --ifm-color-gray: #{$oc-gray-6};
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
-  --ifm-color-primary: #81a2be;
-  --ifm-color-primary-dark: #969896;
-  --ifm-color-success: #b5bd68;
-  --ifm-color-info: #8abeb7;
-  --ifm-color-warning: #f0c674;
-  --ifm-color-danger: #cc6666;
+  --docusaurus-highlighted-code-line-bg: #{$oc-gray-7};
+  --ifm-font-color-base: #{$oc-gray-4};
+  --ifm-color-primary: #{$oc-blue-6};
+  --ifm-color-primary-dark: #{$oc-blue-8};
+  --ifm-color-success: #{$oc-green-6};
+  --ifm-color-info: #{$oc-teal-6};
+  --ifm-color-warning: #{$oc-yellow-6};
+  --ifm-color-danger: #{$oc-red-6};
+  --ifm-color-accent: #{$oc-orange-6};
+  --ifm-color-emphasis: #{$oc-violet-6};
 }
 
 div.reveal {
   --r-link-color: var(--ifm-link-color);
   --r-link-color-hover: var(--ifm-color-primary-dark);
-  --r-block-margin: 10px;
-  --r-heading-text-transform: none;
 
   border: 1px solid var(--ifm-color-emphasis-300);
 
@@ -38,50 +52,105 @@ div.reveal {
     aspect-ratio: 16 / 10;
   }
 
+  blockquote {
+    border: unset;
+    box-shadow: unset;
+    width: unset;
+  }
+  em {
+    color: var(--ifm-color-emphasis);
+    font-style: normal;
+    font-weight: bold;
+  }
+  img {
+    margin: 0;
+
+    &.full {
+      height: 750px;
+    }
+  }
   p:has(> .reference) {
     line-height: 0.4;
   }
   pre {
+    font-size: inherit;
     padding: inherit;
+
+    code {
+      max-height: var(--slide-height);
+
+      table {
+        table-layout: auto;
+      }
+    }
 
     tr {
       border: inherit;
     }
   }
   strong {
-    color: var(--ifm-color-danger);
+    color: var(--ifm-color-accent);
   }
   table {
-    display: unset;
+    border-bottom: var(--ifm-table-border-width) solid
+      var(--ifm-table-border-color);
+    border-collapse: separate;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+    td,
+    th {
+      padding: 0.1em;
+    }
   }
 
-  .code-wrapper {
-    width: var(--slide-width);
+  .footer {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: unset;
+    color: var(--ifm-color-gray);
+    font-size: small;
+    padding: 0px;
+    text-align: right;
   }
   .reference {
+    color: var(--ifm-color-gray);
     font-size: small;
   }
   .slide-number {
     background-color: unset;
-    color: var(--ifm-color-primary-dark);
+    color: var(--ifm-color-gray);
+    font-family: unset;
+    padding: 0px;
   }
   .mermaid {
     max-height: var(--slide-height);
     max-width: var(--slide-width);
+
+    svg {
+      max-height: 800px;
+      max-width: unset !important;
+    }
   }
+}
+
+thead th:empty {
+  display: none;
 }
 
 tr.current {
   scroll-margin-top: 32em;
   &.week {
-    border-left: 2px solid var(--ifm-color-primary);
-    border-right: 2px solid var(--ifm-color-primary);
+    border-left: 4px solid var(--ifm-color-accent);
+    border-right: 4px solid var(--ifm-color-accent);
   }
   &.weekend-before {
-    border-top: 2px solid var(--ifm-color-primary);
+    border-top: 2px solid var(--ifm-color-accent);
   }
   &.weekend-after {
-    border-bottom: 2px solid var(--ifm-color-primary);
+    border-bottom: 2px solid var(--ifm-color-accent);
   }
 }
 

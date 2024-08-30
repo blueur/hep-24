@@ -15,7 +15,7 @@ declare module "reveal.js" {
 
 export default () => ({
   id: "mermaid",
-  init: function (reveal: Api) {
+  init: (reveal: Api) => {
     const mermaidConfig = reveal.getConfig().mermaid;
     mermaid.initialize({
       startOnLoad: false,
@@ -25,7 +25,7 @@ export default () => ({
     const mermaidElements =
       reveal.getRevealElement()?.querySelectorAll(".reveal pre code.mermaid") ??
       [];
-    mermaidElements.forEach(function (element: Element) {
+    mermaidElements.forEach((element: Element) => {
       try {
         mermaid
           .render(

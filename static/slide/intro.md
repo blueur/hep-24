@@ -1,4 +1,6 @@
-# Programmation Web et bases de données
+# BS21INF5
+
+## Programmation Web et bases de données
 
 David Tang
 
@@ -7,7 +9,6 @@ David Tang
 ## Parcours
 
 ```mermaid
-%%{init: { 'themeVariables': {'cScale0': '#4271ae'}, 'timeline': {'disableMulticolor': true}}}%%
 timeline
   Gymnase d'Yverdon
   EPFL : BSc & MSc en Informatique
@@ -20,23 +21,31 @@ timeline
 ## Organisation
 
 - &shy;<!-- .element: class="fragment" --> Cours & Séminaires
-  - Jeudi de 10h00 à 11h30
-  - Vendredi de 08h15 à 09h45
+  - **Jeudi** &nbsp;&nbsp;&nbsp;de 10h15 à 11h45 en &nbsp;&nbsp;C25‑202
+  - **Vendredi** de 08h15 à 09h45 en SEV46‑235
 - &shy;<!-- .element: class="fragment" --> Évaluations
-  - 50% : Projet individuel à rendre en décembre
-  - 50% : Examen écrit en janvier
+  - 50% : **Projet** individuel à rendre en décembre
+  - 50% : **Examen** écrit en janvier
 
 ---
 
 ## Contenu
 
-- &shy;<!-- .element: class="fragment" --> Environnement de développement
-- &shy;<!-- .element: class="fragment" --> Programmation Web statique
-- &shy;<!-- .element: class="fragment" --> Programmation Web dynamique
-- &shy;<!-- .element: class="fragment" --> Générateur de site statique
-- &shy;<!-- .element: class="fragment" --> Bases de données
-- &shy;<!-- .element: class="fragment" --> Architecture trois tiers
+- &shy;<!-- .element: class="fragment" --> **Environnement** de développement
+- &shy;<!-- .element: class="fragment" --> Programmation Web **statique**
+- &shy;<!-- .element: class="fragment" --> Programmation Web **dynamique**
+- &shy;<!-- .element: class="fragment" --> **Générateur** de site statique
+- &shy;<!-- .element: class="fragment" --> Bases de **données**
+- &shy;<!-- .element: class="fragment" --> **Architecture** trois tiers
 
 ---
 
-## [hep.davidtang.ch](https://hep.davidtang.ch/) <!-- .element: target="_blank" -->
+## Ressources
+
+- [hep.davidtang.ch](https://hep.davidtang.ch/)
+  - &shy;<!-- .element: class="fragment" --> **Supports** de cours
+  - &shy;<!-- .element: class="fragment" --> **Exercices**
+- [Moodle](https://elearning.hepl.ch/course/view.php?id=1344)
+  - &shy;<!-- .element: class="fragment" --> BS21INF5 - Programmation Web et bases de données
+  - &shy;<!-- .element: class="fragment" --> **Forum** (questions, réponses, annonces)
+  - &shy;<!-- .element: class="fragment" --> **Rendus** de devoirs
