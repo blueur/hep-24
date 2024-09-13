@@ -49,7 +49,7 @@ export default class Reaveal extends React.Component<{
               mirrorActors: false,
               showSequenceNumbers: true,
             },
-            theme: "base",
+            theme: "neutral",
             themeVariables: {
               fontFamily: "unset",
             },

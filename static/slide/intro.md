@@ -21,8 +21,8 @@ timeline
 ## Organisation
 
 - &shy;<!-- .element: class="fragment" --> Cours & Séminaires
-  - **Jeudi** &nbsp;&nbsp;&nbsp;de 10h15 à 11h45 en &nbsp;&nbsp;C25‑202
-  - **Vendredi** de 08h15 à 09h45 en SEV46‑235
+  - **Jeudi** &nbsp;&nbsp;&nbsp;de 10h15 à 11h45
+  - **Vendredi** de 08h15 à 09h45
 - &shy;<!-- .element: class="fragment" --> Évaluations
   - 50% : **Projet** individuel à rendre en décembre
   - 50% : **Examen** écrit en janvier

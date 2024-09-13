@@ -136,10 +136,17 @@ div.reveal {
   }
 }
 
+details {
+  & > summary {
+    color: var(--ifm-color-primary);
+  }
+  border: 1px dashed var(--ifm-color-primary);
+  border-radius: var(--ifm-alert-border-radius);
+  padding: 0 var(--ifm-alert-border-radius);
+}
 thead th:empty {
   display: none;
 }
-
 tr.current {
   scroll-margin-top: 32em;
   &.week {
