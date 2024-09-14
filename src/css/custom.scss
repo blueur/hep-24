@@ -19,23 +19,36 @@
   --ifm-font-color-base: #{$oc-black};
   --ifm-color-primary: #{$oc-blue-7};
   --ifm-color-primary-dark: #{$oc-blue-9};
+  --ifm-color-secondary: #{$oc-gray-7};
+  --ifm-color-secondary-contrast-background: #{$oc-gray-0};
+  --ifm-color-secondary-dark: var(--ifm-color-secondary);
   --ifm-color-success: #{$oc-green-7};
-  --ifm-color-info: #{$oc-teal-7};
+  --ifm-color-success-contrast-background: #{$oc-green-0};
+  --ifm-color-success-dark: var(--ifm-color-success);
+  --ifm-color-info: #{$oc-blue-7};
+  --ifm-color-info-contrast-background: #{$oc-blue-0};
+  --ifm-color-info-dark: var(--ifm-color-info);
   --ifm-color-warning: #{$oc-yellow-7};
+  --ifm-color-warning-contrast-background: #{$oc-yellow-0};
+  --ifm-color-warning-dark: var(--ifm-color-warning);
   --ifm-color-danger: #{$oc-red-7};
+  --ifm-color-danger-contrast-background: #{$oc-red-0};
+  --ifm-color-danger-dark: var(--ifm-color-danger);
   --ifm-color-accent: #{$oc-orange-7};
   --ifm-color-emphasis: #{$oc-violet-7};
   --ifm-color-gray: #{$oc-gray-6};
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
+html[data-theme="dark"] {
   --docusaurus-highlighted-code-line-bg: #{$oc-gray-7};
   --ifm-font-color-base: #{$oc-gray-4};
   --ifm-color-primary: #{$oc-blue-6};
   --ifm-color-primary-dark: #{$oc-blue-8};
+  --ifm-color-secondary: #{$oc-gray-6};
+  --ifm-color-secondary-contrast-background: #{$oc-gray-9};
   --ifm-color-success: #{$oc-green-6};
-  --ifm-color-info: #{$oc-teal-6};
+  --ifm-color-info: #{$oc-blue-6};
   --ifm-color-warning: #{$oc-yellow-6};
   --ifm-color-danger: #{$oc-red-6};
   --ifm-color-accent: #{$oc-orange-6};
@@ -137,9 +150,6 @@ div.reveal {
 }
 
 details {
-  & > summary {
-    color: var(--ifm-color-primary);
-  }
   border: 1px dashed var(--ifm-color-primary);
   border-radius: var(--ifm-alert-border-radius);
   padding: 0 var(--ifm-alert-border-radius);
