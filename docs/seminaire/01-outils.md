@@ -31,6 +31,7 @@ Installer les outils suivants :
 - Navigateur web ([Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/chrome/) ou [Microsoft Edge](https://www.microsoft.com/fr-ch/edge))
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Avec l'extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+    - Extensions > Rechercher `Live Server` > Installer
 - [Git](https://git-scm.com/)
   - Vérifier avec `git --version` dans un terminal
 - [Node.js](https://nodejs.org/)
@@ -159,7 +160,7 @@ Le Markdown est un langage de balisage léger. Il est utilisé pour formater du 
   - [Dillinger](https://dillinger.io/)
   - Visual Studio Code : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> lors de l'édition d'un fichier Markdown
 - Ajouter le fichier au dépôt Git et le pousser sur le dépôt distant
-  - Il est possible d'utiliser Git avec une interface graphique avec [Visual Studio Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes)
+  - Il est possible d'utiliser Git avec une interface graphique avec [Visual Studio Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes) ou [GitHub Desktop](https://desktop.github.com/)
 
 ```markdown title="./report.md"
 # Séminaire 01 - Outils
@@ -173,6 +174,7 @@ Le Markdown est un langage de balisage léger. Il est utilisé pour formater du 
 | Installation | 1h          |                                |
 | GitHub       | 30m         | difficulté à trouver un pseudo |
 | ...          | ...         | ...                            |
+| Total        | 2h30        |                                |
 ```
 
 ## Raccourcis clavier

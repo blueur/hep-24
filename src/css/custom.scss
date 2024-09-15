@@ -56,6 +56,7 @@ html[data-theme="dark"] {
 }
 
 div.reveal {
+  --r-block-margin: 10px;
   --r-link-color: var(--ifm-link-color);
   --r-link-color-hover: var(--ifm-color-primary-dark);
 
@@ -80,6 +81,9 @@ div.reveal {
 
     &.full {
       height: 750px;
+    }
+    &.half {
+      height: 360px;
     }
   }
   p:has(> .reference) {
