@@ -65,7 +65,7 @@ flowchart TD
 ```
 
 - &shy;<!-- .element: class="fragment" --> **Chemin absolu** d'un fichier ou d'un répertoire
-  - &shy;<!-- .element: class="fragment" --> `/home/alice/documents/image.png`
+  - &shy;<!-- .element: class="fragment" --> `/home/alice/image.png`
   - &shy;<!-- .element: class="fragment" --> `/home/bob/`
   - &shy;<!-- .element: class="fragment" --> **Identification** unique
 
@@ -122,6 +122,14 @@ flowchart TD
 
 ## Terminal
 
+![](https://extraterm.org/selection_mode2.gif) <!-- .element: class="full" -->
+
+&shy;<!-- .element: class="reference" --> https://wiki-tech.io/Linux/D%C3%A9butant/Terminal
+
+---
+
+## Terminal
+
 - &shy;<!-- .element: class="fragment" --> **Programme** permettant d'exécuter des **commandes**
 - &shy;<!-- .element: class="fragment" --> Commandes possibles:
   - &shy;<!-- .element: class="fragment" --> **Naviguer** dans les répertoires : `cd`
@@ -136,7 +144,7 @@ flowchart TD
 
 ## IDE
 
-- &shy;<!-- .element: class="fragment" --> **I**ntegrated **D**evelopment **E**nvironment
+- &shy;<!-- .element: class="fragment" --> **I**ntegrated **D**evelopment **E**nvironment (Environnement de développement intégré)
 - &shy;<!-- .element: class="fragment" --> **Éditeur de texte** avec des fonctionnalités supplémentaires
 - &shy;<!-- .element: class="fragment" --> Facilite l'**édition** et le **débogage** du code
 - &shy;<!-- .element: class="fragment" --> Exemples populaires:
@@ -146,6 +154,8 @@ flowchart TD
     - **Payant** (sauf étudiant), mais meilleur **refactoring** et **autocomplétion**
   - &shy;<!-- .element: class="fragment" --> [Eclipse](https://www.eclipse.org/)
     - **Open source** et **gratuit**, mais **lourd**
+- &shy;<!-- .element: class="fragment" --> **Jupyter** ?
+  - &shy;<!-- .element: class="fragment" --> Pour des **rapports** interactifs **&ne;** développement de **logiciels**
 
 ---
 
@@ -197,6 +207,14 @@ gitGraph
 - &shy;<!-- .element: class="fragment" --> Les **branches** et **tags** sont des **pointeurs** vers un commit
   - Les **branches** sont des pointeurs **mobiles**
   - Les **tags** sont des pointeurs **fixes**
+
+---
+
+### Dépôts (repository) locaux et distants
+
+![](https://miro.medium.com/v2/1*PICyAiWjy3rc2bdb4UM3LA.png)
+
+&shy;<!-- .element: class="reference" --> https://medium.com/@allema_s/git-expliqu%C3%A9-a-mes-coll%C3%A8gues-de-boulot-823875d737fa
 
 ---
 
