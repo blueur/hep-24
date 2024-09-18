@@ -26,29 +26,11 @@ Pour les utilisateurs Windows, commencer par installer [Windows Terminal](https:
 
 :::
 
-Installer les outils suivants :
-
-- Navigateur web ([Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/chrome/) ou [Microsoft Edge](https://www.microsoft.com/fr-ch/edge))
-- [Visual Studio Code](https://code.visualstudio.com/)
-  - Avec l'extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-    - Extensions > Rechercher `Live Server` > Installer
-- [Git](https://git-scm.com/)
-  - Vérifier avec `git --version` dans un terminal
-- [Node.js](https://nodejs.org/)
-  - Au moins la dernière version LTS
-  - Vérifier avec `node --version` dans un terminal
-  - Possibilité d'utiliser [nvm](https://github.com/nvm-sh/nvm) pour gérer les versions de Node.js
-- [Python](https://www.python.org/)
-  - Vérifier avec `python --version` dans un terminal
-  - Possibilité d'utiliser [pyenv](https://github.com/pyenv/pyenv) pour gérer les versions de Python
-
-Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documents) pour y mettre tous les projets du cours.
-
 :::tip[Conseils]
 
-- Préférer les versions stables (LTS pour long term support) aux versions plus récentes
-  - Moins de bugs
-- Préférer les versions officielles aux versions tierces
+- Préférer les versions stables (LTS pour long term support) aux versions plus récentes (p. ex. [Node.js](https://nodejs.org/fr))
+  - Moins de bugs potentiels
+- Préférer les versions officielles aux versions tierces (p. ex. Python au lieu de Anaconda)
   - Plus sûr de ce qui est installé
 
 :::
@@ -61,6 +43,24 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documen
 - Pour désactiver l'[alias d'exécution de Python](https://www.thewindowsclub.com/manage-app-execution-aliases-on-windows-10)
 
 :::
+
+Installer les outils suivants :
+
+- Navigateur web ([Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/chrome/) ou [Microsoft Edge](https://www.microsoft.com/fr-ch/edge))
+- [Visual Studio Code](https://code.visualstudio.com/)
+  - Avec l'extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+    - Extensions > Rechercher `Live Server` > Installer
+- [Git](https://git-scm.com/)
+  - Vérifier avec `git --version` dans un terminal (v2.46)
+- [Node.js](https://nodejs.org/)
+  - Au moins la dernière version LTS
+  - Vérifier avec `node --version` dans un terminal (v20.17)
+  - Possibilité d'utiliser [nvm](https://github.com/nvm-sh/nvm) pour gérer les versions de Node.js
+- [Python](https://www.python.org/)
+  - Vérifier avec `python --version` dans un terminal (v3.12)
+  - Possibilité d'utiliser [pyenv](https://github.com/pyenv/pyenv) pour gérer les versions de Python
+
+Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documents) pour y mettre tous les projets du cours.
 
 ## GitHub
 
@@ -108,11 +108,11 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documen
   ```
 - La commande `echo` permet d'afficher du texte dans le terminal
   ```bash
-  echo "Hello, World!"
+  echo 'Hello, World!'
   ```
 - Elle permet aussi de créer un fichier avec du texte
   ```bash
-  echo "Hello, World!" > hello.txt
+  echo 'Hello, World!' > hello.txt
   ```
   - Vérifier le contenu du fichier avec votre navigateur de fichiers
 - Pour lire un fichier dans le terminal, on utilise la commande `cat` (pour concatenate)
@@ -124,6 +124,23 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documen
   cp hello.txt hello-2.txt
   ```
   - Vérifier le contenu du fichier copié
+- Copier une seconde fois le fichier
+  ```bash
+  cp hello.txt hello-3.txt
+  ```
+- Déplacer un fichier avec la commande `mv` (pour move)
+  ```bash
+  mv hello-3.txt hello-4.txt
+  ```
+  - Vérifier que le fichier a bien été renommé
+    ```bash
+    ls
+    ```
+- Supprimer un fichier avec la commande `rm` (pour remove)
+  ```bash
+  rm hello-4.txt
+  ```
+  - Vérifier que le fichier a bien été supprimé
 
 ## Git
 
@@ -131,9 +148,17 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documen
   ```bash
   cd ..
   ```
+- Vérifier l'état du dépôt Git
+  ```bash
+  git status
+  ```
 - Ajouter les fichiers créés dans le "staging area" (zone de préparation)
   ```bash
   git add --all
+  ```
+- Vérifier que les fichiers ont bien été ajoutés
+  ```bash
+  git status
   ```
 - Créer un "commit" avec un message
   ```bash
@@ -158,7 +183,7 @@ Le Markdown est un langage de balisage léger. Il est utilisé pour formater du 
   - [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
 - Plusieurs outils permettent de visualiser le rendu du Markdown :
   - [Dillinger](https://dillinger.io/)
-  - Visual Studio Code : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> lors de l'édition d'un fichier Markdown
+  - Visual Studio Code : <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> lors de l'édition d'un fichier Markdown
 - Ajouter le fichier au dépôt Git et le pousser sur le dépôt distant
   - Il est possible d'utiliser Git avec une interface graphique avec [Visual Studio Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes) ou [GitHub Desktop](https://desktop.github.com/)
 
