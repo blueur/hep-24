@@ -122,19 +122,27 @@ div.reveal {
     }
   }
 
-  .footer {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background-color: unset;
+  .footer,
+  .reference,
+  .toc {
     color: var(--ifm-color-gray);
     font-size: small;
+  }
+  .footer,
+  .toc {
+    position: absolute;
+    background-color: unset;
     padding: 0px;
+  }
+  .footer {
+    top: 0px;
+    right: 0px;
     text-align: right;
   }
-  .reference {
-    color: var(--ifm-color-gray);
-    font-size: small;
+  .toc {
+    top: 0px;
+    left: 0px;
+    text-align: left;
   }
   .slide-number {
     background-color: unset;

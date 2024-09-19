@@ -7,6 +7,7 @@ import Footer from "@site/src/components/plugins/footer";
 import Katex from "@site/src/components/plugins/katex";
 import Link from "@site/src/components/plugins/link";
 import Mermaid from "@site/src/components/plugins/mermaid";
+import Toc from "@site/src/components/plugins/toc";
 import React, { createRef } from "react";
 import Markdown from "reveal.js/plugin/markdown/markdown";
 
@@ -31,7 +32,15 @@ export default class Reaveal extends React.Component<{
         new reveal.default({
           width: 1440,
           height: 900,
-          plugins: [Markdown, highlight.default, Footer, Katex, Link, Mermaid],
+          plugins: [
+            Markdown,
+            highlight.default,
+            Footer,
+            Katex,
+            Link,
+            Mermaid,
+            Toc,
+          ],
           autoAnimateDuration: 0.25,
           autoAnimateUnmatched: false,
           controlsLayout: "edges",
