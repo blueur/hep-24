@@ -33,20 +33,23 @@ Pour les utilisateurs Windows, commencer par installer [Windows Terminal](https:
 - Préférer les versions officielles aux versions tierces (p. ex. Python au lieu de Anaconda)
   - Plus sûr de ce qui est installé
 
-:::
-
-:::tip[Conseils pour Windows]
-
-- Utiliser [Chocolatey](https://community.chocolatey.org/) pour installer les outils
-- Utiliser [cmder](https://cmder.app/) comme terminal (disponible via Chocolatey)
-  - Intégration avec [Windows Terminal](https://medium.com/talpor/windows-terminal-cmder-%EF%B8%8F-573e6890d143)
-- Pour désactiver l'[alias d'exécution de Python](https://www.thewindowsclub.com/manage-app-execution-aliases-on-windows-10)
+<Tabs groupId="os">
+  <TabItem value="mac" label="macOS">
+    - Utiliser [Homebrew](https://brew.sh/) pour installer les outils
+      - Ne pas oublier de lancer la commande indiquée à la fin de l'installation
+  </TabItem>
+  <TabItem value="win" label="Windows">
+    - Utiliser [Chocolatey](https://community.chocolatey.org/) pour installer les outils
+    - Utiliser [cmder](https://cmder.app/) comme terminal (disponible via [Chocolatey](https://community.chocolatey.org/packages/Cmder))
+      - Intégration avec [Windows Terminal](https://medium.com/talpor/windows-terminal-cmder-%EF%B8%8F-573e6890d143)
+  </TabItem>
+</Tabs>
 
 :::
 
 Installer les outils suivants :
 
-- Navigateur web ([Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/chrome/) ou [Microsoft Edge](https://www.microsoft.com/fr-ch/edge))
+- Navigateur web (un parmi [Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/chrome/) ou [Microsoft Edge](https://www.microsoft.com/fr-ch/edge))
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Avec l'extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
     - Extensions > Rechercher `Live Server` > Installer
@@ -58,18 +61,20 @@ Installer les outils suivants :
   - Possibilité d'utiliser [nvm](https://github.com/nvm-sh/nvm) pour gérer les versions de Node.js
 - [Python](https://www.python.org/)
   - Vérifier avec `python --version` dans un terminal (v3.12)
+    - Possiblement `python3 --version` sur macOS et `py --version` sur Windows
   - Possibilité d'utiliser [pyenv](https://github.com/pyenv/pyenv) pour gérer les versions de Python
 
-Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documents) pour y mettre tous les projets du cours.
+Créer un répertoire pour le cours (par exemple `hep/bs21inf5` (un dossier `bs21inf5` dans un dossier `hep`) dans vos documents) pour y mettre tous les projets du cours.
 
 ## GitHub
 
 - Créer un compte sur [GitHub](https://github.com/)
+  - Utiliser une adresse e-mail privée afin de réutiliser le compte après la formation
 - [Configurer Git](https://docs.github.com/fr/get-started/getting-started-with-git/set-up-git)
-  - `git config --global user.name "[VOTRE_NOM]"`
-    - Par exemple : `git config --global user.name "John Doe"`
-  - `git config --global user.email "[VOTRE_EMAIL]"`
-    - Par exemple : `git config --global user.email "john.doe@etu.hepl.ch"`
+  - `git config --global user.name "Prénom Nom"`
+    - Par exemple : `git config --global user.name "jane Doe"`
+  - `git config --global user.email "email@example.com"`
+    - Par exemple : `git config --global user.email "jane.doe@etu.hepl.ch"`
   - [Fins de ligne pour Windows](https://docs.github.com/fr/get-started/getting-started-with-git/configuring-git-to-handle-line-endings?platform=windows) : `git config --global core.autocrlf true`
 - Accepter le devoir sur [GitHub Classroom](https://classroom.github.com/a/ktZFZ07-)
 
@@ -96,7 +101,7 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documen
   ```
 - Se déplacer dans le répertoire du devoir
   ```bash
-  cd sem01-outils-[VOTRE_PSEUDO_GITHUB]
+  cd sem01-outils-{pseudo}
   ```
 - Créer un répertoire `terminal` (`mkdir` pour make directory)
   ```bash
@@ -178,7 +183,7 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` dans vos documen
 
 Le Markdown est un langage de balisage léger. Il est utilisé pour formater du texte de manière simple et lisible. Les rapports à rendre pour le cours seront rédigés en Markdown.
 
-- Créer un fichier `report.md` dans le répertoire du devoir avec le contenu ci-dessous
+- Créer un fichier `report.md` dans le répertoire du devoir avec un contenu similaire à ci-dessous
   - Modifier et compléter le contenu du tableau avec les tâches effectuées, le temps passé et éventuellement des commentaires
   - [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
 - Plusieurs outils permettent de visualiser le rendu du Markdown :
@@ -209,8 +214,8 @@ Les raccourcis clavier sont des combinaisons de touches qui permettent d'effectu
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-  <TabItem value="macOS">
+<Tabs groupId="os">
+  <TabItem value="mac" label="macOS">
     - <kbd>Cmd</kbd> + <kbd>C</kbd> : Copier
     - <kbd>Cmd</kbd> + <kbd>V</kbd> : Coller
     - <kbd>Cmd</kbd> + <kbd>X</kbd> : Couper
@@ -219,7 +224,7 @@ import TabItem from '@theme/TabItem';
     - <kbd>Cmd</kbd> + <kbd>A</kbd> : Tout sélectionner
     - <kbd>Cmd</kbd> + <kbd>F</kbd> : Rechercher
   </TabItem>
-  <TabItem value="Linux/Windows">
+  <TabItem value="win" label="Linux/Windows">
     - <kbd>Ctrl</kbd> + <kbd>C</kbd> : Copier
     - <kbd>Ctrl</kbd> + <kbd>V</kbd> : Coller
     - <kbd>Ctrl</kbd> + <kbd>X</kbd> : Couper
@@ -230,11 +235,18 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
+## Organisation
+
+- Prendre du temps pour organiser son espace de travail afin d'être plus efficace.
+  - Avoir un dossier par cours
+  - Nettoyer les fichiers inutiles
+
 ## Pour aller plus loin
 
 - [Apprendre Git sous forme de jeu](https://learngitbranching.js.org/)
 - [Exercices sur Markdown](https://www.markdowntutorial.com/fr/)
 - [Exercices sur le terminal](https://cmdchallenge.com/)
+- [Cours express sur la ligne de commande](https://developer.mozilla.org/fr/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
 
 ## Références
 
