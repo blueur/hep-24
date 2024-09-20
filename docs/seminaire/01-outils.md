@@ -88,7 +88,7 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` (un dossier `bs2
   - `ls` pour lister les fichiers et répertoires
   - `pwd` pour afficher le chemin absolu du répertoire courant
 - Naviguer dans les répertoires jusqu'à celui du cours
-  - `cd [NOM_DU_REPERTOIRE]` pour changer de répertoire (`cd` pour change directory)
+  - `cd {chemin_relatif_ou_absolu}` pour changer de répertoire (`cd` pour change directory)
   - `cd ..` pour remonter d'un niveau
   - La touche <kbd>Tab</kbd> permet de compléter automatiquement le nom des fichiers et répertoires
   - Les touches fléchées <kbd>&larr;</kbd> et <kbd>&rarr;</kbd> permettent de se déplacer dans la ligne de commande
@@ -97,9 +97,10 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` (un dossier `bs2
 - Une fois dans le répertoire du cours, vérifier avec `pwd`.
 - [Cloner le dépôt](https://docs.github.com/fr/repositories/creating-and-managing-repositories/cloning-a-repository) du devoir sur GitHub Classroom sur votre machine
   ```bash
-  git clone [URL_DU_DEPOT]
+  git clone {url_du_depot}
   ```
-- Se déplacer dans le répertoire du devoir
+  - Installer et utiliser [GitHug CLI](https://cli.github.com/) pour vous authentifier en cas de problème : `gh auth login`
+- Se déplacer dans le répertoire du dépôt Git
   ```bash
   cd sem01-outils-{pseudo}
   ```
@@ -120,6 +121,10 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` (un dossier `bs2
   echo 'Hello, World!' > hello.txt
   ```
   - Vérifier le contenu du fichier avec votre navigateur de fichiers
+  - Une alternative est d'utiliser la commande `touch` pour créer un fichier vide
+    ```bash
+    touch empty.txt
+    ```
 - Pour lire un fichier dans le terminal, on utilise la commande `cat` (pour concatenate)
   ```bash
   cat hello.txt
@@ -149,7 +154,7 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` (un dossier `bs2
 
 ## Git
 
-- Revenir dans le répertoire du devoir
+- Revenir dans le répertoire du dépôt Git
   ```bash
   cd ..
   ```
@@ -183,9 +188,13 @@ Créer un répertoire pour le cours (par exemple `hep/bs21inf5` (un dossier `bs2
 
 Le Markdown est un langage de balisage léger. Il est utilisé pour formater du texte de manière simple et lisible. Les rapports à rendre pour le cours seront rédigés en Markdown.
 
-- Créer un fichier `report.md` dans le répertoire du devoir avec un contenu similaire à ci-dessous
+- Créer un fichier `report.md` dans le dépôt Git avec un contenu similaire à ci-dessous
   - Modifier et compléter le contenu du tableau avec les tâches effectuées, le temps passé et éventuellement des commentaires
   - [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
+  - Possibilité d'utiliser [vim](https://www.vim.org/) pour éditer le fichier ([pour apprendre](https://doc.ubuntu-fr.org/vim))
+    - `vim report.md`
+    - Pour éditer, taper <kbd>i</kbd>
+    - Pour quitter, taper <kbd>Esc</kbd> puis `:wq` puis <kbd>Enter</kbd>
 - Plusieurs outils permettent de visualiser le rendu du Markdown :
   - [Dillinger](https://dillinger.io/)
   - Visual Studio Code : <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> lors de l'édition d'un fichier Markdown
@@ -247,6 +256,7 @@ import TabItem from '@theme/TabItem';
 - [Exercices sur Markdown](https://www.markdowntutorial.com/fr/)
 - [Exercices sur le terminal](https://cmdchallenge.com/)
 - [Cours express sur la ligne de commande](https://developer.mozilla.org/fr/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
+- [Connexion à GitHub à l’aide de SSH](https://docs.github.com/fr/authentication/connecting-to-github-with-ssh)
 
 ## Références
 

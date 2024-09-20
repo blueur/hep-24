@@ -1,4 +1,4 @@
-| Date (lundi) | Cours (jeudi 10:15-11:45)                                      | Séminaire (vendredi 08:15-09:45)       |
+| Date (lundi) | Cours (jeudi 09:45-11:15)                                      | Séminaire (jeudi 11:20-12:50)          |
 | :----------: | -------------------------------------------------------------- | -------------------------------------- |
 |  2024-09-16  | [Introduction](/docs/intro) + [Environnement](/docs/cours/env) | [Outils](/docs/seminaire/outils)       |
 |  2024-09-23  | [HTML & CSS](/docs/cours/html-css)                             | [HTML & CSS](/docs/seminaire/html-css) |
