@@ -252,6 +252,7 @@ import TabItem from '@theme/TabItem';
 
 ## Pour aller plus loin
 
+- [Ignorer des fichiers avec Git](https://docs.github.com/fr/get-started/getting-started-with-git/ignoring-files)
 - [Apprendre Git sous forme de jeu](https://learngitbranching.js.org/)
 - [Exercices sur Markdown](https://www.markdowntutorial.com/fr/)
 - [Exercices sur le terminal](https://cmdchallenge.com/)

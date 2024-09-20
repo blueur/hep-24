@@ -2,7 +2,7 @@
 
 :::note[Objectifs]
 
-Qu'est-ce qu'un environnement de développement ?
+Comment développer un projet ?
 
 - Expliquer les concepts de répertoire, chemin absolu et chemin relatif
 - Différencier GUI et CLI

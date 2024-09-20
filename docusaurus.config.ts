@@ -84,7 +84,7 @@ const config: Config = {
       },
     },
     mermaid: {
-      theme: { light: "base", dark: "dark" },
+      theme: { light: "neutral", dark: "dark" },
     },
     prism: {
       theme: prismThemes.oneLight,

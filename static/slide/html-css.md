@@ -42,7 +42,7 @@ Programmation Web et bases de données
 
 ---
 
-## Balises HTML
+### Balises HTML
 
 ![](https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics/grumpy-cat-small.png)
 
@@ -50,20 +50,20 @@ https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_ba
 
 ---
 
-## Élément vide
+#### Élément vide
 
 ```html
 <img src="images/test.png" alt="Mon image">
 </img>
 
-<!-- équivalent à -->
+<!-- est équivalent à -->
 
 <img src="images/test.png" alt="Mon image" />
 ```
 
 ---
 
-## Commentaires
+#### Commentaires
 
 ```html
 <!-- Voici la balise pour les commentaires -->
@@ -76,15 +76,21 @@ https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_ba
 
 ---
 
-## Attributs HTML
+### Attributs HTML
 
 ![](https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics/grumpy-cat-attribute-small.png)
 
 https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics <!-- .element: class="reference" -->
 
+- &shy;<!-- .element: class="fragment" --> **Paramètres** des balises
+- &shy;<!-- .element: class="fragment" --> **Nom** et **valeur**
+  - &shy;<!-- .element: class="fragment" --> `nom="valeur"`
+  - &shy;<!-- .element: class="fragment" --> `nom` (valeurs **booléennes**)
+- &shy;<!-- .element: class="fragment" --> Selon la **balise**
+
 ---
 
-## Structure de base
+### Structure de base
 
 ![](https://user.oc-static.com/upload/2022/11/25/16693917384741_FR_1603881_HTML-CSS_Static-Graphics_p1c3-3.jpg)
 
@@ -92,7 +98,7 @@ https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et
 
 ---
 
-## Structure de base
+### Structure de base
 
 ```html []
 <!doctype html>
@@ -111,7 +117,7 @@ https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et
 
 ---
 
-## Structure de base
+### Structure de base
 
 - `<!doctype html>` : Déclaration du type de document (HTML5)
 - `<html>` : Élément racine
@@ -144,7 +150,7 @@ h1 {
 
 ---
 
-## Règle CSS
+### Règle CSS
 
 ![](https://web.dev/static/learn/css/selectors/image/an-image-a-css-rule-the-ced38545b4bec.svg?hl=fr)
 
@@ -158,7 +164,7 @@ https://web.dev/learn/css/selectors?hl=fr <!-- .element: class="reference" -->
 
 ---
 
-## Application
+### Application
 
 - Trois manières d'appliquer du CSS
   - &shy;<!-- .element: class="fragment" --> **Inline** : attribut `style`
@@ -170,7 +176,7 @@ https://web.dev/learn/css/selectors?hl=fr <!-- .element: class="reference" -->
 
 ---
 
-### Inline
+#### Inline
 
 ```html [5]
 <!doctype html>
@@ -187,7 +193,7 @@ https://web.dev/learn/css/selectors?hl=fr <!-- .element: class="reference" -->
 
 ---
 
-### Interne
+#### Interne
 
 ```html [4-8]
 <!doctype html>
@@ -210,7 +216,7 @@ https://web.dev/learn/css/selectors?hl=fr <!-- .element: class="reference" -->
 
 ---
 
-### Externe
+#### Externe
 
 ```html [4]
 <!doctype html>
@@ -229,7 +235,7 @@ https://web.dev/learn/css/selectors?hl=fr <!-- .element: class="reference" -->
 
 ---
 
-## Chargement par le navigateur
+### Chargement par le navigateur
 
 ![](https://developer.mozilla.org/fr/docs/Learn/CSS/First_steps/How_CSS_works/rendering.svg)
 
