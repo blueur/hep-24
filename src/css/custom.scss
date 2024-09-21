@@ -98,6 +98,11 @@ div.reveal {
 
       table {
         table-layout: auto;
+        border-bottom: unset;
+
+        tr:nth-child(2n) {
+          background-color: unset;
+        }
       }
     }
 
@@ -144,6 +149,9 @@ div.reveal {
     left: 0px;
     text-align: left;
   }
+  .fragment.highlight-red.visible {
+    color: var(--ifm-color-accent);
+  }
   .slide-number {
     background-color: unset;
     color: var(--ifm-color-gray);
@@ -153,7 +161,6 @@ div.reveal {
   .mermaid {
     max-height: var(--slide-height);
     max-width: var(--slide-width);
-
     svg {
       max-height: 800px;
       max-width: unset !important;

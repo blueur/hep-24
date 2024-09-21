@@ -1,6 +1,6 @@
-import "highlight.js/styles/base16/tomorrow-night.min.css";
 import "reveal.js/dist/reveal.css";
 
+import "@site/src/css/highlight.scss";
 import "@site/src/css/reveal.scss";
 
 import Footer from "@site/src/components/plugins/footer";
@@ -16,7 +16,7 @@ export default class Reaveal extends React.Component<{
   full?: boolean;
   page?: boolean;
 }> {
-  constructor(props) {
+  constructor(props: { name: string; full?: boolean; page?: boolean }) {
     super(props);
     this.resize = this.resize.bind(this);
   }

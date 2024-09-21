@@ -18,20 +18,19 @@
     "@docusaurus/core": "^3.4.0",
     "@docusaurus/preset-classic": "^3.5.2",
     "@docusaurus/theme-mermaid": "^3.5.2",
-    "@fontsource-variable/inconsolata": "^5.0.20",
+    "@fontsource-variable/inconsolata": "^5.1.0",
     "@mdx-js/react": "^3.0.1",
     "@phosphor-icons/web": "^2.1.1",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.5",
-    "highlight.js": "^11.10.0",
     "katex": "^0.16.11",
-    "mermaid": "^11.2.0",
+    "mermaid": "^11.2.1",
     "open-color": "^1.9.1",
     "prism-react-renderer": "^2.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "reveal.js": "^5.1.0",
-    "sass": "^1.78.0"
+    "sass": "^1.79.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.4.0",
@@ -39,8 +38,8 @@
     "@docusaurus/types": "^3.4.0",
     "@types/katex": "^0.16.7",
     "@types/reveal.js": "^5.0.3",
-    "prettier-plugin-organize-imports": "^4.0.0",
-    "typescript": "^5.5.4"
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "typescript": "^5.6.2"
   },
   "browserslist": {
     "production": [
