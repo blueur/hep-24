@@ -15,7 +15,32 @@ const config: Config = {
     locales: ["fr"],
   },
 
-  plugins: ["docusaurus-plugin-sass"],
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-pwa",
+      {
+        offlineModeActivationStrategies: ["always"],
+        pwaHead: [
+          {
+            tagName: "link",
+            rel: "icon",
+            href: "/img/logo.svg",
+          },
+          {
+            tagName: "link",
+            rel: "manifest",
+            href: "/manifest.json",
+          },
+          {
+            tagName: "meta",
+            name: "theme-color",
+            content: "rgb(28, 126, 214)",
+          },
+        ],
+      },
+    ],
+  ],
   markdown: {
     mermaid: true,
   },
