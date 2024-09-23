@@ -29,8 +29,11 @@ Créer un site avec HTML et CSS.
 
 ## GitHub Classroom
 
-- Clonez le dépôt GitHub Classroom de cette semaine à côté de celui de la semaine précédente.
+- Cloner le dépôt GitHub Classroom de cette semaine à côté de celui de la semaine précédente.
   - `git clone` depuis le répertoire du cours.
+- Ouvrir le **dossier** du dépôt dans **Visual Studio Code**.
+  - Avec le terminal : `code sem02-html-css-{pseudo}`
+  - Avec Visual Studio Code : `Fichier` > `Ouvrir dossier` > sélectionner le dossier du dépôt
 
 ## HTML
 
@@ -56,9 +59,9 @@ Créer un site avec HTML et CSS.
   └── web-html/
      └── index.html
   ```
-- Ouvrir le fichier `index.html` avec **Live Server**
+- Ouvrir le fichier `index.html` avec [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
   - Clic droit sur le fichier `index.html` > Ouvrir avec Live Server
-  - Ou cliquer sur `Go Live` en bas à droite dans Visual Studio Code
+  - Ou cliquer sur `Go Live` en bas à droite dans Visual Studio Code qui va ouvrir le fichier courant
 - Modifier la page Web et observer les changements
   - Modifier le titre de l'onglet (`title`)
   - Modifier le titre de la page (`h1`)
@@ -72,9 +75,12 @@ Créer un site avec HTML et CSS.
   - Ajouter des paragraphes
   - Créer une liste ordonnée et non ordonnée
 - [Ajouter des liens](https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics#liens)
+- Commenter le code HTML
+  - Ajouter quelques commentaires pour expliquer ce qui a été fait
 - Formatter le fichier avec [Visual Studio Code](https://code.visualstudio.com/docs/editor/codebasics#_formatting)
   - Windows : <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>
   - macOS : <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>
+- Vérifier que le code HTML est valide avec le [validateur W3C](https://validator.w3.org/)
 - Créer un commit avec le message `ajouter web-html`
 
 ## CSS
@@ -85,7 +91,7 @@ Créer un site avec HTML et CSS.
   ├── web-css/
   └── web-html/
   ```
-- [Démarrer avec CSS](https://developer.mozilla.org/fr/docs/Learn/CSS/First_steps/Getting_started)
+- Suivre les instructions dans [Démarrer avec CSS](https://developer.mozilla.org/fr/docs/Learn/CSS/First_steps/Getting_started)
 - Créer un commit avec le message `ajouter web-css`
 - Créer un dossier `test-css` dans le répertoire du dépôt Git.
   ```txt {2}
@@ -94,9 +100,8 @@ Créer un site avec HTML et CSS.
   ├── web-css/
   └── web-html/
   ```
-- [Mettre en oeuvre vos connaissances](https://developer.mozilla.org/fr/docs/Learn/CSS/First_steps/Styling_a_biography_page)
+- Suivre les instructions dans [Mettre en oeuvre vos connaissances](https://developer.mozilla.org/fr/docs/Learn/CSS/First_steps/Styling_a_biography_page)
 - Créer un commit avec le message `ajouter test-css`.
-- Ne pas oublier de pousser les commits sur le dépôt Git distant.
 
 ## Aventure
 
@@ -235,3 +240,4 @@ flowchart TD
   - Enlever le soulignement des liens
   - Changer le symbole de la liste à puce en carré
   - Changer la police de caractères de toute la page ([indice](https://www.w3schools.com/cssref/css_websafe_fonts.php))
+- Ne pas oublier de pousser tous les commits sur le dépôt Git distant.
