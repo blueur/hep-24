@@ -7,11 +7,11 @@ Programmation Web et bases de données
 ## Les langages Web
 
 - &shy;<!-- .element: class="fragment" --> **HTML** (**H**yper**t**ext **M**arkup **L**anguage)
-  - &shy;<!-- .element: class="fragment" --> **Structure** de la page
+  - **Structure** de la page
 - &shy;<!-- .element: class="fragment" --> **CSS** (**C**ascading **S**tyle **S**heets)
-  - &shy;<!-- .element: class="fragment" --> **Mise en forme** de la page
+  - **Mise en forme** de la page
 - &shy;<!-- .element: class="fragment" --> **JS** (**J**ava**S**cript)
-  - &shy;<!-- .element: class="fragment" --> **Interactivité** de la page
+  - **Interactivité** de la page
 
 ![](https://scrimba.com/articles/content/images/2022/11/image-1.png) <!-- .element: class="fragment half" -->
 
@@ -36,8 +36,8 @@ Programmation Web et bases de données
 </html>
 ```
 
-- &shy;<!-- .element: class="fragment" --> Langage de balisage
-- &shy;<!-- .element: class="fragment" --> Fichier `.html`
+- Fichier `.html`
+- &shy;<!-- .element: class="fragment" --> Langage de **balisage**
 - &shy;<!-- .element: class="fragment" --> `index.html` : Page d'accueil
 
 ---
@@ -47,6 +47,18 @@ Programmation Web et bases de données
 ![](https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics/grumpy-cat-small.png)
 
 https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_basics <!-- .element: class="reference" -->
+
+---
+
+#### Quelques balises HTML
+
+- `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>` : Titres
+- &shy;<!-- .element: class="fragment" --> `<p>` : Paragraphe
+- &shy;<!-- .element: class="fragment" --> `<a>` : Lien
+- &shy;<!-- .element: class="fragment" --> `<img>` : Image
+- &shy;<!-- .element: class="fragment" --> `<ul>`, `<ol>`, `<li>` : Listes (non ordonnée, ordonnée, élément)
+- &shy;<!-- .element: class="fragment" --> `<div>`, `<span>` : Conteneurs génériques (bloc, en ligne)
+- &shy;<!-- .element: class="fragment" --> `<br>`, `<hr>` : Saut de ligne, séparation
 
 ---
 
@@ -71,8 +83,8 @@ https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_ba
 
 - &shy;<!-- .element: class="fragment" --> Ne s'**affiche pas**
 - &shy;<!-- .element: class="fragment" --> Permets d'ajouter des **notes** explicatives dans le code
-  - &shy;<!-- .element: class="fragment" --> Pour les **autres** développeurs
-  - &shy;<!-- .element: class="fragment" --> Pour son futur **soi**
+  - Pour les **autres** développeurs
+  - Pour son futur **soi**
 
 ---
 
@@ -84,9 +96,8 @@ https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/HTML_ba
 
 - &shy;<!-- .element: class="fragment" --> **Paramètres** des balises
 - &shy;<!-- .element: class="fragment" --> **Nom** et **valeur**
-  - &shy;<!-- .element: class="fragment" --> `nom="valeur"`
-  - &shy;<!-- .element: class="fragment" --> `nom` (valeurs **booléennes**)
-- &shy;<!-- .element: class="fragment" --> Selon la **balise**
+  - `nom="valeur"`
+  - `nom` (valeurs **booléennes**)
 
 ---
 
@@ -134,8 +145,6 @@ https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et
 
 ## CSS
 
-- &shy;<!-- .element: class="fragment" --> Fichier `.css`
-
 ```css []
 p {
   color: red;
@@ -146,7 +155,7 @@ h1 {
 }
 ```
 
-<!-- .element: class="fragment" -->
+- Fichier `.css`
 
 ---
 
@@ -167,12 +176,9 @@ https://web.dev/learn/css/selectors?hl=fr <!-- .element: class="reference" -->
 ### Application
 
 - Trois manières d'appliquer du CSS
-  - &shy;<!-- .element: class="fragment" --> **Inline** : attribut `style`
-  - &shy;<!-- .element: class="fragment" --> **Interne** : balise `<style>`
-  - &shy;<!-- .element: class="fragment" --> **Externe** : fichier `.css`
-- &shy;<!-- .element: class="fragment" --> **Priorité** : Inline > Interne > Externe
-- &shy;<!-- .element: class="fragment" --> **Cascade** : règles plus spécifiques > règles plus générales
-- &shy;<!-- .element: class="fragment" --> **Héritage** : les enfants héritent des propriétés des parents
+  - **Inline** : attribut `style`
+  - **Interne** : balise `<style>`
+  - **Externe** : fichier `.css`
 
 ---
 
@@ -232,6 +238,18 @@ https://web.dev/learn/css/selectors?hl=fr <!-- .element: class="reference" -->
 
 - &shy;<!-- .element: class="fragment" --> Application **globale** pour un **site**
 - &shy;<!-- .element: class="fragment" --> **Séparé** du contenu et **réutilisable** &rarr; **recommandé**
+
+---
+
+### Application
+
+- Trois manières d'appliquer du CSS
+  - **Inline** : attribut `style`
+  - **Interne** : balise `<style>`
+  - **Externe** : fichier `.css`
+- &shy;<!-- .element: class="fragment" --> **Priorité** : Inline > Interne > Externe
+- &shy;<!-- .element: class="fragment" --> **Cascade** : règles plus spécifiques > règles plus générales
+- &shy;<!-- .element: class="fragment" --> **Héritage** : les enfants héritent des propriétés des parents
 
 ---
 
