@@ -33,9 +33,11 @@ Programmation Web et bases de données
 - &shy;<!-- .element: class="fragment" --> **IPv4**
   - &shy;<!-- .element: class="fragment" --> Le plus **utilisé**
   - &shy;<!-- .element: class="fragment" --> 32 bits &rarr; 2<sup>32</sup> = 4 294 967 296 adresses possibles
+  - &shy;<!-- .element: class="fragment" --> Exemple : 172.16.254.1
 - &shy;<!-- .element: class="fragment" --> **IPv6**
   - &shy;<!-- .element: class="fragment" --> Le plus **récent** (1998) car manque d'adresses
   - &shy;<!-- .element: class="fragment" --> 128 bits &rarr; 2<sup>128</sup> = 3.4 &times; 10<sup>38</sup> adresses possibles
+  - &shy;<!-- .element: class="fragment" --> Exemple : 2001:0db8:ac10:fe01:0000:0000:0000:0000
 
 ---
 
@@ -107,7 +109,7 @@ Programmation Web et bases de données
 
 ---
 
-## Structure d'un nom de domaine
+### Structure d'un nom de domaine
 
 ```katex
 \underbrace{\text{www}}_{\text{troisième niveau}}.\underbrace{\text{exemple}}_{\text{deuxième niveau}}.\underbrace{\text{com}}_{\text{premier niveau}}
@@ -124,7 +126,7 @@ Programmation Web et bases de données
 
 ---
 
-## DNS (Système de nom de domaine)
+### DNS (Système de nom de domaine)
 
 - &shy;<!-- .element: class="fragment" --> **D**omain **N**ame **S**ystem
 - &shy;<!-- .element: class="fragment" --> **Traduction** des noms de domaine en adresses IP
@@ -135,7 +137,7 @@ Programmation Web et bases de données
 
 ---
 
-## Page web
+### Page web
 
 ```mermaid
 sequenceDiagram
@@ -150,7 +152,7 @@ sequenceDiagram
 
 ---
 
-## Adresse email
+### Adresse email
 
 ```katex
 \underbrace{\text{prenom.nom}}_{\text{partie locale}}\text{@}\underbrace{\text{eduvaud.ch}}_{\text{nom de domaine}}

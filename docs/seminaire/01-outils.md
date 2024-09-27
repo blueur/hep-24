@@ -63,19 +63,23 @@ Installer les outils suivants :
   - Vérifier avec `python --version` dans un terminal (v3.12)
     - Possiblement `python3 --version` sur macOS et `py --version` sur Windows
   - Possibilité d'utiliser [pyenv](https://github.com/pyenv/pyenv) pour gérer les versions de Python
+- [GitHub Desktop](https://desktop.github.com/)
+  - Pour une interface graphique à Git
 
-Créer un répertoire pour le cours (par exemple `hep/bs21inf5` (un dossier `bs21inf5` dans un dossier `hep`) dans vos documents) pour y mettre tous les projets du cours.
+Créer un répertoire pour le cours (par exemple un dossier `bs21inf5` dans le dossier `hep` dans vos documents) pour y mettre tous les projets du cours.
 
 ## GitHub
 
 - Créer un compte sur [GitHub](https://github.com/)
   - Utiliser une adresse e-mail privée afin de réutiliser le compte après la formation
 - [Configurer Git](https://docs.github.com/fr/get-started/getting-started-with-git/set-up-git)
-  - `git config --global user.name "Prénom Nom"`
-    - Par exemple : `git config --global user.name "jane Doe"`
-  - `git config --global user.email "email@example.com"`
-    - Par exemple : `git config --global user.email "jane.doe@etu.hepl.ch"`
-  - [Fins de ligne pour Windows](https://docs.github.com/fr/get-started/getting-started-with-git/configuring-git-to-handle-line-endings?platform=windows) : `git config --global core.autocrlf true`
+  - Avec [GitHub Desktop](https://docs.github.com/fr/desktop/installing-and-authenticating-to-github-desktop/setting-up-github-desktop)
+  - Avec le terminal
+    - `git config --global user.name "Prénom Nom"`
+      - Par exemple : `git config --global user.name "jane Doe"`
+    - `git config --global user.email "email@example.com"`
+      - Par exemple : `git config --global user.email "jane.doe@etu.hepl.ch"`
+    - [Fins de ligne pour Windows](https://docs.github.com/fr/get-started/getting-started-with-git/configuring-git-to-handle-line-endings?platform=windows) : `git config --global core.autocrlf true`
 - Accepter le devoir sur [GitHub Classroom](https://classroom.github.com/a/ktZFZ07-)
 
 ## Terminal
