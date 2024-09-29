@@ -10,7 +10,7 @@ Créer un jeu en HTML/CSS.
 
 ## Rendu
 
-- GitHub Classroom : https://classroom.github.com/a/uF8krD1a
+- GitHub Classroom : https://classroom.github.com/a/qLd4L0WG
   - `./report.md` : Rapport individuel en Markdown.
 - Délai : 1 semaine
 
@@ -160,6 +160,9 @@ flowchart TD
   - Changer le symbole de la liste à puce en carré
   - Changer la police de caractères de toute la page ([indice](https://www.w3schools.com/cssref/css_websafe_fonts.php))
 - Créer un commit avec le message `ajouter exemple`
+- Lancer les tests pour vérifier que tout fonctionne correctement.
+  - Installer [Pytest](https://docs.pytest.org/en/stable/) : `pip install -U pytest`
+  - Lancer les tests : `pytest --tb=no -vv`
 - Pousser les commits sur le dépôt Git distant.
 
 ## Votre aventure
@@ -170,3 +173,8 @@ flowchart TD
   - Modifier et créer les fichiers HTML et CSS nécessaires pour votre aventure.
 - Dans le rapport, expliquer les difficultés rencontrées et comment vous les avez résolues.
 - Ne pas oublier de créer des commits et de les pousser sur le dépôt Git distant.
+- Pour publier votre aventure, vous pouvez utiliser [GitHub Pages](https://pages.github.com/).
+  - Sur GitHub, dans le dépôt, aller dans `Settings` > `Pages` > Sous `Branch`, sélectionner `main` et `/ (root)`, puis cliquer sur `Save`.
+  - Le site est maintenant accessible à l'adresse `https://hepl-bs21inf5.github.io/sem03-aventure-{pseudo}/`.
+    - Revenir dans `Code` > Cliquer sur <i class="ph ph-gear"></i> à côté de `About` > Sous `Website`, cocher `Use your GitHub Pages website` pour voir votre lien.
+  - Ajouter le lien dans le rapport.
