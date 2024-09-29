@@ -71,7 +71,7 @@ flowchart TD
     </body>
   </html>
   ```
-- Créer un fichier `cave.html` dans le dossier `web-aventure` :
+- Créer un fichier `cave.html` à côté de `index.html` avec le contenu suivant :
   ```html title="cave.html" showLineNumbers
   <!doctype html>
   <html lang="fr">
@@ -137,7 +137,7 @@ flowchart TD
 
 ### CSS
 
-- Créer un fichier `styles.css` dans le dossier `web-aventure` :
+- Créer un fichier `styles.css` à côté de `index.html` avec le contenu suivant :
   ```css title="styles.css"
   body {
     background-color: #fdf6e3;
