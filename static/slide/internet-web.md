@@ -85,21 +85,10 @@ Programmation Web et bases de données
 
 ---
 
-### Types d'adresses IP
-
-- &shy;<!-- .element: class="fragment" --> **Statique**
-  - &shy;<!-- .element: class="fragment" --> **Fixe** (toujours la même)
-  - &shy;<!-- .element: class="fragment" --> Serveurs (web, mail, etc.), imprimantes, etc.
-- &shy;<!-- .element: class="fragment" --> **Dynamique**
-  - &shy;<!-- .element: class="fragment" --> **Change** à chaque connexion
-  - &shy;<!-- .element: class="fragment" --> Ordinateurs, smartphones, etc.
-
----
-
 ## Nom de domaine
 
 - &shy;<!-- .element: class="fragment" --> Plus **lisible** et **facile à retenir** qu'une adresse IP
-  - eduvaud.ch &rarr; 185.230.63.171
+  - admin.ch &rarr; 162.23.130.190
   - office.com &rarr; 13.107.6.156
   - localhost &rarr; 127.0.0.1
 - &shy;<!-- .element: class="fragment" --> **Louable** auprès d'un **registraire**
@@ -118,7 +107,7 @@ Programmation Web et bases de données
 - &shy;<!-- .element: class="fragment" --> Domaine de **premier** niveau (extension)
   - &shy;<!-- .element: class="fragment" --> .ch, .fr, .com, .org, .edu, ...
 - &shy;<!-- .element: class="fragment" --> Domaine de **deuxième** niveau (nom de domaine)
-  - &shy;<!-- .element: class="fragment" --> office, eduvaud, google, ...
+  - &shy;<!-- .element: class="fragment" --> office, admin, google, ...
 - &shy;<!-- .element: class="fragment" --> Domaine de **troisième** niveau (sous-domaine)
   - &shy;<!-- .element: class="fragment" --> www, mail, blog, ... (optionnel)
 - &shy;<!-- .element: class="fragment" --> Quatrième niveau, etc. (sous-sous-domaine, ...)
@@ -130,10 +119,10 @@ Programmation Web et bases de données
 
 - &shy;<!-- .element: class="fragment" --> **D**omain **N**ame **S**ystem
 - &shy;<!-- .element: class="fragment" --> **Traduction** des noms de domaine en adresses IP
-- &shy;<!-- .element: class="fragment" --> Aller sur https://eduvaud.ch/
-  - &shy;<!-- .element: class="fragment" --> L'ordinateur demande à un serveur DNS l'adresse IP de eduvaud.ch
-  - &shy;<!-- .element: class="fragment" --> Le serveur DNS répond 185.230.63.171
-  - &shy;<!-- .element: class="fragment" --> L'ordinateur demande la page web de 185.230.63.171
+- &shy;<!-- .element: class="fragment" --> Aller sur https://admin.ch/
+  - &shy;<!-- .element: class="fragment" --> L'ordinateur demande à un serveur DNS l'adresse IP de admin.ch
+  - &shy;<!-- .element: class="fragment" --> Le serveur DNS répond 162.23.130.190
+  - &shy;<!-- .element: class="fragment" --> L'ordinateur demande la page web de 162.23.130.190
 
 ---
 
@@ -142,11 +131,11 @@ Programmation Web et bases de données
 ```mermaid
 sequenceDiagram
   actor Nous
-  Nous ->> Navigateur: Aller sur https://eduvaud.ch/
-  Navigateur ->> Serveur DNS: Adresse IP de eduvaud.ch ?
-  Serveur DNS ->> Navigateur: 185.230.63.171
-  Navigateur ->> 185.230.63.171: Page web ?
-  185.230.63.171 ->> Navigateur: Page web (fichiers HTML, CSS et JS)
+  Nous ->> Navigateur: Aller sur https://admin.ch/
+  Navigateur ->> Serveur DNS: Adresse IP de admin.ch ?
+  Serveur DNS ->> Navigateur: 162.23.130.190
+  Navigateur ->> 162.23.130.190: Page web ?
+  162.23.130.190 ->> Navigateur: Page web (fichiers HTML, CSS et JS)
   Navigateur ->> Nous: Affiche la page web
 ```
 
@@ -155,7 +144,7 @@ sequenceDiagram
 ### Adresse email
 
 ```katex
-\underbrace{\text{prenom.nom}}_{\text{partie locale}}\text{@}\underbrace{\text{eduvaud.ch}}_{\text{nom de domaine}}
+\underbrace{\text{prenom.nom}}_{\text{partie locale}}\text{@}\underbrace{\text{etu.hepl.ch}}_{\text{nom de domaine}}
 ```
 
 ---
@@ -176,10 +165,10 @@ sequenceDiagram
 ## WWW (Web)
 
 - &shy;<!-- .element: class="fragment" --> **W**orld **W**ide **W**eb
-- &shy;<!-- .element: class="fragment" --> **Web** = HTTP + URL + HTML
+- &shy;<!-- .element: class="fragment" --> **Web** = HTML + HTTP + URL
+  - &shy;<!-- .element: class="fragment" --> **HTML** : Langage de **description** de pages (Quoi ?)
   - &shy;<!-- .element: class="fragment" --> **HTTP** : Protocole de **transfert** de pages (Comment ?)
   - &shy;<!-- .element: class="fragment" --> **URL** : **Adresse** unique d'une page (Où ?)
-  - &shy;<!-- .element: class="fragment" --> **HTML** : Langage de **description** de pages (Quoi ?)
 
 ---
 
@@ -268,13 +257,13 @@ sequenceDiagram
 
 ---
 
-### Ancre
+### Ancre ou Fragment
 
 ![](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL/mdn-url-anchor@x2.png)
 
 &shy;<!-- .element: class="reference" --> https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL
 
-- **Ancre**
+- **Ancre** ou **Fragment**
   - &shy;<!-- .element: class="fragment" --> Délimitée par `#`
   - &shy;<!-- .element: class="fragment" --> **Position** dans la page
   - &shy;<!-- .element: class="fragment" --> **ID** de l'élément ciblé

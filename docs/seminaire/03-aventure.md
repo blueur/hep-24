@@ -159,10 +159,11 @@ flowchart TD
   - Enlever le soulignement des liens
   - Changer le symbole de la liste à puce en carré
   - Changer la police de caractères de toute la page ([indice](https://www.w3schools.com/cssref/css_websafe_fonts.php))
+- Ajouter au moins une image dans l'aventure.
 - Créer un commit avec le message `ajouter exemple`
 - Lancer les tests pour vérifier que tout fonctionne correctement.
   - Installer [Pytest](https://docs.pytest.org/en/stable/) : `pip install -U pytest`
-  - Lancer les tests : `pytest --tb=no -vv`
+  - Lancer les tests : `pytest --tb=no -vv` depuis le répertoire du dépôt Git.
 - Pousser les commits sur le dépôt Git distant.
 
 ## Votre aventure
@@ -171,6 +172,8 @@ flowchart TD
   - Ajouter l'organigramme dans le rapport.
 - Remplacer l'exemple par votre aventure.
   - Modifier et créer les fichiers HTML et CSS nécessaires pour votre aventure.
+  - Renommer les fichiers pour correspondre à votre aventure.
+  - Le jeu doit contenir au moins une image.
 - Dans le rapport, expliquer les difficultés rencontrées et comment vous les avez résolues.
 - Ne pas oublier de créer des commits et de les pousser sur le dépôt Git distant.
 - Pour publier votre aventure, vous pouvez utiliser [GitHub Pages](https://pages.github.com/).
