@@ -32,36 +32,36 @@ Pour les utilisateurs Windows, commencer par installer [Windows Terminal](https:
   - Moins de bugs potentiels
 - Préférer les versions officielles aux versions tierces (p. ex. Python au lieu de Anaconda)
   - Plus sûr de ce qui est installé
-
-<Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    - Utiliser [Homebrew](https://brew.sh/) pour installer les outils
-      - Ne pas oublier de lancer la commande indiquée à la fin de l'installation
-  </TabItem>
-  <TabItem value="win" label="Windows">
-    - Utiliser [Chocolatey](https://community.chocolatey.org/) pour installer les outils
-    - Utiliser [cmder](https://cmder.app/) comme terminal (disponible via [Chocolatey](https://community.chocolatey.org/packages/Cmder))
-      - Intégration avec [Windows Terminal](https://medium.com/talpor/windows-terminal-cmder-%EF%B8%8F-573e6890d143)
-  </TabItem>
-</Tabs>
+- Windows : Utiliser [cmder](https://cmder.app/) comme terminal (disponible via [Chocolatey](https://community.chocolatey.org/packages/Cmder))
+  - Intégration avec [Windows Terminal](https://medium.com/talpor/windows-terminal-cmder-%EF%B8%8F-573e6890d143)
 
 :::
 
 Installer les outils suivants :
 
+- Gestionnaire de paquets
+  - macOS : [Homebrew](https://brew.sh/)
+    - Ne pas oublier de lancer les commandes indiquées à la fin de l'installation
+  - Windows : [Chocolatey](https://community.chocolatey.org/)
+    - Lancer le terminal en tant qu'administrateur pour installer Chocolatey
 - Navigateur web (un parmi [Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/), [Google Chrome](https://www.google.com/chrome/) ou [Microsoft Edge](https://www.microsoft.com/fr-ch/edge))
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Avec l'extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
     - Extensions > Rechercher `Live Server` > Installer
 - [Git](https://git-scm.com/)
+  - macOS : `brew install git`
+  - Windows : `choco install git`
   - Vérifier avec `git --version` dans un terminal (v2.46)
 - [Node.js](https://nodejs.org/)
-  - Au moins la dernière version LTS
+  - macOS : `brew install node`
+  - Windows : `choco install nodejs`
   - Vérifier avec `node --version` dans un terminal (v20.17)
   - Possibilité d'utiliser [nvm](https://github.com/nvm-sh/nvm) pour gérer les versions de Node.js
 - [Python](https://www.python.org/)
+  - macOS : `brew install python`
+  - Windows : `choco install python`
   - Vérifier avec `python --version` dans un terminal (v3.12)
-    - Possiblement `python3 --version` sur macOS et `py --version` sur Windows
+    - Possiblement `python3 --version` sur macOS
   - Possibilité d'utiliser [pyenv](https://github.com/pyenv/pyenv) pour gérer les versions de Python
 - [GitHub Desktop](https://desktop.github.com/)
   - Pour une interface graphique à Git
@@ -103,7 +103,7 @@ Créer un répertoire pour le cours (par exemple un dossier `bs21inf5` dans le d
   ```bash
   git clone {url_du_depot}
   ```
-  - Installer et utiliser [GitHug CLI](https://cli.github.com/) pour vous authentifier en cas de problème : `gh auth login`
+  - macOS : Installer et utiliser [GitHug CLI](https://cli.github.com/) (`brew install gh`) pour vous authentifier en cas de problème : `gh auth login`
 - Se déplacer dans le répertoire du dépôt Git
   ```bash
   cd sem01-outils-{pseudo}

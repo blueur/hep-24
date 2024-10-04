@@ -52,6 +52,7 @@ const config: Config = {
       {
         docs: {
           showLastUpdateTime: true,
+          sidebarCollapsed: false,
         },
         blog: false,
         theme: {

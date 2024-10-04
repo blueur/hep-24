@@ -193,3 +193,29 @@ tr.current {
 .navbar__item.ph {
   font-size: 24px;
 }
+
+@media print {
+  aside,
+  button,
+  details,
+  footer,
+  .alert {
+    display: none !important;
+  }
+
+  table,
+  img,
+  svg,
+  .theme-code-block {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+  }
+}
