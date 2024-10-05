@@ -1,12 +1,12 @@
 # HTML & CSS
 
+<Reaveal name="html-css" />
+
 :::note[Objectifs]
 
 Comment afficher une page Web ?
 
 :::
-
-<Reaveal name="html-css" />
 
 ## Références
 

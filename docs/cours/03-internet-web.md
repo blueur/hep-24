@@ -1,12 +1,12 @@
 # Internet & Web
 
+<Reaveal name="internet-web" />
+
 :::note[Objectifs]
 
 Comment fonctionne Internet ?
 
 :::
-
-<Reaveal name="internet-web" />
 
 ## Références
 

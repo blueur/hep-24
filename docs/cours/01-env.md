@@ -1,5 +1,7 @@
 # Environnement
 
+<Reaveal name="env" />
+
 :::note[Objectifs]
 
 Comment développer un projet ?
@@ -10,8 +12,6 @@ Comment développer un projet ?
 - Utiliser Git pour versionner du code
 
 :::
-
-<Reaveal name="env" />
 
 ## Références
 

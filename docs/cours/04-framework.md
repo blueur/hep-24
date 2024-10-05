@@ -1,12 +1,12 @@
 # Framework
 
+<Reaveal name="framework" />
+
 :::note[Objectifs]
 
 Comment inclure des projets externes ?
 
 :::
-
-<Reaveal name="framework" />
 
 ## Références
 
@@ -14,3 +14,4 @@ Comment inclure des projets externes ?
 - https://fr.wikipedia.org/wiki/Patron_de_conception
 - https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur
 - https://refactoring.guru/fr/design-patterns/iterator
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
