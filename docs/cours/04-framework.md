@@ -15,3 +15,4 @@ Comment inclure des projets externes ?
 - https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur
 - https://refactoring.guru/fr/design-patterns/iterator
 - https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
+- https://developer.mozilla.org/fr/docs/Web/HTML/Viewport_meta_tag

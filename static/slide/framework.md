@@ -146,6 +146,21 @@ graph LR
 
 ---
 
+### Viewport
+
+- &shy;<!-- .element: class="fragment" --> **Viewport** : fenêtre visible de la page web
+- &shy;<!-- .element: class="fragment" --> `<meta name="viewport" content="width=device-width, initial-scale=1" />`
+
+|                                                                         Sans le viewport                                                                          |                                                                        Avec le viewport                                                                        |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![](https://www.w3schools.com/css/img_viewport1.png)<!-- .element: style="border-style: solid;" -->](https://www.w3schools.com/html/example_withoutviewport.htm) | [![](https://www.w3schools.com/css/img_viewport2.png)<!-- .element: style="border-style: solid;" -->](https://www.w3schools.com/html/example_withviewport.htm) |
+
+<!-- .element: class="fragment" -->
+
+https://www.w3schools.com/html/html_responsive.asp <!-- .element: class="reference" -->
+
+---
+
 ### Media queries
 
 ![](https://public-images.interaction-design.org/literature/articles/materials/flTR2AEh0Xm8QMKevDdSR4x08XS9oDCs2FrMxpjj.jpg) <!-- .element: class="full" -->
