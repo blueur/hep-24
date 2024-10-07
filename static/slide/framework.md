@@ -26,7 +26,7 @@ Programmation Web et bases de données
   - &shy;<!-- .element: class="fragment" --> **Organiser** le code et les fichiers
     - Structure de **fichiers**
     - **Conventions** de nommage
-- &shy;<!-- .element: class="fragment" --> Applique un/des **patron(s) de conception**
+- &shy;<!-- .element: class="fragment" --> Applique un/des **design pattern(s)** (patron(s) de conception)
   - Domaine de l'**architecture** logicielle
 - &shy;<!-- .element: class="fragment" --> Quelques exemples :
   - **Django** (Python)
@@ -34,6 +34,17 @@ Programmation Web et bases de données
   - **Spring** (Java)
   - **Express** (Node.js)
   - **Ruby on Rails** (Ruby)
+
+---
+
+### Bibliothèque vs Framework
+
+```mermaid
+graph LR
+  code[Votre code] --> |appelle| library[Bibliothèque]
+  framework[Framework] --> |appelle| code
+  framework --> |contient| library
+```
 
 ---
 
@@ -96,17 +107,6 @@ https://refactoring.guru/fr/design-patterns/iterator <!-- .element: class="refer
 
 ---
 
-### Bibliothèque vs Framework
-
-```mermaid
-graph LR
-  code[Votre code] --> |appelle| library[Bibliothèque]
-  framework[Framework] --> |appelle| code
-  framework --> |contient| library
-```
-
----
-
 ### Framework CSS
 
 - &shy;<!-- .element: class="fragment" --> Ensemble de **règles CSS** prédéfinies et réutilisables
@@ -146,21 +146,6 @@ graph LR
 
 ---
 
-### Viewport
-
-- &shy;<!-- .element: class="fragment" --> **Viewport** : fenêtre visible de la page web
-- &shy;<!-- .element: class="fragment" --> `<meta name="viewport" content="width=device-width, initial-scale=1" />`
-
-|                                                                         Sans le viewport                                                                          |                                                                        Avec le viewport                                                                        |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![](https://www.w3schools.com/css/img_viewport1.png)<!-- .element: style="border-style: solid;" -->](https://www.w3schools.com/html/example_withoutviewport.htm) | [![](https://www.w3schools.com/css/img_viewport2.png)<!-- .element: style="border-style: solid;" -->](https://www.w3schools.com/html/example_withviewport.htm) |
-
-<!-- .element: class="fragment" -->
-
-https://www.w3schools.com/html/html_responsive.asp <!-- .element: class="reference" -->
-
----
-
 ### Media queries
 
 ![](https://public-images.interaction-design.org/literature/articles/materials/flTR2AEh0Xm8QMKevDdSR4x08XS9oDCs2FrMxpjj.jpg) <!-- .element: class="full" -->
@@ -182,6 +167,21 @@ https://www.interaction-design.org/literature/article/responsive-design-let-the-
 ![](https://public-images.interaction-design.org/literature/articles/materials/iY3RkNGTG0oFEyKGmhFQgQ1x1jmgPz4bKXzis6Rf.gif) <!-- .element: class="full-width" -->
 
 https://www.interaction-design.org/literature/article/responsive-design-let-the-device-do-the-work <!-- .element: class="reference" -->
+
+---
+
+### Viewport
+
+- &shy;<!-- .element: class="fragment" --> **Viewport** : fenêtre visible de la page web
+- &shy;<!-- .element: class="fragment" --> `<meta name="viewport" content="width=device-width, initial-scale=1" />`
+
+|                                                                         Sans le viewport                                                                          |                                                                        Avec le viewport                                                                        |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![](https://www.w3schools.com/css/img_viewport1.png)<!-- .element: style="border-style: solid;" -->](https://www.w3schools.com/html/example_withoutviewport.htm) | [![](https://www.w3schools.com/css/img_viewport2.png)<!-- .element: style="border-style: solid;" -->](https://www.w3schools.com/html/example_withviewport.htm) |
+
+<!-- .element: class="fragment" -->
+
+https://www.w3schools.com/html/html_responsive.asp <!-- .element: class="reference" -->
 
 ---
 
@@ -266,5 +266,5 @@ https://travishorn.com/responsive-grid-in-2-minutes-with-css-grid-layout-4842a41
 - &shy;<!-- .element: class="fragment" --> Exemples de **formateurs** :
   - **Prettier** (HTML, CSS, JavaScript, Markdown, etc.)
   - **autopep8** (Python) : applique les règles de [PEP 8](https://peps.python.org/pep-0008/)
-  - **Black** (Python) : `Black is opinionated so you don’t have to be.`
+  - **Black** (Python) : `Black is opinionated so you don't have to be.`
 - &shy;<!-- .element: class="fragment" --> **Consensus** dans le projet pour la **cohérence**
