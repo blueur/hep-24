@@ -26,6 +26,8 @@ timeline
 - &shy;<!-- .element: class="fragment" --> Évaluations
   - 50% : **Projet** individuel à rendre en décembre
   - 50% : **Examen** écrit en janvier
+- &shy;<!-- .element: class="fragment" --> Charge de travail
+  - **1** ECTS = ~**2h**/semaine (cours + travail personnel)
 
 ---
 
