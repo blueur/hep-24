@@ -83,6 +83,113 @@ Un raccourci pour les gouverner tous. Un raccourci pour les trouver.
     - <i className="ph ph-devices"></i> (en haut à droite de la fenêtre des outils de développement) > Choisir un appareil ou personnaliser les dimensions
       - Comment réagit la page sur un écran plus petit ?
 
+## Grille Bootstrap
+
+- Lire la documentation de [Bootstrap](https://getbootstrap.com/docs/5.3/layout/grid/).
+- Faire les exercices sur [Grille Bootstrap](https://smnarnold.com/exercices/bootstrap/grille-bootstrap).
+  - [CodePen](https://codepen.io/) est un IDE en ligne pour écrire du code HTML, CSS et JavaScript.
+  - Faire au moins deux étapes.
+
+### Étape 1
+
+<details>
+<summary>Indice 1</summary>
+
+Tout mettre dans un `container`.
+
+<details>
+<summary>Indice 2</summary>
+
+Utiliser des `row` et des `col`.
+
+<details>
+<summary>Solution</summary>
+
+```html
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="block red"></div>
+    </div>
+    <div class="col">
+      <div class="block blue"></div>
+    </div>
+    <div class="col">
+      <div class="block green"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="block yellow"></div>
+    </div>
+    <div class="col">
+      <div class="block purple"></div>
+    </div>
+    <div class="col">
+      <div class="block teal"></div>
+    </div>
+  </div>
+</div>
+```
+
+</details>
+</details>
+</details>
+
+### Étape 2
+
+<details>
+<summary>Indice 1</summary>
+
+Utiliser les `col-xl-*` avec les classes `col-*`.
+
+<details>
+<summary>Indice 2</summary>
+
+Utiliser qu'une seule `row`.
+
+<details>
+<summary>Indice 3</summary>
+
+Les breakpoints s'appliquent à partir (plus grand) de la largeur spécifiée.
+
+<details>
+<summary>Solution</summary>
+
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="block red"></div>
+    </div>
+    <div class="col-12 col-xl-4">
+      <div class="block blue"></div>
+    </div>
+    <div class="col-12 col-xl-4">
+      <div class="block green"></div>
+    </div>
+    <div class="col-12 col-xl-4">
+      <div class="block yellow"></div>
+    </div>
+    <div class="col-12 col-xl-6">
+      <div class="block purple"></div>
+    </div>
+    <div class="col-12 col-xl-6">
+      <div class="block teal"></div>
+    </div>
+  </div>
+</div>
+```
+
+</details>
+</details>
+</details>
+</details>
+
+### Étape 5
+
+Utiliser [Horizontal alignment](https://getbootstrap.com/docs/5.3/layout/columns/#horizontal-alignment)
+
 ## Aventure
 
 - Copier votre aventure de la semaine passée dans le répertoire Git.
@@ -142,13 +249,23 @@ Un raccourci pour les gouverner tous. Un raccourci pour les trouver.
   - Modifier les couleurs (avec `color picker` sur Google ou sur [Codes Couleur HTML](https://htmlcolorcodes.com/fr/) par exemple).
   - Liste complète des [variables](https://getbootstrap.com/docs/5.3/customize/css-variables/) disponibles.
 
+## Gitignore
+
+Créer un fichier `.gitignore` dans le dépôt Git pour [ignorer les fichiers et dossiers inutiles](https://docs.github.com/fr/get-started/getting-started-with-git/ignoring-files) :
+
+```gitignore title=".gitignore"
+__pycache__/
+.pytest_cache/
+
+.DS_Store
+```
+
 ## Test
 
 Pour tester votre projet, ajouter un fichier `test_web.py` contenant :
 
 ```python title="test_web.py"
 from glob import glob
-from html.parser import HTMLParser
 from os import path
 from subprocess import check_output
 
@@ -189,13 +306,13 @@ def test_css():
             ],
         ).decode()
         assert "" == output, f"{file} {output}"
+
+
+def test_filename():
+    for file in glob("**/*", recursive=True):
+        assert match(
+            "^[a-z0-9\\\.\-_/]+$", file
+        ), f"{file} ne doit contenir que des lettres minuscules, chiffres, tirets ou underscores. "
 ```
 
 Lancer les tests avec `pytest --tb=no -vv`.
-
-## Grille Bootstrap
-
-- Lire la documentation de [Bootstrap](https://getbootstrap.com/docs/5.3/layout/grid/)
-- Faire les exercices sur [Grille Bootstrap](https://smnarnold.com/exercices/bootstrap/grille-bootstrap)
-  - [CodePen](https://codepen.io/) est un IDE en ligne pour écrire du code HTML, CSS et JavaScript
-  - Copier vos réponses dans le rapport
