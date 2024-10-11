@@ -7,7 +7,7 @@
 |  2024-10-14  | [Générateur de site statique](/docs/cours/ssg)                 | [Générateur de site statique](/docs/seminaire/ssg) |
 |  2024-10-21  | _Vacances_                                                     | _Vacances_                                         |
 |  2024-10-28  | JavaScript                                                     | JavaScript                                         |
-|  2024-11-04  |                                                                |                                                    |
+|  2024-11-04  | Application Web                                                | Framework JS                                       |
 |  2024-11-11  |                                                                |                                                    |
 |  2024-11-18  |                                                                |                                                    |
 |  2024-11-25  |                                                                |                                                    |
