@@ -8,8 +8,8 @@
 |  2024-10-21  | _Vacances_                                                     | _Vacances_                                         |
 |  2024-10-28  | JavaScript                                                     | JavaScript                                         |
 |  2024-11-04  | Application Web                                                | Framework JS                                       |
-|  2024-11-11  |                                                                |                                                    |
-|  2024-11-18  |                                                                |                                                    |
+|  2024-11-11  | Base de données                                                |                                                    |
+|  2024-11-18  | Backend & API                                                  |                                                    |
 |  2024-11-25  |                                                                |                                                    |
 |  2024-12-02  |                                                                |                                                    |
 |  2024-12-09  |                                                                |                                                    |

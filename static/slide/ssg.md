@@ -43,7 +43,7 @@ https://www.netlify.com/blog/2020/04/14/what-is-a-static-site-generator-and-3-wa
     <header>
       <h1>{{ title }}</h1>
     </header>
-    <main>{{ content }}</main>
+    <main>{{ content | markdown }}</main>
   </body>
 </html>
 ```
@@ -170,21 +170,25 @@ https://github.com/npm/logos/tree/master <!-- .element: class="reference" -->
 
 ### npm CLI
 
-```bash
-# Initialiser un projet Node.js
-npm init
-
-# Installer une dépendance
-npm install express
-# ou
-npm i express
-
-# Installer une dépendance de développement
-npm i -D nodemon
-
-# Exécuter le script "start"
-npm start
-
-# Exécuter un script personnalisé
-npm run test
-```
+- &shy;<!-- .element: class="fragment" --> **Initialiser** un projet Node.js
+  ```bash
+  npm init
+  ```
+- &shy;<!-- .element: class="fragment" --> Installer une **dépendance**
+  ```bash
+  npm install express
+  # ou
+  npm i express
+  ```
+- &shy;<!-- .element: class="fragment" --> Installer une dépendance de **développement**
+  ```bash
+  npm i -D nodemon
+  ```
+- &shy;<!-- .element: class="fragment" --> Exécuter le script "**start**"
+  ```bash
+  npm start
+  ```
+- &shy;<!-- .element: class="fragment" --> Exécuter un autre **script**
+  ```bash
+  npm run test
+  ```
