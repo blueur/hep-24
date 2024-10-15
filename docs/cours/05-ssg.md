@@ -15,3 +15,4 @@ Comment générer un site statique ?
 - https://jamstack.org/generators/
 - https://nodejs.org/fr
 - https://www.npmjs.com/
+- https://semver.org/lang/fr/

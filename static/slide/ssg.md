@@ -91,7 +91,7 @@ Ceci est ma page d'accueil.
 
 - Static Site Generator (**SSG**)
 - &shy;<!-- .element: class="fragment" --> Outil permettant de **générer** des sites statiques
-  - &shy;<!-- .element: class="fragment" --> **Templates** (Liquid, Handlebars, Jinja, etc.)
+  - &shy;<!-- .element: class="fragment" --> **Templates** (Nunjucks, Liquid, Jinja, etc.)
   - &shy;<!-- .element: class="fragment" --> **Données** (Markdown, JSON, YAML, etc.)
   - &shy;<!-- .element: class="fragment" --> **Compilation** des pages en HTML, CSS et JS
 - &shy;<!-- .element: class="fragment" --> Exemples :
@@ -123,6 +123,26 @@ https://nodejs.org/fr/about/branding <!-- .element: class="reference" -->
   - &shy;<!-- .element: class="fragment" --> **V8** (moteur JavaScript de Google Chrome et Chromium depuis 2008)
   - &shy;<!-- .element: class="fragment" --> **Compile** le code JavaScript en **code machine**
 - &shy;<!-- .element: class="fragment" --> Logiciel **libre** géré par la **communauté** OpenJS Foundation
+
+---
+
+### Compiler vs Interpréter
+
+- **Compiler**
+  - &shy;<!-- .element: class="fragment" --> Traduire le code source en code machine
+  - &shy;<!-- .element: class="fragment" --> **C** ou **C++** en langage machine
+  - &shy;<!-- .element: class="fragment" --> **JavaScript** avec **Node.js**
+- **Interpréter**
+  - &shy;<!-- .element: class="fragment" --> Lire et exécuter le code source ligne par ligne
+  - &shy;<!-- .element: class="fragment" --> **Python** dans un terminal
+  - &shy;<!-- .element: class="fragment" --> **JavaScript** dans un navigateur
+
+```mermaid fragment
+graph LR
+  Langage -->|compiler| machine[Code machine]
+  machine -->|exécuter| Résultat
+  Langage -->|interpréter| Résultat
+```
 
 ---
 
@@ -165,6 +185,20 @@ https://github.com/npm/logos/tree/master <!-- .element: class="reference" -->
   }
 }
 ```
+
+---
+
+#### Semantic Versioning (semver)
+
+- Numéro de version : **MAJEURE**.**MINEURE**.**PATCH**
+  - Exemple : 1.4.2
+- &shy;<!-- .element: class="fragment" --> **Majeur** (major) : **1**.0.0
+  - **Changements** majeurs (incompatibles avec les versions précédentes)
+- &shy;<!-- .element: class="fragment" --> **Mineur** (minor) : 0.**1**.0
+  - Nouvelles **fonctionnalités** (rétrocompatibles)
+- &shy;<!-- .element: class="fragment" --> **Patch** : 0.0.**1**
+  - **Corrections** de bugs (pas de changement fonctionnel)
+- &shy;<!-- .element: class="fragment" --> [semver.org](https://semver.org/lang/fr/)
 
 ---
 

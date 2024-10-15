@@ -248,6 +248,9 @@ Utiliser [Horizontal alignment](https://getbootstrap.com/docs/5.3/layout/columns
     ```
   - Modifier les couleurs (avec `color picker` sur Google ou sur [Codes Couleur HTML](https://htmlcolorcodes.com/fr/) par exemple).
   - Liste complète des [variables](https://getbootstrap.com/docs/5.3/customize/css-variables/) disponibles.
+- Publier votre aventure sur GitHub Pages.
+  - Créer un fichier vide `.nojekyll` à la racine du dépôt pour [désactiver Jekyll](https://docs.github.com/fr/pages/getting-started-with-github-pages/about-github-pages#static-site-generators).
+  - Copier le lien de votre aventure dans le fichier `report.md`.
 
 ## Gitignore
 

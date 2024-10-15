@@ -34,7 +34,10 @@ export default () => ({
           )
           .then(({ svg }) => {
             const div = document.createElement("div");
-            div.classList.add("mermaid");
+            element.classList.remove("hljs", "language-coq");
+            if (element.classList.length > 0) {
+              div.classList.add(...Array.from(element.classList));
+            }
             div.innerHTML = svg;
 
             const pre = element.parentElement;
