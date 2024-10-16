@@ -35,6 +35,8 @@ Initialiser un projet npm : `npm init`
 - author: votre nom
 - license: GPL-3.0
 
+Vérifier le contenu du fichier `package.json` qui a été créé.
+
 Utiliser ESM (une version plus moderne de JavaScript) : `npm pkg set type="module"`
 
 Installer Eleventy : `npm install @11ty/eleventy`
@@ -74,7 +76,7 @@ Voir le site en local : `npx @11ty/eleventy --serve` (le lien sera affiché dans
 
 - Voir les fichiers générés dans le dossier `_site`
 - <kbd>Ctrl</kbd> + <kbd>C</kbd> pour arrêter le serveur
-  Ajouter les scripts suivants dans le fichier `package.json` :
+  Ajouter les scripts suivants dans le fichier `package.json` (remplacer le script `test` existant) :
 
 ```json title="package.json"
 {
@@ -190,8 +192,8 @@ Observer le résultat sur http://localhost:8080/aventure/rangement/
       - `options` : liste d'options avec les propriétés suivantes :
         - `text` : texte affiché
         - `next` : identifiant de l'étape suivante
-  - Les pages sont générées à partir des données grâce à la [pagination d'Eleventy](https://www.11ty.dev/docs/pagination/).
-    - C'est un template qui sera répété pour chaque élément de la liste `aventure`.
+  - Les pages sont générées à partir des données grâce à la [pagination d'Eleventy](https://www.11ty.dev/docs/pagination/) (dans `aventure-pages.html`).
+    - C'est une page html qui sera crée pour chaque élément de la liste `aventure`.
       - `data` : nom du fichier de données dans le dossier `_data` (sans l'extension)
       - `size` : nombre d'éléments par page
       - `alias` : nom de la variable utilisée dans le template
@@ -220,7 +222,7 @@ Créer un commit et pousser les changements sur GitHub.
 
 Afin de pouvoir déployer le site sur GitHub Pages, il faudra d'abord générer les fichiers. On va automatiser ce processus avec [GitHub Actions](https://github.com/features/actions).
 
-Créer un fichier `.github/workflows/deploy.yml` (dans les dossiers mentionnés) avec le contenu suivant :
+Dans le dépôt Git, créer un fichier `.github/workflows/deploy.yml` (avec les dossiers mentionnés) avec le contenu suivant :
 
 ```yaml title=".github/workflows/deploy.yml"
 name: Deploy to GitHub Pages
@@ -274,9 +276,14 @@ Ajouter le lien du site dans le fichier `report.md`.
 - Ajouter une images pour illustrer une étape de l'aventure.
   - Créer un dossier `images` à la racine du projet et y ajouter une image.
   - Les images doivent être déclarées dans le fichier `aventure.json` et affichées dans les pages.
+    - Ajouter une propriété `image` dans les données de l'aventure.
+    - Ajouter une balise `<img>` dans le template pour afficher l'image.
   - Pas toutes les étapes nécessitent une image, utiliser les [conditions](https://mozilla.github.io/nunjucks/fr/templating.html#if) pour afficher l'image uniquement si elle existe.
 - Adapter l'aventure selon le votre. Vous devriez obtenir le même résultat qu'au séminaire précédent.
   - Pour ajouter du code CSS personnalisé : https://www.11ty.dev/docs/assets/
+    - Créer un fichier `eleventy.config.js`
+    - `addPassthroughCopy` permet de copier des fichiers ou dossiers dans le dossier `_site`
+    - Dans l'exemple, on a nommé le fichier `bundle.css` pour y mettre le code CSS.
 
 ## Références
 
