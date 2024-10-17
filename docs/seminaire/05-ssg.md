@@ -12,9 +12,24 @@ Utiliser un générateur de site statique.
   - `./report.md` : Rapport individuel en Markdown.
 - Délai : 1 semaine
 
-## Eleventy
+## Mise en place
 
-Commencer par cloner le dépôt Git de ce séminaire et ouvrir le dossier dans Visual Studio Code.
+- Cloner le nouveau dépôt Git dans le répertoire du cours.
+- Ouvrir le répertoire du dépôt Git dans Visual Studio Code.
+
+## Estimation
+
+- Estimer le temps nécessaire pour réaliser ce travail.
+  - Découper le travail en tâches pour faciliter l'estimation.
+- Une fois terminé, comparer le temps estimé avec le temps réellement passé.
+
+| Tâche      | Temps estimé | Temps passé | Commentaire |
+| ---------- | ------------ | ----------- | ----------- |
+| Estimation | 10m          | 15m         | ...         |
+| ...        | ...          | ...         | ...         |
+| Total      | 2h           | 1h30        | ...         |
+
+## Eleventy
 
 Créer un fichier [`.gitignore`](https://docs.github.com/fr/get-started/getting-started-with-git/ignoring-files) avec le contenu suivant :
 
@@ -154,7 +169,7 @@ Créer un dossier `_data` et un fichier `aventure.json` avec le contenu suivant 
 ]
 ```
 
-Créer un fichier `aventure-pages.html` avec le contenu suivant :
+Créer un fichier `aventure-pages.html` à la racine avec le contenu suivant :
 
 ```html title="aventure-pages.html"
 ---
@@ -275,15 +290,29 @@ Ajouter le lien du site dans le fichier `report.md`.
 - Ajouter Bootstrap en CDN dans le fichier `base.njk` et adapter le style des pages.
 - Ajouter une images pour illustrer une étape de l'aventure.
   - Créer un dossier `images` à la racine du projet et y ajouter une image.
+  - Créer un fichier `eleventy.config.js` à la racine du projet avec le contenu suivant :
+    ```js title="eleventy.config.js"
+    export default function (eleventyConfig) {
+      eleventyConfig.addPassthroughCopy("images");
+    }
+    ```
+    - Cette configuration permet de copier les fichiers du dossier `images` dans le dossier `_site`.
   - Les images doivent être déclarées dans le fichier `aventure.json` et affichées dans les pages.
     - Ajouter une propriété `image` dans les données de l'aventure.
+      - Par exemple : `"image": "../../images/tresor.jpg"` juste après la propriété `description`.
     - Ajouter une balise `<img>` dans le template pour afficher l'image.
+      - Par exemple : `<img src="{{ aventure.image }}" alt="{{ aventure.name }}" />`.
+    - Comme toutes les images se trouvent dans le dossier `images`, on mettre uniquement le nom du fichier dans la propriété `image` et adapter le chemin dans la balise `<img>`.
   - Pas toutes les étapes nécessitent une image, utiliser les [conditions](https://mozilla.github.io/nunjucks/fr/templating.html#if) pour afficher l'image uniquement si elle existe.
 - Adapter l'aventure selon le votre. Vous devriez obtenir le même résultat qu'au séminaire précédent.
-  - Pour ajouter du code CSS personnalisé : https://www.11ty.dev/docs/assets/
-    - Créer un fichier `eleventy.config.js`
-    - `addPassthroughCopy` permet de copier des fichiers ou dossiers dans le dossier `_site`
-    - Dans l'exemple, on a nommé le fichier `bundle.css` pour y mettre le code CSS.
+  - Pour ajouter du code CSS personnalisé, créer un fichier `styles.css` à la racine du projet et l'ajouter dans le fichier `base.njk`.
+    - Ne pas oubliez de copier le fichier CSS dans le dossier `_site` :
+      ```js title="eleventy.config.js"
+      export default function (eleventyConfig) {
+        eleventyConfig.addPassthroughCopy("images");
+        eleventyConfig.addPassthroughCopy("styles.css");
+      }
+      ```
 
 ## Références
 
