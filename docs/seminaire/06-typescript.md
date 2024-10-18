@@ -28,3 +28,7 @@ Prise en main de TypeScript.
 | Estimation | 10m          | 15m         | ...         |
 | ...        | ...          | ...         | ...         |
 | Total      | 2h           | 1h30        | ...         |
+
+## Jeux (Bonus)
+
+- https://play.elevatorsaga.com/
