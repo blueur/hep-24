@@ -1,14 +1,14 @@
-# TypeScript
+# Framework JS
 
 :::note[Objectifs]
 
-Prise en main de TypeScript.
+Prise en main de Vue.js.
 
 :::
 
 ## Rendu
 
-- GitHub Classroom : https://classroom.github.com/a/eC1JM0VR
+- GitHub Classroom : https://classroom.github.com/a/0bPUTptp
   - `./report.md` : Rapport individuel en Markdown.
 - Délai : 1 semaine
 
@@ -29,10 +29,6 @@ Prise en main de TypeScript.
 | ...        | ...          | ...         | ...         |
 | Total      | 2h           | 1h30        | ...         |
 
-## JavaScript
+## Tutoriel de Vue
 
-- Faire [votre premier code JavaScript](https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/A_first_splash)
-
-## Jeux (Bonus)
-
-- https://play.elevatorsaga.com/
+Faire le tutoriel de Vue.js : https://fr.vuejs.org/tutorial/

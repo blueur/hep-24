@@ -258,5 +258,42 @@ https://jaydevs.com/javascript-vs-typescript/ <!-- .element: class="reference" -
 ## TypeScript
 
 - &shy;<!-- .element: class="fragment" --> **Sur-ensemble** de JavaScript
-- &shy;<!-- .element: class="fragment" --> **Typage statique** (déclarer les types des variables)
-- &shy;<!-- .element: class="fragment" --> **Compilation** en JavaScript
+  - Tout code JavaScript est valide en TypeScript
+- &shy;<!-- .element: class="fragment" --> **Paradigmes** : comme JavaScript
+- &shy;<!-- .element: class="fragment" --> **Typage statique** (déclaration des types), &ne; typage dynamique de JavaScript ou Python
+- &shy;<!-- .element: class="fragment" --> **Typage fort** (pas de conversion automatique), &ne; typage faible de JavaScript (`4 + "2" = "42"`)
+- &shy;<!-- .element: class="fragment" --> **Transpilation** (compilation vers un autre langage) en **JavaScript**
+- &shy;<!-- .element: class="fragment" --> Développé par **Microsoft** (2012), mais **libre** et **open-source**
+
+---
+
+### Typage
+
+- Pourquoi **typer** ?
+  - &shy;<!-- .element: class="fragment" --> **Lisibilité** : intention explicite du développeur
+  - &shy;<!-- .element: class="fragment" --> **Détection d'erreurs** à la compilation (avant l'exécution)
+  - &shy;<!-- .element: class="fragment" --> **Documentation** : types des paramètres et valeur de retour
+  - &shy;<!-- .element: class="fragment" --> **IDE** : complétion automatique, renommage, refactoring
+
+---
+
+### Typage
+
+- **Types primitifs** : `number`, `string`, `boolean`, `null`, `undefined`
+- **Types complexes** : `object`, `array`, `tuple`, `enum`, `any`, `void`, `never`
+- **Types personnalisés** : `interface`, `type`, `class`
+
+```typescript
+const a: number = 5;
+const b: string = "Hello";
+const c: boolean = true;
+const d: number[] = [1, 2, 3];
+const e: { name: string; age: number } = { name: "Alice", age: 25 };
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+const f: Person = { name: "Alice", age: 25 };
+```
