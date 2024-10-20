@@ -1,8 +1,8 @@
-# TypeScript
+# JavaScript
 
 :::note[Objectifs]
 
-Prise en main de TypeScript.
+Prise en main de Vue.js en JavaScript.
 
 :::
 
@@ -31,8 +31,12 @@ Prise en main de TypeScript.
 
 ## JavaScript
 
-- Faire [votre premier code JavaScript](https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/A_first_splash)
+Faire [votre premier code JavaScript](https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/A_first_splash).
 
-## Jeux (Bonus)
+## Vue.js
+
+Faire le [tutoriel de Vue.js](https://fr.vuejs.org/tutorial/).
+
+## Bonus : Programmer un ascenseur
 
 - https://play.elevatorsaga.com/

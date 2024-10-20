@@ -245,7 +245,7 @@ Utiliser [Horizontal alignment](https://getbootstrap.com/docs/5.3/layout/columns
     - Utiliser [Flex](https://getbootstrap.com/docs/5.3/utilities/flex/) pour aligner les boutons au centre.
   - Créer le fichier `contact.html` pour la page de contact.
     - Contient un formulaire de contact.
-      - Utiliser [Form](https://getbootstrap.com/docs/5.3/components/forms/).
+      - Utiliser [Form](https://getbootstrap.com/docs/5.3/forms/overview/).
       - Contient au moins un [Select](https://getbootstrap.com/docs/5.3/forms/select/), un [Input](https://getbootstrap.com/docs/5.3/forms/form-control/), un [Textarea](https://getbootstrap.com/docs/5.3/forms/textarea/), un [Checkbox](https://getbootstrap.com/docs/5.3/forms/checks-radios/), un [Input group](https://getbootstrap.com/docs/5.3/forms/input-group/) et un [Button](https://getbootstrap.com/docs/5.3/components/buttons/).
       - Configurer les colonnes pour adapter le formulaire selon la largeur de l'écran.
       - Utiliser des [Floating labels](https://getbootstrap.com/docs/5.3/forms/floating-labels/).

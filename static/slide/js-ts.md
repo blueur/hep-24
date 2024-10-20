@@ -175,7 +175,7 @@ JavaScript
 function dire_bonjour(nom) {
   console.log("Bonjour, " + nom + " !");
 }
-// ou
+// ou avec une fonction fléchée
 const dire_bonjour = (nom) => {
   console.log("Bonjour, " + nom + " !");
 };
@@ -210,7 +210,7 @@ const personne = {
 
 personne.dire_bonjour(); // Bonjour, Alice !
 personne.dire_age(); // J'ai undefined ans.
-// this ne fonctionne pas avec les fonctions fléchées
+// this n'existe pas dans les fonctions fléchées
 ```
 
 ---
@@ -226,6 +226,45 @@ personne.dire_age(); // J'ai undefined ans.
 - &shy;<!-- .element: class="fragment" --> Représentation **arborescente** des éléments HTML
 - &shy;<!-- .element: class="fragment" --> **API** (interface) pour **manipuler** le DOM (ajouter, supprimer, modifier des éléments) utilisée par JavaScript
 - &shy;<!-- .element: class="fragment" --> **Événements** : réagir à des actions de l'utilisateur (clic, survol, etc.)
+
+---
+
+### Manipulation du DOM
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Page Web</title>
+  </head>
+  <body>
+    <h1 class="titre">Titre</h1>
+    <p>Contenu</p>
+    <button id="bouton">Cliquez ici</button>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+---
+
+### Manipulation du DOM
+
+```javascript
+const titre = document.getElementsByClassName("titre")[0];
+titre.innerHTML = "Nouveau titre";
+
+const paragraphes = document.getElementsByTagName("p");
+for (const p of paragraphes) {
+  p.style.color = "red";
+}
+
+const bouton = document.getElementById("bouton");
+bouton.addEventListener("click", () => {
+  alert("Clic !");
+  titre.style.color = "blue";
+});
+```
 
 ---
 
