@@ -227,7 +227,7 @@ Utiliser [Horizontal alignment](https://getbootstrap.com/docs/5.3/layout/columns
         crossorigin="anonymous"
       ></script>
       ```
-- Le résultat final devrait ressembler à [cette page](https://web.blueur.com/aventure-bootstrap/).
+- Le résultat final devrait ressembler à [cette page](https://web.blueur.com/aventure-bootstrap/) ([code](https://github.com/blueur/web/tree/main/aventure-bootstrap)).
   - Renommer `index.html` en `aventure.html`.
     - S'inspirer du **CDN Starter** dans les [exemples](https://getbootstrap.com/docs/5.3/examples/).
       - Regarder le code source de la page pour voir comment elle est construite : de manière statique sur [GitHub](https://github.com/twbs/examples/tree/main/starter/) ou interactive sur [StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/starter?file=index.html).
@@ -268,6 +268,12 @@ Utiliser [Horizontal alignment](https://getbootstrap.com/docs/5.3/layout/columns
 - Publier votre aventure sur GitHub Pages.
   - Créer un fichier vide `.nojekyll` à la racine du dépôt pour [désactiver Jekyll](https://docs.github.com/fr/pages/getting-started-with-github-pages/about-github-pages#static-site-generators).
   - Copier le lien de votre aventure dans le fichier `report.md`.
+
+:::info
+
+Adapter au moins complètement une page avec Bootstrap ainsi que les pages d'accueil et de contact.
+
+:::
 
 ## Gitignore
 
