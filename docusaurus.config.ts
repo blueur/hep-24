@@ -1,6 +1,7 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
+import type { Options as SassOptions } from "sass";
 
 const config: Config = {
   title: "BS21INF5",
@@ -16,7 +17,15 @@ const config: Config = {
   },
 
   plugins: [
-    "docusaurus-plugin-sass",
+    [
+      "docusaurus-plugin-sass",
+      {
+        sassOptions: {
+          silenceDeprecations: ["legacy-js-api", "import"],
+          quietDeps: true,
+        } satisfies SassOptions<"sync">,
+      },
+    ],
     [
       "@docusaurus/plugin-pwa",
       {

@@ -7,11 +7,11 @@
 |  2024-10-17  | [Générateur de site statique](/docs/cours/ssg)                 | [Générateur de site statique](/docs/seminaire/ssg) |
 |  2024-10-24  | _Vacances_                                                     | _Vacances_                                         |
 |  2024-10-31  | [JavaScript & TypeScript](/docs/cours/js-ts)                   | [JavaScript](/docs/seminaire/javascript)           |
-|  2024-11-07  | [Application Web](/docs/cours/app)                             |                                                    |
-|  2024-11-14  | Base de données                                                |                                                    |
-|  2024-11-21  | Backend & API                                                  |                                                    |
-|  2024-11-28  |                                                                |                                                    |
-|  2024-12-05  |                                                                |                                                    |
+|  2024-11-07  | [Application Web](/docs/cours/app)                             | [Projet](/docs/seminaire/projet)                   |
+|  2024-11-14  | Backend & API                                                  |                                                    |
+|  2024-11-21  | Base de données                                                |                                                    |
+|  2024-11-28  | SQL                                                            |                                                    |
+|  2024-12-05  | NoSQL                                                          |                                                    |
 |  2024-12-12  |                                                                |                                                    |
 |  2024-12-19  |                                                                |                                                    |
 |      ?       | Examen                                                         |                                                    |
