@@ -178,6 +178,7 @@ flowchart TD
 - Ne pas oublier de créer des commits et de les pousser sur le dépôt Git distant.
 - Pour publier votre aventure, vous pouvez utiliser [GitHub Pages](https://pages.github.com/).
   - Sur GitHub, dans le dépôt, aller dans `Settings` > `Pages` > Sous `Branch`, sélectionner `main` et `/ (root)`, puis cliquer sur `Save`.
+    - [Configuration d’une source de publication pour votre site GitHub Pages](https://docs.github.com/fr/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
   - Le site est maintenant accessible à l'adresse `https://hepl-bs21inf5.github.io/sem03-aventure-{pseudo}/`.
     - Revenir dans `Code` > Cliquer sur <i class="ph ph-gear"></i> à côté de `About` > Sous `Website`, cocher `Use your GitHub Pages website` pour voir votre lien.
   - Ajouter le lien dans le rapport.

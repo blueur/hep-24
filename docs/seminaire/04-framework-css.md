@@ -266,7 +266,9 @@ Utiliser [Horizontal alignment](https://getbootstrap.com/docs/5.3/layout/columns
   - Modifier les couleurs (avec `color picker` sur Google ou sur [Codes Couleur HTML](https://htmlcolorcodes.com/fr/) par exemple).
   - Liste complète des [variables](https://getbootstrap.com/docs/5.3/customize/css-variables/) disponibles.
 - Publier votre aventure sur GitHub Pages.
+  - [Configuration d’une source de publication pour votre site GitHub Pages](https://docs.github.com/fr/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
   - Créer un fichier vide `.nojekyll` à la racine du dépôt pour [désactiver Jekyll](https://docs.github.com/fr/pages/getting-started-with-github-pages/about-github-pages#static-site-generators).
+  - Le site devrait être accessible à l'adresse `https://hepl-bs21inf5.github.io/sem04-framework-css-{pseudo}/`.
   - Copier le lien de votre aventure dans le fichier `report.md`.
 
 :::info

@@ -237,6 +237,11 @@ Créer un commit et pousser les changements sur GitHub.
 
 Afin de pouvoir déployer le site sur GitHub Pages, il faudra d'abord générer les fichiers. On va automatiser ce processus avec [GitHub Actions](https://github.com/features/actions).
 
+Configurer GitHub Pages dans les paramètres du dépôt :
+
+- Sur GitHub, dans le dépôt, aller dans <i className="ph ph-gear"></i> `Settings` > `Pages` > Sous `Build and deployment` puis `Source`, sélectionner `GitHub Actions`.
+  - [Configuration d’une source de publication pour votre site GitHub Pages](https://docs.github.com/fr/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
 Dans le dépôt Git, créer un fichier `.github/workflows/deploy.yml` (avec les dossiers mentionnés) avec le contenu suivant :
 
 ```yaml title=".github/workflows/deploy.yml"
@@ -279,11 +284,15 @@ jobs:
 
 GitHub Actions va automatiquement générer le site et le déployer sur GitHub Pages à chaque push sur la branche `main`.
 
-Configurer GitHub Pages dans les paramètres du dépôt :
-
-- Sur GitHub, dans le dépôt, aller dans <i className="ph ph-gear"></i> `Settings` > `Pages` > Sous `Source`, sélectionner `GitHub Actions`.
-
 Ajouter le lien du site dans le fichier `report.md`.
+
+:::warning[Liens]
+
+Noter que le site sur GitHub Pages est accessible à l'adresse `https://hepl-bs21inf5.github.io/sem05-ssg-{pseudo]/`, le projet n'est donc plus à la racine de l'URL comme en local.
+
+Utiliser toujours des chemins relatifs pour les liens et les ressources. Une solution alternative serait d'utiliser un [plugin](https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix).
+
+:::
 
 ### Personnalisation
 
@@ -302,7 +311,7 @@ Ajouter le lien du site dans le fichier `report.md`.
       - Par exemple : `"image": "../../images/tresor.jpg"` juste après la propriété `description`.
     - Ajouter une balise `<img>` dans le template pour afficher l'image.
       - Par exemple : `<img src="{{ aventure.image }}" alt="{{ aventure.name }}" />`.
-    - Comme toutes les images se trouvent dans le dossier `images`, on mettre uniquement le nom du fichier dans la propriété `image` et adapter le chemin dans la balise `<img>`.
+    - Comme toutes les images se trouvent dans le dossier `images`, mettre uniquement le nom du fichier dans la propriété `image` et adapter le chemin dans la balise `<img>`.
   - Pas toutes les étapes nécessitent une image, utiliser les [conditions](https://mozilla.github.io/nunjucks/fr/templating.html#if) pour afficher l'image uniquement si elle existe.
 - Adapter l'aventure selon le votre. Vous devriez obtenir le même résultat qu'au séminaire précédent.
   - Pour ajouter du code CSS personnalisé, créer un fichier `styles.css` à la racine du projet et l'ajouter dans le fichier `base.njk`.
