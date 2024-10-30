@@ -167,6 +167,51 @@ for i in range(5):
 
 ---
 
+#### Sucre syntaxique (Syntactic sugar)
+
+- Une syntaxe **simplifiée** pour une tâche **existante**
+
+La boucle **for** :
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+```
+
+est un sucre syntaxique pour
+
+```javascript
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+```
+
+---
+
+#### Sucre syntaxique (Syntactic sugar)
+
+L'opérateur **ternaire** :
+
+```javascript
+const a = age > 18 ? "majeur" : "mineur";
+```
+
+est un sucre syntaxique pour
+
+```javascript
+let a;
+if (age > 18) {
+  a = "majeur";
+} else {
+  a = "mineur";
+}
+```
+
+---
+
 ### Fonctions
 
 JavaScript
@@ -211,6 +256,48 @@ const personne = {
 personne.dire_bonjour(); // Bonjour, Alice !
 personne.dire_age(); // J'ai undefined ans.
 // this n'existe pas dans les fonctions fléchées
+```
+
+---
+
+### Sucre syntaxique
+
+Affectation par décomposition (destructuring)
+
+```javascript
+const list = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = list;
+console.log(first, second, rest); // 1 2 [3, 4, 5]
+
+const user = {
+  id: 1291,
+  name: "Pierre",
+  email: "pierre@exemple.com",
+};
+const { name, ...rest } = user;
+console.log(name); // Pierre
+console.log(rest); // {id: 1291, email: "pierre@exemple.com"}
+```
+
+---
+
+### Sucre syntaxique
+
+Syntaxe de décomposition
+
+```javascript
+var articulations = ["épaules", "genoux"];
+var corps = ["têtes", ...articulations, "bras", "pieds"];
+// ["têtes", "épaules", "genoux", "bras", "pieds"]
+
+var profil = { prenom: "Sarah", profilComplet: false };
+var profilMisAJour = { nom: "Dupont", profilComplet: true };
+
+var clone = { ...profil };
+// Object { prenom: 'Sarah', profilComplet: false }
+
+var fusion = { ...profil, ...profilMisAJour };
+// Object { prenom: 'Sarah', nom: 'Dupont', profilComplet: true };
 ```
 
 ---
@@ -297,7 +384,7 @@ https://jaydevs.com/javascript-vs-typescript/ <!-- .element: class="reference" -
 ## TypeScript
 
 - &shy;<!-- .element: class="fragment" --> **Sur-ensemble** de JavaScript
-  - Tout code JavaScript est valide en TypeScript
+  - Tout code JavaScript est syntaxiquement correct en TypeScript (mais pas type-checked)
 - &shy;<!-- .element: class="fragment" --> **Paradigmes** : comme JavaScript
 - &shy;<!-- .element: class="fragment" --> **Typage statique** (déclaration des types), &ne; typage dynamique de JavaScript ou Python
 - &shy;<!-- .element: class="fragment" --> **Typage fort** (pas de conversion automatique), &ne; typage faible de JavaScript (`4 + "2" = "42"`)

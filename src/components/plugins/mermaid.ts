@@ -34,7 +34,7 @@ export default () => ({
           )
           .then(({ svg }) => {
             const div = document.createElement("div");
-            element.classList.remove("hljs", "language-coq");
+            element.classList.remove("hljs");
             if (element.classList.length > 0) {
               div.classList.add(...Array.from(element.classList));
             }

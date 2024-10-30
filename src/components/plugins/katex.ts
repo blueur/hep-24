@@ -9,7 +9,7 @@ export default () => ({
     (reveal.getSlidesElement()?.querySelectorAll("code.katex") ?? []).forEach(
       (element: Element) => {
         const div = document.createElement("span");
-        element.classList.remove("katex", "hljs", "language-apache");
+        element.classList.remove("katex", "hljs");
         if (element.classList.length > 0) {
           div.classList.add(...Array.from(element.classList));
         }

@@ -5,6 +5,7 @@ import "@site/src/css/reveal.scss";
 
 import Footer from "@site/src/components/plugins/footer";
 import Katex from "@site/src/components/plugins/katex";
+import Kroki from "@site/src/components/plugins/kroki";
 import Link from "@site/src/components/plugins/link";
 import Mermaid from "@site/src/components/plugins/mermaid";
 import Toc from "@site/src/components/plugins/toc";
@@ -37,6 +38,7 @@ export default class Reaveal extends React.Component<{
             highlight.default,
             Footer,
             Katex,
+            Kroki,
             Link,
             Mermaid,
             Toc,
