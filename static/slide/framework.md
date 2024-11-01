@@ -48,6 +48,12 @@ graph LR
 
 ---
 
+![](https://imgs.xkcd.com/comics/dependency.png) <!-- .element: class="full" -->
+
+https://xkcd.com/2347/ <!-- .element: class="reference" -->
+
+---
+
 ### Patron de conception (design pattern)
 
 - Aussi appelés **modèles de conception**
