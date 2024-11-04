@@ -8,10 +8,10 @@
 |  2024-10-24  | _Vacances_                                                     | _Vacances_                                         |
 |  2024-10-31  | [JavaScript & TypeScript](/docs/cours/js-ts)                   | [JavaScript](/docs/seminaire/javascript)           |
 |  2024-11-07  | [Application Web](/docs/cours/app)                             | [Projet](/docs/seminaire/projet)                   |
-|  2024-11-14  | [Architecture trois tiers](/docs/cours/architecture)           |                                                    |
-|  2024-11-21  | Base de données                                                |                                                    |
+|  2024-11-14  | [Architecture trois tiers](/docs/cours/architecture)           | [Projet](/docs/seminaire/projet)                   |
+|  2024-11-21  | [Base de données](/docs/cours/database)                        | [Projet](/docs/seminaire/projet)                   |
 |  2024-11-28  | SQL                                                            |                                                    |
 |  2024-12-05  | NoSQL                                                          |                                                    |
-|  2024-12-12  |                                                                |                                                    |
-|  2024-12-19  |                                                                |                                                    |
+|  2024-12-12  | Optimisation                                                   |                                                    |
+|  2024-12-19  | Révision                                                       |                                                    |
 |      ?       | Examen                                                         |                                                    |
