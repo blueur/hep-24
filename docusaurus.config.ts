@@ -15,7 +15,9 @@ const config: Config = {
     defaultLocale: "fr",
     locales: ["fr"],
   },
-
+  future: {
+    experimental_faster: true,
+  },
   plugins: [
     [
       "docusaurus-plugin-sass",
@@ -54,8 +56,6 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  themes: ["@docusaurus/theme-mermaid"],
-
   presets: [
     [
       "classic",
@@ -75,7 +75,7 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
+  themes: ["@docusaurus/theme-mermaid"],
   themeConfig: {
     navbar: {
       title: "BS21INF5",
