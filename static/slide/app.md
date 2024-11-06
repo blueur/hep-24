@@ -18,11 +18,15 @@ Programmation Web et bases de données
 
 ## SPA
 
-![](https://upload.wikimedia.org/wikipedia/commons/1/18/Single-vs-multi-site.png) <!-- .element: class="half" -->
+![](https://upload.wikimedia.org/wikipedia/commons/1/18/Single-vs-multi-site.png) <!-- .element: class="full" -->
 
 <p class="reference">
   <a href="https://commons.wikimedia.org/wiki/File:Single-vs-multi-site.png">Inseritore</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 </p>
+
+---
+
+## SPA
 
 - &shy;<!-- .element: class="fragment" --> **Single Page Application** (application monopage)
 - &shy;<!-- .element: class="fragment" --> Chargement **dynamique** des contenus

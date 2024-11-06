@@ -11,3 +11,14 @@ Programmation Web et bases de données
 ## PostgreSQL
 
 ---
+
+## ACID
+
+- Atomicité
+- Cohérence
+- Isolation
+- Durabilité
+
+---
+
+## Théorème CAP
