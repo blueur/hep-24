@@ -183,6 +183,15 @@ Créer un répertoire pour le cours (par exemple un dossier `bs21inf5` dans le d
   git push
   ```
 
+## Configuration
+
+- Configurer votre ordinateur pour qu'il affiche les extensions des fichiers
+  - macOS : Finder > Préférences > Avancé > Cocher "Afficher toutes les extensions de fichier"
+  - Windows : Explorer > Affichage > Options > Modifier les options des dossiers et de recherche > Affichage > Décocher "Masquer les extensions des fichiers dont le type est connu"
+- Configurer votre ordinateur pour qu'il affiche les fichiers cachés
+  - macOS : Finder > <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>.</kbd>
+  - Windows : Explorer > Affichage > Options > Modifier les options des dossiers et de recherche > Affichage > Cocher "Afficher les fichiers, dossiers et lecteurs cachés"
+
 ## Présentation
 
 - Écrire une brève présentation de soi avec ses centres d'intérêt, ses compétences en informatique, pourquoi avoir choisi cette formation, etc.

@@ -309,9 +309,14 @@ app.mount("#app");
   - Combien de pattes a un chat ?
   - Quelle est la capitale de la Suisse ?
 - Proposer quatre réponses possibles pour chaque question.
-- Afficher le score à la fin du quiz.
+- Afficher le score à la fin du quiz (mettre la logique du calcul dans la fonction `submit`, juste après le `event.preventDefault();`).
 - Afficher un message de félicitations si le score est parfait.
 - Ajouter un bouton pour réinitialiser le quiz.
+  - Ajouter un bouton dans `QuizForm.vue` :
+    ```html
+    <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
+    ```
+  - Votre bouton va appeler une fonction `reset` qu'il faudra créer.
 - Modifier la couleur des `.btn-primary` dans `main.css`.
 - Changer les icônes dans la bar de navigation (en haut) en utilisant [Bootstrap Icons](https://icons.getbootstrap.com/).
 
