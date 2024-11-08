@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.4.0",
-    "@docusaurus/faster": "^3.5.2",
+    "@docusaurus/faster": "^3.6.0",
     "@docusaurus/plugin-pwa": "^3.6.0",
     "@docusaurus/preset-classic": "^3.6.0",
     "@docusaurus/theme-mermaid": "^3.6.0",
