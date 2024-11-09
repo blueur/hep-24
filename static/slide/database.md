@@ -60,37 +60,44 @@ Programmation Web et bases de données
 - Entity–relationship model (ER model)
 - &shy;<!-- .element: class="fragment" --> Une **représentation** graphique d'une base de données relationnelle (**modélisation** conceptuelle)
 
-![](https://upload.wikimedia.org/wikipedia/commons/3/36/MCD-Relation-Example.svg) <!-- .element: class="full-width fragment" -->
+```kroki plantuml half fragment
+@startuml
+entity Artiste {
+}
+entity Chanson {
+}
 
-<p class="reference">
-  <a href="https://commons.wikimedia.org/wiki/File:MCD-Relation-Example.svg">Qwertyuu</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
-</p>
-
----
-
-### Entité
-
-```mermaid
-erDiagram
-  ARTISTE {
-    int    id                PK
-    string nom                  "NOT NULL"
-    string nom_de_scene
-    date   date_de_naissance    "NOT NULL"
-  }
+Artiste ||..|{ Chanson
+@enduml
 ```
 
 ---
 
 ### Entité
 
-- _Entité_ : ARTISTE
+```kroki plantuml full
+@startuml
+entity Artiste {
+  *id : number <<generated>>
+  --
+  *nom : text
+  nom_de_scene : text
+  *date_de_naissance : date
+}
+@enduml
+```
+
+---
+
+### Entité
+
+- _Entité_ : Artiste
   - Qui/Quoi ?
-- &shy;<!-- .element: class="fragment" --> _Attributs_ : nom, nom_de_scene, date_de_naissance
-  - Quelles sont ses propriétés/caractéristiques ?
-  - **NOT NULL** : attribut obligatoire
 - &shy;<!-- .element: class="fragment" --> _Clé primaire_ (Primary key, _PK_) : id
   - Comment l'identifier de manière unique ?
+- &shy;<!-- .element: class="fragment" --> _Attributs_ : nom, nom_de_scene, date_de_naissance
+  - Quelles sont ses propriétés/caractéristiques ?
+  - Obligatoire (nom, date_de_naissance) ou facultatif (nom_de_scene).
 - &shy;<!-- .element: class="fragment" --> Exemples :
   | id | nom | nom_de_scene | date_de_naissance |
   | :-: | ---------------- | ----------------- | ----------------- |
@@ -101,14 +108,16 @@ erDiagram
 
 ### Limitation(s) ?
 
-```mermaid half
-erDiagram
-  ARTISTE {
-    int    id                PK
-    string nom                  "NOT NULL"
-    string nom_de_scene
-    date   date_de_naissance    "NOT NULL"
-  }
+```kroki plantuml half
+@startuml
+entity Artiste {
+  *id : number <<generated>>
+  --
+  *nom : text
+  nom_de_scene : text
+  *date_de_naissance : date
+}
+@enduml
 ```
 
 - &shy;<!-- .element: class="fragment" --> Nom réel inconnu ? (ex. Daft Punk)
@@ -118,21 +127,24 @@ erDiagram
 
 ### Association
 
-```mermaid
-erDiagram
-  ARTISTE {
-    int    id                PK
-    string nom                  "NOT NULL"
-    string nom_de_scene
-    date   date_de_naissance    "NOT NULL"
-  }
-  CHANSON {
-    int    id                PK
-    string titre                "NOT NULL"
-    int    secondes             "NOT NULL"
-    string artiste_id        FK
-  }
-  ARTISTE ||--o{ CHANSON : joue
+```kroki plantuml full
+@startuml
+entity Artiste {
+  *id : number <<generated>>
+  --
+  *nom : text
+  nom_de_scene : text
+  *date_de_naissance : date
+}
+entity Chanson {
+  *id : number <<generated>>
+  --
+  *titre : text
+  *secondes : number
+  *artiste_id : number <<FK>>
+}
+Artiste ||..|{ Chanson
+@enduml
 ```
 
 ---
@@ -147,14 +159,14 @@ https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning <!-- .element: c
 
 #### One-to-Many
 
-Exemple : ARTISTE joue CHANSON
+Exemple : Artiste joue Chanson
 
-- &shy;<!-- .element: class="fragment" --> **Relation** entre les entités ARTISTE et CHANSON
-  - Chaque ARTIST peut jouer **plusieurs** CHANSON
-  - Chaque CHANSON est jouée par **un seul** ARTISTE
+- &shy;<!-- .element: class="fragment" --> **Relation** entre les entités Artiste et Chanson
+  - Chaque ARTIST peut jouer **plusieurs** Chanson
+  - Chaque Chanson est jouée par **un seul** Artiste
 - &shy;<!-- .element: class="fragment" --> **Clé étrangère** (Foreign key, **FK**) : artiste_id
-  - &shy;<!-- .element: class="fragment" --> **Référence** à la clé primaire de l'entité ARTISTE
-- &shy;<!-- .element: class="fragment" --> CHANSON
+  - &shy;<!-- .element: class="fragment" --> **Référence** à la clé primaire de l'entité Artiste
+- &shy;<!-- .element: class="fragment" --> Chanson
   | id | titre | secondes | artiste_id |
   | :-: | ---------------------- | -------- | ---------- |
   | 1 | "Arrietty's Song" | 206 | 2 |
@@ -169,11 +181,11 @@ Exemple : ARTISTE joue CHANSON
 
 Si plusieurs artistes jouent la même chanson ?
 
-- &shy;<!-- .element: class="fragment" --> Chaque ARTISTE peut jouer **plusieurs** CHANSON
-- &shy;<!-- .element: class="fragment" --> Chaque CHANSON peut être jouée par **plusieurs** ARTISTE
+- &shy;<!-- .element: class="fragment" --> Chaque Artiste peut jouer **plusieurs** Chanson
+- &shy;<!-- .element: class="fragment" --> Chaque Chanson peut être jouée par **plusieurs** Artiste
 - &shy;<!-- .element: class="fragment" --> Utilisation d'un **table de liaison** (ou table de jointure)
-  - One-to-Many entre ARTISTE et la table de liaison ARTISTE_CHANSON
-  - One-to-Many entre CHANSON et la table de liaison ARTISTE_CHANSON
+  - One-to-Many entre Artiste et la table de liaison Artiste_Chanson
+  - One-to-Many entre Chanson et la table de liaison Artiste_Chanson
   - La table de liaison est composée de deux **clés** étrangères
 
 ![](https://sqlmodel.tiangolo.com/img/tutorial/many-to-many/many-to-many.svg) <!-- .element: class="fragment" -->
@@ -202,6 +214,43 @@ Exemple : PAYS a CAPITALE
 
 ---
 
+#### Exemples
+
+<div class="columns">
+<div>
+
+```kroki plantuml full
+@startuml
+entity "Classe" {
+}
+entity "Directeur·ice" {
+}
+entity "École" {
+}
+entity "Enseignant·e" {
+}
+
+"Enseignant·e" }|..o{ "Classe"
+"Classe" }|..|| "École"
+"École" |o..|| "Directeur·ice"
+@enduml
+```
+
+</div>
+<div>
+
+- &shy;<!-- .element: class="fragment" --> Chaque **classe** peut être enseignée par un·e ou plusieurs **enseignants**
+- &shy;<!-- .element: class="fragment" --> Chaque **enseignant·e** peut avoir zéro, une ou plusieurs **classes**
+- &shy;<!-- .element: class="fragment" --> Chaque **école** a une ou plusieurs **classes**
+- &shy;<!-- .element: class="fragment" --> Chaque **classe** appartient à une **école**
+- &shy;<!-- .element: class="fragment" --> Chaque **directeur·ice** gère zéro ou une **école**
+- &shy;<!-- .element: class="fragment" --> Chaque **école** a un·e **directeur·ice**
+
+</div>
+</div>
+
+---
+
 ### Résumé
 
 - _Entité_
@@ -210,8 +259,23 @@ Exemple : PAYS a CAPITALE
   - &shy;<!-- .element: class="fragment" --> **Relation** entre les entités (clé étrangère)
 - _Attribut_
   - &shy;<!-- .element: class="fragment" --> **Propriété** d'une entité (colonne)
-  - &shy;<!-- .element: class="fragment" --> **NOT NULL** : attribut obligatoire
 - _Clé primaire_ (PK)
   - &shy;<!-- .element: class="fragment" --> Attribut **unique** identifiant un élément de l'entité
 - _Clé étrangère_ (FK)
   - &shy;<!-- .element: class="fragment" --> Attribut faisant **référence** à une clé primaire d'une autre entité
+
+---
+
+### Notation
+
+```kroki plantuml full
+@startuml
+entity Entité {
+  * cle_primaire
+  --
+  * attribut_obligatoire
+  attribut_facultatif
+  cle_etrangere <<FK>>
+}
+@enduml
+```

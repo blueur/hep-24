@@ -1,4 +1,4 @@
-# HTML & CSS
+# 02 HTML & CSS
 
 :::note[Objectifs]
 

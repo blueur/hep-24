@@ -22,32 +22,29 @@ export default () => ({
       ...mermaidConfig,
     });
 
-    const mermaidElements =
-      reveal.getRevealElement()?.querySelectorAll(".reveal pre code.mermaid") ??
-      [];
-    mermaidElements.forEach((element: Element) => {
-      try {
-        mermaid
-          .render(
-            `mermaid-${Math.random().toString(36).substring(2)}`,
-            element.textContent?.trim() ?? "",
-          )
-          .then(({ svg }) => {
-            const div = document.createElement("div");
-            element.classList.remove("hljs");
-            if (element.classList.length > 0) {
-              div.classList.add(...Array.from(element.classList));
-            }
-            div.innerHTML = svg;
+    reveal
+      .getRevealElement()
+      ?.querySelectorAll(".reveal pre code.mermaid")
+      .forEach((element: Element, key: number) => {
+        try {
+          mermaid
+            .render(`mermaid-reveal-${key}`, element.textContent?.trim() ?? "")
+            .then(({ svg }) => {
+              const div = document.createElement("div");
+              element.classList.remove("hljs");
+              if (element.classList.length > 0) {
+                div.classList.add(...Array.from(element.classList));
+              }
+              div.innerHTML = svg;
 
-            const pre = element.parentElement;
-            pre?.parentNode?.replaceChild(div, pre);
+              const pre = element.parentElement;
+              pre?.parentNode?.replaceChild(div, pre);
 
-            window.dispatchEvent(new Event("resize"));
-          });
-      } catch (error) {
-        element.innerHTML = error.str;
-      }
-    });
+              window.dispatchEvent(new Event("resize"));
+            });
+        } catch (error) {
+          element.innerHTML = error.str;
+        }
+      });
   },
 });

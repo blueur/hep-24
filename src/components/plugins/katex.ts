@@ -6,8 +6,10 @@ export default () => ({
   init: (reveal: Api) => {
     const revealOptions = reveal.getConfig().katex;
 
-    (reveal.getSlidesElement()?.querySelectorAll("code.katex") ?? []).forEach(
-      (element: Element) => {
+    reveal
+      .getSlidesElement()
+      ?.querySelectorAll("code.katex")
+      .forEach((element: Element) => {
         const div = document.createElement("span");
         element.classList.remove("katex", "hljs");
         if (element.classList.length > 0) {
@@ -21,7 +23,6 @@ export default () => ({
           throwOnError: false,
           ...revealOptions,
         });
-      },
-    );
+      });
   },
 });

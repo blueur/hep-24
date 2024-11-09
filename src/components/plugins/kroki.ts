@@ -17,39 +17,39 @@ function textEncode(str: string) {
 export default () => ({
   id: "kroki",
   init: (reveal: Api) => {
-    const elements =
-      reveal.getRevealElement()?.querySelectorAll(".reveal pre code.kroki") ??
-      [];
-    elements.forEach((element: Element) => {
-      element.classList.remove("hljs", "kroki");
+    reveal
+      .getRevealElement()
+      ?.querySelectorAll(".reveal pre code.kroki")
+      .forEach((element: Element) => {
+        element.classList.remove("hljs");
 
-      const diagramSource = element.textContent;
-      const result = btoa(
-        String.fromCodePoint(
-          ...deflate(textEncode(diagramSource), {
-            level: 9,
-          }),
-        ),
-      )
-        .replace(/\+/g, "-")
-        .replace(/\//g, "_");
+        const diagramSource = element.textContent;
+        const result = btoa(
+          String.fromCodePoint(
+            ...deflate(textEncode(diagramSource), {
+              level: 9,
+            }),
+          ),
+        )
+          .replace(/\+/g, "-")
+          .replace(/\//g, "_");
 
-      const diagram = element.classList[0];
-      element.classList.remove(diagram);
-      // https://docs.kroki.io/kroki/setup/diagram-options/
-      let params = "";
-      switch (diagram) {
-        case "plantuml":
-          params = "?theme=plain";
-          break;
-      }
+        const diagram = element.classList[1];
+        element.classList.remove(diagram);
+        // https://docs.kroki.io/kroki/setup/diagram-options/
+        let params = "";
+        switch (diagram) {
+          case "plantuml":
+            params = "?theme=plain";
+            break;
+        }
 
-      const img = document.createElement("img");
-      img.src = `https://kroki.io/${diagram}/svg/${result}${params}`;
-      img.classList.add(...Array.from(element.classList));
+        const img = document.createElement("img");
+        img.src = `https://kroki.io/${diagram}/svg/${result}${params}`;
+        img.classList.add(...Array.from(element.classList));
 
-      const pre = element.parentElement;
-      pre.parentNode.replaceChild(img, pre);
-    });
+        const pre = element.parentElement;
+        pre.parentNode.replaceChild(img, pre);
+      });
   },
 });

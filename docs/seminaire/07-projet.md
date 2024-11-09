@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Projet
+# 07 Projet
 
 :::note[Objectifs]
 

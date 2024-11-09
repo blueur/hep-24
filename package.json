@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.4.0",
-    "@docusaurus/faster": "^3.6.0",
-    "@docusaurus/plugin-pwa": "^3.6.0",
-    "@docusaurus/preset-classic": "^3.6.0",
-    "@docusaurus/theme-mermaid": "^3.6.0",
+    "@docusaurus/faster": "^3.6.1",
+    "@docusaurus/plugin-pwa": "^3.6.1",
+    "@docusaurus/preset-classic": "^3.6.1",
+    "@docusaurus/theme-mermaid": "^3.6.1",
     "@fontsource-variable/inconsolata": "^5.1.0",
     "@mdx-js/react": "^3.1.0",
     "@phosphor-icons/web": "^2.1.1",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.4.0",
-    "@docusaurus/tsconfig": "^3.6.0",
+    "@docusaurus/tsconfig": "^3.6.1",
     "@docusaurus/types": "^3.4.0",
     "@types/katex": "^0.16.7",
     "@types/pako": "^2.0.3",

@@ -1,4 +1,4 @@
-# JavaScript
+# 06 JavaScript
 
 :::note[Objectifs]
 
