@@ -10,8 +10,8 @@
 |  2024-11-07  |   07    | [Application Web](/docs/cours/app)                             | [Projet](/docs/seminaire/projet)                   |
 |  2024-11-14  |   08    | [Architecture trois tiers](/docs/cours/architecture)           | [Projet](/docs/seminaire/projet)                   |
 |  2024-11-21  |   09    | [Base de données](/docs/cours/database)                        | [Projet](/docs/seminaire/projet)                   |
-|  2024-11-28  |   10    | [SQL](/docs/cours/sql)                                         |                                                    |
-|  2024-12-05  |   11    | NoSQL                                                          |                                                    |
-|  2024-12-12  |   12    | Optimisation                                                   |                                                    |
-|  2024-12-19  |   13    | Révision                                                       |                                                    |
+|  2024-11-28  |   10    | [SQL](/docs/cours/sql)                                         | [Projet](/docs/seminaire/projet)                   |
+|  2024-12-05  |   11    | [Optimisation](/docs/cours/optimisation)                       | [Projet](/docs/seminaire/projet)                   |
+|  2024-12-12  |   12    | [NoSQL](/docs/cours/nosql)                                     | [Projet](/docs/seminaire/projet)                   |
+|  2024-12-19  |   13    | [Révision](/docs/cours/revision)                               | [Projet](/docs/seminaire/projet)                   |
 |      ?       |         | Examen                                                         |                                                    |

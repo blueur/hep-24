@@ -346,3 +346,27 @@ Aidez-vous des documentations officielles pour réaliser le projet :
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
 
 :::
+
+## Évaluation
+
+L'évaluation du projet se portera sur les critères suivants :
+
+- Rapport
+  - [ ] **Le journal de bord est à jour et complet.**
+  - [ ] _Le journal de bord est bien structuré et synthétique._
+- Fonctionnalités
+  - [ ] **L'application a les mêmes fonctionnalités que l'exemple.**
+  - [ ] **L'application est personnalisée.**
+  - [ ] _Bootstrap est correctement utilisé pour rendre l'application responsive._
+  - [ ] _L'application a plus de fonctionnalités que l'exemple._
+- Code
+  - [ ] **Le code suit les conventions de codage (formatage, nommage, organisation, &hellip;).**
+  - [ ] **Le code est lisible et maintenable (nommage, commentaires, &hellip;).**
+  - [ ] _Le code est bien structuré (composants, design pattern, &hellip;)._
+
+|            Note            | &nbsp;1&nbsp; | &nbsp;2&nbsp; | 2.5 | &nbsp;3&nbsp; | 3.5 | &nbsp;4&nbsp; | 4.5 | &nbsp;5&nbsp; | 5.5 | &nbsp;6&nbsp; |
+| :------------------------: | :-----------: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: |
+| Nombre de critères validés |       0       |       1       |  2  |       3       |  4  |       5       |  6  |       7       |  8  |       9       |
+
+- **En gras** : critères principaux.
+- _En italique_ : critères secondaires.

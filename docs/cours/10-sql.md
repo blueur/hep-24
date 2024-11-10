@@ -4,7 +4,7 @@
 
 :::note[Objectifs]
 
-Comment gérer les données ?
+Comment manipuler les données ?
 
 :::
 
