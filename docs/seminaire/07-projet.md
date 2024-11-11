@@ -249,7 +249,7 @@ app.mount("#app");
 </script>
 
 <template>
-  <form @submit="submit">
+  <form>
     De quelle couleur est le cheval blanc de Napoléon ?
     <div class="form-check">
       <input
@@ -287,7 +287,7 @@ app.mount("#app");
     <button
       class="btn btn-primary"
       :class="{ disabled: !filled }"
-      type="submit"
+      @click="submit"
     >
       Terminer
     </button>
@@ -299,7 +299,7 @@ app.mount("#app");
 </Tabs>
 
 - Vérifier que l'application fonctionne correctement.
-  - Voici le [code source](https://github.com/blueur/quiz) et le [site web](https://blueur.github.io/quiz/).
+  - Voici le [code source](https://github.com/blueur/quiz/tree/week/1-init) et le [site web final](https://blueur.github.io/quiz/).
 - Ne pas oublier de faire régulièrement des commits à chaque fois qu'on a un état stable du projet (code fonctionnel, comme ici).
 
 ### Quiz
@@ -319,6 +319,7 @@ app.mount("#app");
   - Votre bouton va appeler une fonction `reset` qu'il faudra créer.
 - Modifier la couleur des `.btn-primary` dans `main.css`.
 - Changer les icônes dans la bar de navigation (en haut) en utilisant [Bootstrap Icons](https://icons.getbootstrap.com/).
+- Voici le [code source](https://github.com/blueur/quiz/tree/week/1-final) avec les modifications principales.
 
 ### Rapport
 
@@ -336,6 +337,165 @@ app.mount("#app");
     - Que se passe-t-il lorsqu'on clique sur le bouton "Terminer" ?
     - Qu'est-ce qu'un `v-model` ?
     - À quoi sert le `:class="{ disabled: !filled }"` ?
+
+## Semaine 2 (14.11-20.11)
+
+### QuestionRadio
+
+C'est fastidieux de devoir répéter les mêmes étapes pour chaque question. On va donc créer un composant pour les questions : `QuestionRadio.vue`.
+
+Commencer par définir comment on voudrait que le composant fonctionne. On pourrait vouloir remplacer chaque question par un composant `QuestionRadio` :
+
+```html
+<template>
+  <form>
+    <QuestionRadio
+      v-model="cheval"
+      text="De quelle couleur est le cheval blanc de Napoléon ?"
+      name="cheval"
+      :options="[
+        { name: 'blanc', text: 'Blanc' },
+        { name: 'brun', text: 'Brun' },
+        { name: 'noir', text: 'Noir' },
+      ]"
+    />
+    ...
+  </form>
+</template>
+```
+
+- Le composant `QuestionRadio` doit recevoir les propriétés suivantes :
+  - `v-model` : la valeur de la réponse (bi-directionnel, car on veut pouvoir modifier la réponse depuis le composant parent lorsqu'on clique sur le bouton "Réinitialiser" et récupérer la réponse depuis le composant parent pour calculer le score).
+  - `text` : le texte de la question.
+  - `name` : un identifiant unique pour le groupe de boutons radio.
+  - `options` : un tableau d'objets pour les options de réponse. Chaque objet doit avoir une propriété `name` pour la valeur de la réponse et une propriété `text` pour le texte affiché de l'option.
+- Ne pas oublier d'importer le nouveau composant dans `QuizForm.vue` :
+  ```html
+  <script setup lang="ts">
+    import QuestionRadio from "@/components/QuestionRadio.vue";
+    ...
+  </script>
+  ```
+
+Créer le fichier `QuestionRadio.vue` dans le dossier `src/components` :
+
+```html title="src/components/QuestionRadio.vue" showLineNumbers
+<script setup lang="ts">
+  import { defineModel, defineProps, type PropType } from "vue";
+
+  const model = defineModel<string | null>();
+  const props = defineProps({
+    name: { type: String, required: true },
+    text: { type: String, required: true },
+    options: {
+      type: Array as PropType<Array<{ name: string; text: string }>>,
+      required: true,
+    },
+  });
+</script>
+
+<template>
+  {{ props.text }}
+  <div v-for="option in props.options" :key="option.name" class="form-check">
+    <input
+      :id="`${props.name}-${option.name}`"
+      v-model="model"
+      class="form-check-input"
+      type="radio"
+      :name="props.name"
+      :value="option.name"
+    />
+    <label class="form-check-label" :for="`${props.name}-${option.name}`">
+      {{ option.text }}
+    </label>
+  </div>
+</template>
+```
+
+- Dans la partie `<script>`, on utilise les fonctions `defineModel` et `defineProps` pour définir le modèle (`v-model`) et les propriétés (`text`, `name`, `options`) du composant.
+- Dans la partie `<template>` :
+  - On affiche le texte de la question : `{{ props.text }}`.
+  - On affiche les options de réponse en utilisant une boucle `v-for` sur `props.options` : le `<div>` sera répété pour chaque option.
+  - La différence entre les attributs qui commencent par `:` et ceux qui ne commencent pas par `:` est que les premiers sont des expressions JavaScript (interprétées) et les seconds sont des chaînes de caractères (non interprétées).
+
+### QuestionText
+
+De manière similaire, créer un composant `QuestionText.vue` pour les questions à réponse textuelle libre. Voici un code qu'on voudrait extraire dans le composant `QuestionText.vue` :
+
+```html
+<label for="exampleFormControlInput" class="form-label">
+  Combien de pattes a un chat ?
+</label>
+<input
+  v-model="reponse"
+  class="form-control"
+  id="exampleFormControlInput"
+  placeholder="Veuillez saisir un nombre"
+/>
+```
+
+Et on souhaiterait l'utiliser comme ceci dans `QuizForm.vue` :
+
+```html
+<QuestionText
+  v-model="reponse"
+  text="Combien de pattes a un chat ?"
+  placeholder="Veuillez saisir un nombre"
+/>
+```
+
+:::info[Question rapport]
+
+Comment rendre la propriété `placeholder` optionnelle ?
+
+:::
+
+Documentation : [Vue.js](https://fr.vuejs.org/guide/essentials/forms#text) + [Bootstrap](https://getbootstrap.com/docs/5.3/forms/form-control/).
+
+### QuestionCheckbox
+
+Les checkboxes sont comme les radios, mais on peut en sélectionner plusieurs. Créer un composant `QuestionCheckbox.vue` pour les questions à choix multiples. Voici un exemple d'utilisation :
+
+```html
+<div class="form-check">
+  <input
+    id="checkboxJane"
+    v-model="checkedNames"
+    class="form-check-input"
+    type="checkbox"
+    value="Jane"
+  />
+  <label class="form-check-label" for="checkboxJane">Jane</label>
+</div>
+<div class="form-check">
+  <input
+    id="checkboxJohn"
+    v-model="checkedNames"
+    class="form-check-input"
+    type="checkbox"
+    value="John"
+  />
+  <label class="form-check-label" for="checkboxJohn">John</label>
+</div>
+```
+
+Noter que comme la réponse est une liste, il faut initialiser la `ref` avec une liste vide :
+
+```js
+const checkedNames = ref([]);
+```
+
+Documentation : [Vue.js](https://fr.vuejs.org/guide/essentials/forms#checkbox) + [Bootstrap](https://getbootstrap.com/docs/5.3/forms/checks-radios/#checks).
+
+## Semaine 3 (21.11-27.11)
+
+## Semaine 4 (28.11-04.12)
+
+## Semaine 5 (05.12-11.12)
+
+## Semaine 6 (12.12-18.12)
+
+## Aides
 
 :::tip[Documentations]
 

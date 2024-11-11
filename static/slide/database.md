@@ -101,7 +101,7 @@ entity Artiste {
 - &shy;<!-- .element: class="fragment" --> Exemples :
   | id | nom | nom_de_scene | date_de_naissance |
   | :-: | ---------------- | ----------------- | ----------------- |
-  | 1 | "Phanee de Pool" | "Fanny Diercksen" | 1984-06-06 |
+  | 1 | "Fanny Diercksen" | "Phanee de Pool" | 1984-06-06 |
   | 2 | "Cécile Corbel" | | 1980-03-28 |
 
 ---
@@ -162,7 +162,7 @@ https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning <!-- .element: c
 Exemple : Artiste joue Chanson
 
 - &shy;<!-- .element: class="fragment" --> **Relation** entre les entités Artiste et Chanson
-  - Chaque ARTIST peut jouer **plusieurs** Chanson
+  - Chaque Artiste peut jouer **plusieurs** Chanson
   - Chaque Chanson est jouée par **un seul** Artiste
 - &shy;<!-- .element: class="fragment" --> **Clé étrangère** (Foreign key, **FK**) : artiste_id
   - &shy;<!-- .element: class="fragment" --> **Référence** à la clé primaire de l'entité Artiste
@@ -196,17 +196,17 @@ https://sqlmodel.tiangolo.com/tutorial/many-to-many/create-models-with-link/ <!-
 
 #### One-to-One
 
-Exemple : PAYS a CAPITALE
+Exemple : Pays a Capitale
 
-- &shy;<!-- .element: class="fragment" --> **Relation** entre les entités PAYS et CAPITALE
-  - Chaque PAYS a **une seule** CAPITALE
-  - Chaque CAPITALE est la capitale d'**un seul** PAYS
-- &shy;<!-- .element: class="fragment" --> Peut être **fusionné** en une seule entité : PAYS
+- &shy;<!-- .element: class="fragment" --> **Relation** entre les entités Pays et Capitale
+  - Chaque Pays a **une seule** Capitale
+  - Chaque Capitale est la capitale d'**un seul** Pays
+- &shy;<!-- .element: class="fragment" --> Peut être **fusionné** en une seule entité : Pays
   | id | nom | capitale |
   | :-: | ---------------- | ---------- |
   | 1 | "Suisse" | "Berne" |
   | 2 | "France" | "Paris" |
-- &shy;<!-- .element: class="fragment" --> **Clé étrangère** unique dans une des deux entités : CAPITALE
+- &shy;<!-- .element: class="fragment" --> **Clé étrangère** unique dans une des deux entités : Capitale
   | id | nom | pays_id |
   | :-: | ---------------- | -------- |
   | 42 | "Berne" | 1 |
