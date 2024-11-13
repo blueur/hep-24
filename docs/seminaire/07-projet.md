@@ -350,13 +350,13 @@ Commencer par définir comment on voudrait que le composant fonctionne. On pourr
 <template>
   <form>
     <QuestionRadio
+      id="cheval"
       v-model="cheval"
       text="De quelle couleur est le cheval blanc de Napoléon ?"
-      name="cheval"
       :options="[
-        { name: 'blanc', text: 'Blanc' },
-        { name: 'brun', text: 'Brun' },
-        { name: 'noir', text: 'Noir' },
+        { value: 'blanc', text: 'Blanc' },
+        { value: 'brun', text: 'Brun' },
+        { value: 'noir', text: 'Noir' },
       ]"
     />
     ...
@@ -366,9 +366,9 @@ Commencer par définir comment on voudrait que le composant fonctionne. On pourr
 
 - Le composant `QuestionRadio` doit recevoir les propriétés suivantes :
   - `v-model` : la valeur de la réponse (bi-directionnel, car on veut pouvoir modifier la réponse depuis le composant parent lorsqu'on clique sur le bouton "Réinitialiser" et récupérer la réponse depuis le composant parent pour calculer le score).
+  - `id` : un identifiant unique pour le groupe de boutons radio.
   - `text` : le texte de la question.
-  - `name` : un identifiant unique pour le groupe de boutons radio.
-  - `options` : un tableau d'objets pour les options de réponse. Chaque objet doit avoir une propriété `name` pour la valeur de la réponse et une propriété `text` pour le texte affiché de l'option.
+  - `options` : un tableau d'objets pour les options de réponse. Chaque objet doit avoir une propriété `value` pour la valeur de la réponse et une propriété `text` pour le texte affiché de l'option.
 - Ne pas oublier d'importer le nouveau composant dans `QuizForm.vue` :
   ```html
   <script setup lang="ts">
@@ -385,10 +385,10 @@ Créer le fichier `QuestionRadio.vue` dans le dossier `src/components` :
 
   const model = defineModel<string | null>();
   const props = defineProps({
-    name: { type: String, required: true },
+    id: { type: String, required: true },
     text: { type: String, required: true },
     options: {
-      type: Array as PropType<Array<{ name: string; text: string }>>,
+      type: Array as PropType<Array<{ value: string; text: string }>>,
       required: true,
     },
   });
@@ -396,16 +396,16 @@ Créer le fichier `QuestionRadio.vue` dans le dossier `src/components` :
 
 <template>
   {{ props.text }}
-  <div v-for="option in props.options" :key="option.name" class="form-check">
+  <div v-for="option in props.options" :key="option.value" class="form-check">
     <input
-      :id="`${props.name}-${option.name}`"
+      :id="`${props.id}-${option.value}`"
       v-model="model"
       class="form-check-input"
       type="radio"
-      :name="props.name"
-      :value="option.name"
+      :name="props.id"
+      :value="option.value"
     />
-    <label class="form-check-label" :for="`${props.name}-${option.name}`">
+    <label class="form-check-label" :for="`${props.id}-${option.value}`">
       {{ option.text }}
     </label>
   </div>
@@ -427,9 +427,9 @@ De manière similaire, créer un composant `QuestionText.vue` pour les questions
   Combien de pattes a un chat ?
 </label>
 <input
+  id="exampleFormControlInput"
   v-model="reponse"
   class="form-control"
-  id="exampleFormControlInput"
   placeholder="Veuillez saisir un nombre"
 />
 ```
@@ -438,6 +438,7 @@ Et on souhaiterait l'utiliser comme ceci dans `QuizForm.vue` :
 
 ```html
 <QuestionText
+  id="chat"
   v-model="reponse"
   text="Combien de pattes a un chat ?"
   placeholder="Veuillez saisir un nombre"
@@ -487,6 +488,114 @@ const checkedNames = ref([]);
 
 Documentation : [Vue.js](https://fr.vuejs.org/guide/essentials/forms#checkbox) + [Bootstrap](https://getbootstrap.com/docs/5.3/forms/checks-radios/#checks).
 
+### API
+
+[Open Trivia Database](https://opentdb.com/) est une API qui fournit des questions de quiz. On va utiliser cette API pour obtenir des questions aléatoires pour notre quiz :
+
+En naviguant sur le site, on peut voir qu'on peut obtenir des questions en faisant une requête HTTP GET à l'URL suivante : https://opentdb.com/api.php?amount=10&type=multiple
+
+- `amount` : le nombre de questions à obtenir.
+- `type` : le type de questions (multiple ou boolean).
+
+Ajouter une nouvelle tab `Trivia` dans `App.vue` :
+
+```html
+...
+<ul class="navbar-nav">
+  <li class="nav-item">
+    <RouterLink class="nav-link" to="/trivia">
+      <i class="bi bi-question"></i>
+      Trivia
+    </RouterLink>
+  </li>
+  ...
+</ul>
+...
+```
+
+Créer une nouvelle vue `TriviaView.vue` dans le dossier `src/views` :
+
+```html
+<script setup lang="ts">
+  import QuizTrivia from "@/components/QuizTrivia.vue";
+</script>
+
+<template>
+  <div class="container mt-3">
+    <h1>Trivia</h1>
+    <QuizTrivia />
+    Source :
+    <a href="https://opentdb.com/" target="_blank">Open Trivia Database</a>
+  </div>
+</template>
+```
+
+Mettre à jour le fichier `router/index.ts` en ajoutant une nouvelle route :
+
+```ts
+...
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    ...
+    {
+      path: '/trivia',
+      name: 'trivia',
+      component: () => import('../views/TriviaView.vue'),
+    },
+  ]
+...
+```
+
+Finalement ajouter le composant `QuizTrivia.vue` dans le dossier `src/components` :
+
+```html
+<script setup lang="ts">
+  import QuestionRadio from "@/components/QuestionRadio.vue";
+  import { reactive, ref } from "vue";
+
+  const questions = ref<
+    {
+      question: string;
+      correct_answer: string;
+      incorrect_answers: string[];
+    }[]
+  >([]);
+  const answers = reactive<{ [key: number]: string | null }>({});
+
+  fetch("https://opentdb.com/api.php?amount=10&type=multiple")
+    .then((response) => response.json())
+    .then((data) => (questions.value = data.results));
+</script>
+
+<template>
+  <form>
+    <QuestionRadio
+      v-for="(question, index) in questions"
+      :id="index.toString()"
+      :key="index"
+      v-model="answers[index]"
+      :text="question.question"
+      :options="[
+        { value: question.correct_answer, text: question.correct_answer },
+        ...question.incorrect_answers.map(answer => ({
+          value: answer,
+          text: answer,
+        })),
+      ]"
+    />
+  </form>
+</template>
+```
+
+À sa création, ce composant va récupérer 10 questions avec l'API (https://opentdb.com/api.php?amount=10&type=multiple) et stocker les questions dans la `ref` `questions`. Ensuite, on affiche chaque question avec le composant `QuestionRadio` (avec une boucle `v-for`) en passant les propriétés nécessaires.
+
+:::tip[Exemple]
+
+https://github.com/blueur/quiz/tree/week/2-final
+
+:::
+
 ## Semaine 3 (21.11-27.11)
 
 ## Semaine 4 (28.11-04.12)
@@ -504,6 +613,8 @@ Aidez-vous des documentations officielles pour réaliser le projet :
 - [Vue.js](https://fr.vuejs.org/guide/introduction)
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
+
+Exemple final : https://blueur.github.io/quiz/
 
 :::
 
