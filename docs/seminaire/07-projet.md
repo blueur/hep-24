@@ -321,7 +321,7 @@ app.mount("#app");
 - Changer les icônes dans la bar de navigation (en haut) en utilisant [Bootstrap Icons](https://icons.getbootstrap.com/).
 - Voici le [code source](https://github.com/blueur/quiz/tree/week/1-final) avec les modifications principales.
 
-### Rapport
+:::info[Question rapport]
 
 - Répondre aux questions suivantes dans le rapport :
   - Expliquer le rôle des fichiers suivants :
@@ -338,6 +338,8 @@ app.mount("#app");
     - Qu'est-ce qu'un `v-model` ?
     - À quoi sert le `:class="{ disabled: !filled }"` ?
 
+:::
+
 ## Semaine 2 (14.11-20.11)
 
 ### QuestionRadio
@@ -346,7 +348,7 @@ C'est fastidieux de devoir répéter les mêmes étapes pour chaque question. On
 
 Commencer par définir comment on voudrait que le composant fonctionne. On pourrait vouloir remplacer chaque question par un composant `QuestionRadio` :
 
-```html
+```html title="src/components/QuizForm.vue"
 <template>
   <form>
     <QuestionRadio
@@ -418,6 +420,12 @@ Créer le fichier `QuestionRadio.vue` dans le dossier `src/components` :
   - On affiche les options de réponse en utilisant une boucle `v-for` sur `props.options` : le `<div>` sera répété pour chaque option.
   - La différence entre les attributs qui commencent par `:` et ceux qui ne commencent pas par `:` est que les premiers sont des expressions JavaScript (interprétées) et les seconds sont des chaînes de caractères (non interprétées).
 
+:::info[Question rapport]
+
+Quelle est la différence entre un prop et un modèle (`v-model`) ?
+
+:::
+
 ### QuestionText
 
 De manière similaire, créer un composant `QuestionText.vue` pour les questions à réponse textuelle libre. Voici un code qu'on voudrait extraire dans le composant `QuestionText.vue` :
@@ -436,7 +444,7 @@ De manière similaire, créer un composant `QuestionText.vue` pour les questions
 
 Et on souhaiterait l'utiliser comme ceci dans `QuizForm.vue` :
 
-```html
+```html title="src/components/QuizForm.vue"
 <QuestionText
   id="chat"
   v-model="reponse"
@@ -453,41 +461,6 @@ Comment rendre la propriété `placeholder` optionnelle ?
 
 Documentation : [Vue.js](https://fr.vuejs.org/guide/essentials/forms#text) + [Bootstrap](https://getbootstrap.com/docs/5.3/forms/form-control/).
 
-### QuestionCheckbox
-
-Les checkboxes sont comme les radios, mais on peut en sélectionner plusieurs. Créer un composant `QuestionCheckbox.vue` pour les questions à choix multiples. Voici un exemple d'utilisation :
-
-```html
-<div class="form-check">
-  <input
-    id="checkboxJane"
-    v-model="checkedNames"
-    class="form-check-input"
-    type="checkbox"
-    value="Jane"
-  />
-  <label class="form-check-label" for="checkboxJane">Jane</label>
-</div>
-<div class="form-check">
-  <input
-    id="checkboxJohn"
-    v-model="checkedNames"
-    class="form-check-input"
-    type="checkbox"
-    value="John"
-  />
-  <label class="form-check-label" for="checkboxJohn">John</label>
-</div>
-```
-
-Noter que comme la réponse est une liste, il faut initialiser la `ref` avec une liste vide :
-
-```js
-const checkedNames = ref([]);
-```
-
-Documentation : [Vue.js](https://fr.vuejs.org/guide/essentials/forms#checkbox) + [Bootstrap](https://getbootstrap.com/docs/5.3/forms/checks-radios/#checks).
-
 ### API
 
 [Open Trivia Database](https://opentdb.com/) est une API qui fournit des questions de quiz. On va utiliser cette API pour obtenir des questions aléatoires pour notre quiz :
@@ -499,7 +472,7 @@ En naviguant sur le site, on peut voir qu'on peut obtenir des questions en faisa
 
 Ajouter une nouvelle tab `Trivia` dans `App.vue` :
 
-```html
+```html title="src/App.vue"
 ...
 <ul class="navbar-nav">
   <li class="nav-item">
@@ -515,7 +488,7 @@ Ajouter une nouvelle tab `Trivia` dans `App.vue` :
 
 Créer une nouvelle vue `TriviaView.vue` dans le dossier `src/views` :
 
-```html
+```html title="src/views/TriviaView.vue"
 <script setup lang="ts">
   import QuizTrivia from "@/components/QuizTrivia.vue";
 </script>
@@ -532,7 +505,7 @@ Créer une nouvelle vue `TriviaView.vue` dans le dossier `src/views` :
 
 Mettre à jour le fichier `router/index.ts` en ajoutant une nouvelle route :
 
-```ts
+```ts title="src/router/index.ts"
 ...
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -549,7 +522,7 @@ const router = createRouter({
 
 Finalement ajouter le composant `QuizTrivia.vue` dans le dossier `src/components` :
 
-```html
+```html title="src/components/QuizTrivia.vue"
 <script setup lang="ts">
   import QuestionRadio from "@/components/QuestionRadio.vue";
   import { reactive, ref } from "vue";
@@ -589,6 +562,41 @@ Finalement ajouter le composant `QuizTrivia.vue` dans le dossier `src/components
 ```
 
 À sa création, ce composant va récupérer 10 questions avec l'API (https://opentdb.com/api.php?amount=10&type=multiple) et stocker les questions dans la `ref` `questions`. Ensuite, on affiche chaque question avec le composant `QuestionRadio` (avec une boucle `v-for`) en passant les propriétés nécessaires.
+
+### QuestionCheckbox (bonus)
+
+Les checkboxes sont comme les radios, mais on peut en sélectionner plusieurs. Créer un composant `QuestionCheckbox.vue` pour les questions à choix multiples. Voici un exemple d'utilisation :
+
+```html
+<div class="form-check">
+  <input
+    id="checkboxJane"
+    v-model="checkedNames"
+    class="form-check-input"
+    type="checkbox"
+    value="Jane"
+  />
+  <label class="form-check-label" for="checkboxJane">Jane</label>
+</div>
+<div class="form-check">
+  <input
+    id="checkboxJohn"
+    v-model="checkedNames"
+    class="form-check-input"
+    type="checkbox"
+    value="John"
+  />
+  <label class="form-check-label" for="checkboxJohn">John</label>
+</div>
+```
+
+Noter que comme la réponse est une liste, il faut initialiser la `ref` avec une liste vide :
+
+```js
+const checkedNames = ref<string[]>([]);
+```
+
+Documentation : [Vue.js](https://fr.vuejs.org/guide/essentials/forms#checkbox) + [Bootstrap](https://getbootstrap.com/docs/5.3/forms/checks-radios/#checks).
 
 :::tip[Exemple]
 
