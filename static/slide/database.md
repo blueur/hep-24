@@ -32,6 +32,22 @@ Programmation Web et bases de données
 
 ---
 
+## SGBD
+
+![](https://www.datawithbaraa.com/wp-content/uploads/2021/10/SQLWork-1536x528.png) <!-- .element: class="full" -->
+
+https://www.datawithbaraa.com/sql-introduction/sql-introduction/ <!-- .element: class="reference" -->
+
+---
+
+## Nomenclature
+
+![](https://www.datawithbaraa.com/wp-content/uploads/2021/10/sqltable-1-1536x702.png) <!-- .element: class="full" -->
+
+https://www.datawithbaraa.com/sql-introduction/sql-tables/ <!-- .element: class="reference" -->
+
+---
+
 ## Architecture Ansi/Sparc
 
 ![](https://upload.wikimedia.org/wikipedia/commons/5/5c/ANSI-SPARC_DB_model.jpg) <!-- .element: class="full" -->

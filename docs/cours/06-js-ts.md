@@ -1,4 +1,4 @@
-# JavaScript & TypeScript
+# 06 JavaScript & TypeScript
 
 <Reaveal name="js-ts" />
 

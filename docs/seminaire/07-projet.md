@@ -26,7 +26,7 @@ Faire un projet avec Vue.js.
   - Explications et réflexions sur le code (Il y aura quelques questions pour vous guider chaque semaine).
   - Suite du projet (Que pourrait-on faire pour la suite du projet ?).
 
-## Semaine 1 (07.11-13.11)
+## Semaine 1
 
 ### Vue.js
 
@@ -340,7 +340,7 @@ app.mount("#app");
 
 :::
 
-## Semaine 2 (14.11-20.11)
+## Semaine 2
 
 ### QuestionRadio
 
@@ -604,17 +604,17 @@ https://github.com/blueur/quiz/tree/week/2-final
 
 :::
 
-## Semaine 3 (21.11-27.11)
+## Semaine 3
 
-## Semaine 4 (28.11-04.12)
+## Semaine 4
 
-## Semaine 5 (05.12-11.12)
+## Semaine 5
 
-## Semaine 6 (12.12-18.12)
+## Semaine 6
 
 ## Aides
 
-:::tip[Documentations]
+### Documentations
 
 Aidez-vous des documentations officielles pour réaliser le projet :
 
@@ -624,7 +624,13 @@ Aidez-vous des documentations officielles pour réaliser le projet :
 
 Exemple final : https://blueur.github.io/quiz/
 
-:::
+### Vérification
+
+Pour vérifier que le code est correct localement, on peut construire le projet :
+
+```sh
+npm run build
+```
 
 ## Évaluation
 

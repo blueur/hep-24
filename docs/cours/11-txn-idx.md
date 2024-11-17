@@ -1,6 +1,6 @@
-# Optimisation
+# 11 Transaction & Indexation
 
-<Reaveal name="optimisation" />
+<Reaveal name="txn-idx" />
 
 :::note[Objectifs]
 

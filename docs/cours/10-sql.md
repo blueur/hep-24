@@ -1,4 +1,4 @@
-# SQL
+# 10 SQL
 
 <Reaveal name="sql" />
 
@@ -14,5 +14,6 @@ Comment manipuler les données ?
 
 ## Références
 
+- https://www.datawithbaraa.com/sql-introduction/
 - https://www.guru99.com/fr/sql-commands-dbms-query.html
 - https://learnsql.fr/blog/que-sont-ddl-dml-dql-et-dcl-en-sql/
