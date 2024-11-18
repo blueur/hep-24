@@ -1,6 +1,7 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
+import { remarkKroki } from "remark-kroki";
 import type { Options as SassOptions } from "sass";
 
 const config: Config = {
@@ -46,6 +47,7 @@ const config: Config = {
         docs: {
           showLastUpdateTime: true,
           sidebarCollapsed: false,
+          remarkPlugins: [[remarkKroki, { server: "https://kroki.io" }]],
         },
         blog: false,
         theme: {

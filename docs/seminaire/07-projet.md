@@ -319,7 +319,6 @@ app.mount("#app");
   - Votre bouton va appeler une fonction `reset` qu'il faudra créer.
 - Modifier la couleur des `.btn-primary` dans `main.css`.
 - Changer les icônes dans la bar de navigation (en haut) en utilisant [Bootstrap Icons](https://icons.getbootstrap.com/).
-- Voici le [code source](https://github.com/blueur/quiz/tree/week/1-final) avec les modifications principales.
 
 :::info[Question rapport]
 
@@ -337,6 +336,12 @@ app.mount("#app");
     - Que se passe-t-il lorsqu'on clique sur le bouton "Terminer" ?
     - Qu'est-ce qu'un `v-model` ?
     - À quoi sert le `:class="{ disabled: !filled }"` ?
+
+:::
+
+:::tip[Exemple]
+
+https://github.com/blueur/quiz/tree/week/1-final
 
 :::
 
@@ -606,11 +611,31 @@ https://github.com/blueur/quiz/tree/week/2-final
 
 ## Semaine 3
 
+On voudrait incorporer la vérification de la réponse dans chaque composant de question car elle est spécifique à chaque type de question :
+
+- Commencer par le `QuestionRadio.vue` :
+  - Ajouter une propriété `answer` pour stocker la réponse correcte.
+  - Ajouter une méthode `checkAnswer` pour vérifier si la réponse est correcte.
+  - Appeler cette méthode lorsqu'on clique
+
+:::tip[Exemple]
+
+https://github.com/blueur/quiz/tree/week/3-final
+
+:::
+
 ## Semaine 4
 
 ## Semaine 5
 
 ## Semaine 6
+
+## Semaine bonus
+
+Voici quelques idées pour améliorer le projet :
+
+- `QuestionCheckbox.vue` : Sélectionner plusieurs réponses.
+- `QuestionSelect.vue` : Sélectionner une réponse dans une liste déroulante.
 
 ## Aides
 
@@ -631,6 +656,12 @@ Pour vérifier que le code est correct localement, on peut construire le projet 
 ```sh
 npm run build
 ```
+
+### Exemple
+
+- [Semaine 1](https://github.com/blueur/quiz/tree/week/1-final)
+- [Semaine 2](https://github.com/blueur/quiz/tree/week/2-final)
+- [Semaine 3](https://github.com/blueur/quiz/tree/week/3-final)
 
 ## Évaluation
 

@@ -14,4 +14,4 @@
 |  2024-12-05  |   11    | [Transaction & Indexation](/docs/cours/txn-idx)                | [Projet 5](/docs/seminaire/projet#semaine-5)       |
 |  2024-12-12  |   12    | [NoSQL](/docs/cours/nosql)                                     | [Projet 6](/docs/seminaire/projet#semaine-6)       |
 |  2024-12-19  |   13    | [Révision](/docs/cours/revision)                               | [Projet](/docs/seminaire/projet)                   |
-|      ?       |         | Examen                                                         |                                                    |
+|  2025-01-23  |         | **Examen écrit** à SEV46-232 (10:00-12:00)                     |                                                    |

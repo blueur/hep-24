@@ -9,10 +9,10 @@ import Kroki from "@site/src/components/plugins/kroki";
 import Link from "@site/src/components/plugins/link";
 import Mermaid from "@site/src/components/plugins/mermaid";
 import Toc from "@site/src/components/plugins/toc";
-import React, { createRef } from "react";
+import { Component, createRef } from "react";
 import Markdown from "reveal.js/plugin/markdown/markdown";
 
-export default class Reaveal extends React.Component<{
+export default class Reaveal extends Component<{
   name: string;
   full?: boolean;
   page?: boolean;

@@ -1,6 +1,6 @@
-import React from "react";
+import { Component, PropsWithChildren } from "react";
 
-export default class CurrentCalendar extends React.Component {
+export default class CurrentCalendar extends Component<PropsWithChildren> {
   componentDidMount() {
     const currentDate = new Date();
     const currentDay = currentDate.getDay();

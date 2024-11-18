@@ -7,9 +7,11 @@ Programmation Web et bases de données
 ## Structured Query Language (SQL)
 
 - &shy;<!-- .element: class="fragment" --> Prononcé **SQL** `/ɛs kjuː ɛl/` ou **sequel** `/ˈsiːkwəl/`.
-- &shy;<!-- .element: class="fragment" --> **Langage** pour manipuler des bases de données **relationnelles** depuis 1974.
+- &shy;<!-- .element: class="fragment" --> **Langage** pour manipuler des DB **relationnelles** depuis 1974.
 - &shy;<!-- .element: class="fragment" --> Norme **ISO** depuis 1987 pour DBMS relationnels.
 - &shy;<!-- .element: class="fragment" --> Proche d'un langage **naturel** pour faciliter l'apprentissage.
+- &shy;<!-- .element: class="fragment" --> Paradigmes :
+  - **déclaratif** (&ne; impératif), orienté objet, procédural.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/a/aa/SQL_ANATOMY_wiki.svg) <!-- .element: class="fragment full-width" -->
 

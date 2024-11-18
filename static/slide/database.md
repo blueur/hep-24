@@ -19,7 +19,7 @@ Programmation Web et bases de données
 
 ---
 
-## SGBD
+## Système de gestion de base de données
 
 - Système de gestion de base de données (SGBD) - Database Management System (**DBMS**)
 - &shy;<!-- .element: class="fragment" --> **Logiciel** permettant de stocker, manipuler et interroger des données
@@ -32,9 +32,9 @@ Programmation Web et bases de données
 
 ---
 
-## SGBD
+## Système de gestion de base de données
 
-![](https://www.datawithbaraa.com/wp-content/uploads/2021/10/SQLWork-1536x528.png) <!-- .element: class="full" -->
+![](https://www.datawithbaraa.com/wp-content/uploads/2021/10/SQLWork-1536x528.png) <!-- .element: class="full-width" -->
 
 https://www.datawithbaraa.com/sql-introduction/sql-introduction/ <!-- .element: class="reference" -->
 
@@ -83,7 +83,7 @@ entity Artiste {
 entity Chanson {
 }
 
-Artiste ||..|{ Chanson
+Artiste ||--|{ Chanson
 @enduml
 ```
 
@@ -159,7 +159,7 @@ entity Chanson {
   *secondes : number
   *artiste_id : number <<FK>>
 }
-Artiste ||..|{ Chanson
+Artiste ||--|{ Chanson
 @enduml
 ```
 
@@ -246,9 +246,9 @@ entity "École" {
 entity "Enseignant·e" {
 }
 
-"Enseignant·e" }|..o{ "Classe"
-"Classe" }|..|| "École"
-"École" |o..|| "Directeur·ice"
+"Enseignant·e" }|--o{ "Classe"
+"Classe" }|--|| "École"
+"École" |o--|| "Directeur·ice"
 @enduml
 ```
 
