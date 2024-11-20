@@ -435,7 +435,7 @@ Quelle est la différence entre un prop et un modèle (`v-model`) ?
 
 De manière similaire, créer un composant `QuestionText.vue` pour les questions à réponse textuelle libre. Voici un code qu'on voudrait extraire dans le composant `QuestionText.vue` :
 
-```html
+```html title="src/components/QuizForm.vue"
 <label for="exampleFormControlInput" class="form-label">
   Combien de pattes a un chat ?
 </label>
@@ -572,7 +572,7 @@ Finalement ajouter le composant `QuizTrivia.vue` dans le dossier `src/components
 
 Les checkboxes sont comme les radios, mais on peut en sélectionner plusieurs. Créer un composant `QuestionCheckbox.vue` pour les questions à choix multiples. Voici un exemple d'utilisation :
 
-```html
+```html title="src/components/QuizForm.vue"
 <div class="form-check">
   <input
     id="checkboxJane"
@@ -611,12 +611,120 @@ https://github.com/blueur/quiz/tree/week/2-final
 
 ## Semaine 3
 
-On voudrait incorporer la vérification de la réponse dans chaque composant de question car elle est spécifique à chaque type de question :
+### Réponse
 
-- Commencer par le `QuestionRadio.vue` :
-  - Ajouter une propriété `answer` pour stocker la réponse correcte.
-  - Ajouter une méthode `checkAnswer` pour vérifier si la réponse est correcte.
-  - Appeler cette méthode lorsqu'on clique
+On voudrait incorporer la vérification de la réponse dans chaque composant de question car elle est spécifique à chaque type de question.
+
+Modifier la partie `script` de `QuestionRadio.vue` :
+
+- Modifier la propriété `v-model` pour qu'elle soit de type `boolean`.
+  - Chaque question va juste indiquer si la réponse de l'utilisateur est correcte ou non.
+- Ajouter une nouvelle propriété `answer` qui contient la réponse correcte.
+- Ajouter une nouvelle `ref` `value` pour stocker la réponse de l'utilisateur.
+- Ajouter un `watch` sur `value` qui permet d'exécuter une fonction à chaque fois que `value` change ([Documentation](https://fr.vuejs.org/guide/essentials/watchers)).
+  - Cette fonction prend en paramètre la nouvelle valeur de `value`.
+  - Elle va comparer la réponse de l'utilisateur avec la réponse correcte et mettre à jour le modèle `model` en conséquence.
+
+```html title="src/components/QuestionRadio.vue"
+<script setup lang="ts">
+  import { ref, watch, type PropType } from "vue";
+
+  const model = defineModel<boolean>();
+  const props = defineProps({
+    id: { type: String, required: true },
+    text: { type: String, required: true },
+    answer: { type: String, required: true },
+    options: {
+      type: Array as PropType<Array<{ value: string; text: string }>>,
+      required: true,
+    },
+  });
+
+  const value = ref<string | null>(null);
+
+  watch(
+    value,
+    (newValue) => {
+      model.value = newValue === props.answer;
+    },
+    { immediate: true },
+  );
+</script>
+
+...
+```
+
+Dans `QuizForm.vue`, ajouter une nouvelle `ref` `correctAnswers` pour stocker l'exactitude de chaque réponse :
+
+- Modifier la propriété `v-model` de chaque `QuestionRadio` pour qu'elle soit un élément de la liste `correctAnswers`.
+- Ajouter l'attribut `answer` à chaque `QuestionRadio` pour indiquer la réponse correcte.
+- Ajouter une nouvelle `div` pour afficher la valeur de `correctAnswers`.
+
+```html title="src/components/QuizForm.vue"
+<script setup lang="ts">
+  ...
+  const correctAnswers = ref<boolean[]>([])
+  ...
+</script>
+
+<template>
+  <form>
+    <QuestionRadio v-model="correctAnswers[0]" answer="blanc" ... />
+    ...
+    <div>Réponses correctes : {{ correctAnswers }}</div>
+  </form>
+</template>
+```
+
+Tester votre application :
+
+- Les valeurs de `correctAnswers` doivent être `true` si la réponse de l'utilisateur est correcte et `false` sinon.
+- Les valeurs de `correctAnswers` doivent être mises à jour à chaque fois que l'utilisateur change sa réponse.
+
+:::info[Question rapport]
+
+À quoi sert l'option `immediate: true` dans le `watch` ? Que se passe-t-il si on l'enlève ou si on met `immediate: false` ?
+
+:::
+
+Mettre à jour le composant `QuestionText.vue` de manière similaire à `QuestionRadio.vue`.
+
+### Score
+
+Dans `QuizForm.vue`, le calcul du score se fera désormais selon les valeurs de `correctAnswers` :
+
+- Ajouter une nouvelle `computed` `score` qui calcule le score en fonction des valeurs de `correctAnswers` ([Documentation](https://fr.vuejs.org/guide/essentials/computed.html)).
+  - `correctAnswers.value` est un tableau de booléens.
+  - La méthode `filter` retourne un nouveau tableau avec les éléments qui satisfassent la condition ([Exemple](https://rxjs.dev/api/operators/filter#description)).
+  - Ici, on ne va garder que les éléments qui sont `true` (réponses correctes).
+  - La propriété `length` retourne la taille du nouveau tableau qui ne contient que des `true`.
+  - On a donc compté le nombre de `true` dans `correctAnswers.value`.
+- Ajouter une nouvelle `computed` `totalScore` qui calcule le score maximal possible.
+- Ajouter une nouvelle `div` pour afficher le score actuel et le score maximal possible.
+
+```html title="src/components/QuizForm.vue"
+<script setup lang="ts">
+  ...
+  const score = computed<number>(() => correctAnswers.value.filter((value) => value).length);
+  const totalScore = ... // à compléter
+  ...
+</script>
+
+<template>
+  <form>
+    ...
+    <div>Score : {{ score }} / {{ totalScore }}</div>
+  </form>
+</template>
+```
+
+Nettoyer le code en enlevant les parties qui ne sont plus nécessaires (l'ancienne logique de calcul du score).
+
+:::info[Question rapport]
+
+Proposer une autre manière de calculer le score et comparer les deux méthodes.
+
+:::
 
 :::tip[Exemple]
 
