@@ -624,6 +624,7 @@ Modifier la partie `script` de `QuestionRadio.vue` :
 - Ajouter un `watch` sur `value` qui permet d'exécuter une fonction à chaque fois que `value` change ([Documentation](https://fr.vuejs.org/guide/essentials/watchers)).
   - Cette fonction prend en paramètre la nouvelle valeur de `value`.
   - Elle va comparer la réponse de l'utilisateur avec la réponse correcte et mettre à jour le modèle `model` en conséquence.
+- Dans le template, modifier le `v-model` des inputs pour qu'il soit lié à `value`.
 
 ```html title="src/components/QuestionRadio.vue"
 <script setup lang="ts">
@@ -651,7 +652,13 @@ Modifier la partie `script` de `QuestionRadio.vue` :
   );
 </script>
 
-...
+<template>
+  {{ props.text }}
+  <div v-for="option in props.options" :key="option.value" class="form-check">
+    <input
+      :id="`${props.id}-${option.value}`"
+      v-model="value"
+      ...
 ```
 
 Dans `QuizForm.vue`, ajouter une nouvelle `ref` `correctAnswers` pour stocker l'exactitude de chaque réponse :
@@ -726,6 +733,10 @@ Proposer une autre manière de calculer le score et comparer les deux méthodes.
 
 :::
 
+Le calcul du score se fait maintenant en temps réel : à chaque fois que l'utilisateur change sa réponse, le score est mis à jour automatiquement.
+
+La logique des boutons "Terminer" et "Réinitialiser" sera revue la prochaine semaine.
+
 :::tip[Exemple]
 
 https://github.com/blueur/quiz/tree/week/3-final
@@ -738,7 +749,7 @@ https://github.com/blueur/quiz/tree/week/3-final
 
 ## Semaine 6
 
-## Semaine bonus
+## Semaine 7
 
 Voici quelques idées pour améliorer le projet :
 
@@ -770,6 +781,8 @@ npm run build
 - [Semaine 1](https://github.com/blueur/quiz/tree/week/1-final)
 - [Semaine 2](https://github.com/blueur/quiz/tree/week/2-final)
 - [Semaine 3](https://github.com/blueur/quiz/tree/week/3-final)
+- [Semaine 4](https://github.com/blueur/quiz/tree/week/4-final)
+- [Résultat final](https://blueur.github.io/quiz/)
 
 ## Évaluation
 
