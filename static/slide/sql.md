@@ -146,6 +146,7 @@ SELECT MIN(colonne) FROM table1;
 SELECT MAX(colonne) FROM table1;
 SELECT DISTINCT colonne FROM table1;
 SELECT colonne1, colonne2 FROM table1 ORDER BY colonne1 ASC, colonne2 DESC;
+SELECT colonne1, colonne2 FROM table1 LIMIT 10 OFFSET 5;
 ```
 
 ---

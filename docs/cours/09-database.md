@@ -10,9 +10,7 @@ Comment structurer les données ?
 
 ## Exercices
 
-### Modélisation de données
-
-#### Banque
+### Banque
 
 Compléter le modèle entité-association suivant :
 
@@ -137,7 +135,7 @@ Client ||--|{ Compte
 
 </details>
 
-#### Bibliothèque
+### Bibliothèque
 
 Dessiner le modèle entité-association suivant (ajouter des attributs pour les clés primaires si nécessaire) :
 
@@ -253,7 +251,7 @@ Lecteur ||--o{ Emprunt
 
 </details>
 
-#### Magasin
+### Magasin
 
 Dessiner le modèle ER pour un magasin de produits divers :
 
