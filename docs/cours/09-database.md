@@ -253,6 +253,58 @@ Lecteur ||--o{ Emprunt
 
 </details>
 
+#### Magasin
+
+Dessiner le modèle ER pour un magasin de produits divers :
+
+- Chaque produit a un nom, un prix et une quantité en stock.
+- Chaque commande a une date, des articles avec leur quantité et un client.
+- Chaque client a un nom, une adresse et un numéro de téléphone.
+
+Justifier quels attributs sont obligatoires ou optionnels (la solution peut varier).
+
+<details>
+<summary>Solution</summary>
+
+```kroki type=plantuml
+@startuml
+skinparam linetype ortho
+entity Produit {
+  *id : number <<generated>>
+  --
+  *nom : text
+  *prix : number
+  quantite_stock : number
+}
+entity Commande {
+  *id : number <<generated>>
+  --
+  *date : date
+  *client_id : number <<FK>>
+}
+entity Client {
+  *id : number <<generated>>
+  --
+  *nom : text
+  *adresse : text
+  telephone : text
+}
+entity Article {
+  *id : number <<generated>>
+  --
+  *quantite : number
+  *produit_id : number <<FK>>
+  *commande_id : number <<FK>>
+}
+
+Produit ||--o{ Article
+Commande ||--|{ Article
+Client ||--o{ Commande
+@enduml
+```
+
+</details>
+
 ## Références
 
 - https://www.geeksforgeeks.org/introduction-of-dbms-database-management-system-set-1/
