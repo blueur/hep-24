@@ -745,6 +745,261 @@ https://github.com/blueur/quiz/tree/week/3-final
 
 ## Semaine 4
 
+### États
+
+Il n'est pas idéal que les questions soient corrigées en temps réel. Chaque question peut donc avoir plusieurs états :
+
+- `Empty` : la question n'a pas été répondue.
+- `Fill` : la question a été répondue.
+- `Submit` : la question a été soumise pour correction.
+- `Correct` : la réponse est juste.
+- `Wrong` : la réponse est fausse.
+
+```mermaid
+stateDiagram-v2
+  direction LR
+  [*] --> Empty
+  Empty --> Fill: Remplir
+  Fill --> Submit: Terminer
+  Submit --> Correct: Corriger
+  Submit --> Wrong: Corriger
+  Fill --> Empty: Réinitialiser
+  Correct --> Empty: Réinitialiser
+  Wrong --> Empty: Réinitialiser
+```
+
+Créer un nouveau fichier `src/utils/models.ts` :
+
+```ts title="src/utils/models.ts"
+export enum QuestionState {
+  Empty,
+  Fill,
+  Submit,
+  Correct,
+  Wrong,
+}
+```
+
+- Un [enum (type énuméré)](https://fr.wikipedia.org/wiki/Type_%C3%A9num%C3%A9r%C3%A9) est un type qui peut prendre une valeur parmi un ensemble de valeurs pré-définies.
+- On crée un enum `QuestionState` qui contient les états possibles pour une question.
+- `export` permet d'importer cet enum dans d'autres fichiers.
+
+Le modèle de chaque question va donc contenir un état au lieu d'un booléen :
+
+```ts title="src/components/QuestionRadio.vue"
+...
+import { QuestionState } from '@/utils/models'
+...
+const model = defineModel<QuestionState>()
+...
+```
+
+Ajouter un nouveau `watch` sur `model` pour corriger la question si l'état est `Submit` :
+
+- Si l'état est `Submit`, il deviendra `Correct` si la réponse est juste et `Wrong` sinon.
+
+```ts title="src/components/QuestionRadio.vue"
+...
+watch(
+  model,
+  (newModel) => {
+    if (newModel === QuestionState.Submit) {
+      model.value = value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong
+    }
+  },
+);
+...
+```
+
+:::info[Question rapport]
+
+Comment pourrait-on réécrire la ligne suivante sans l'opérateur ternaire (avec des `if` et `else`) ?
+
+```ts
+model.value =
+  value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong;
+```
+
+:::
+
+Adapter le `watch` sur `value` pour qu'il mette à jour le modèle (`Empty` ou `Fill`) :
+
+- Si la valeur devient `null`, l'état devient `Empty`.
+- Sinon, l'état devient `Fill`.
+
+```ts title="src/components/QuestionRadio.vue"
+...
+watch(
+  value,
+  (newValue) => {
+    if (newValue === null) {
+      model.value = QuestionState.Empty
+    } else {
+      model.value = QuestionState.Fill
+    }
+  },
+  { immediate: true },
+);
+...
+```
+
+:::info[Question rapport]
+
+Comment pourrait-on réécrire autrement la logique du `watch` sur `value` ?
+
+:::
+
+Adapter `QuestionText.vue` de manière similaire à `QuestionRadio.vue`.
+
+Dans `QuizForm.vue`, on va stocker l'état de chaque question :
+
+- Renommer `correctAnswers` en `questionStates`.
+- Changer le type de `questionStates` pour qu'il soit un tableau de `QuestionState`.
+- Adapter le calcul du score (compter le nombre de `Correct` dans `questionStates`).
+
+```ts title="src/components/QuizForm.vue"
+...
+const questionStates = ref<QuestionState[]>([])
+const score = computed<number>(
+  () =>
+    questionStates.value
+      .filter(state => state === QuestionState.Correct)
+      .length,
+)
+const totalScore = computed<number>(() => questionStates.value.length)
+...
+```
+
+Afin de plus facilement debug l'application, ajouter une nouvelle `div` pour afficher les états de chaque question :
+
+```html title="src/components/QuizForm.vue"
+<template>
+  <form>
+    ...
+    <div>Debug états : {{ questionStates }}</div>
+  </form>
+</template>
+```
+
+L'application devrait être fonctionnelle et les états des questions devraient être correctement mis à jour.
+
+### Boutons
+
+Le bouton "Terminer" nous permet de soumettre toutes les réponses pour correction. Adapter la fonction `submit` dans `QuizForm.vue` :
+
+- `questionStates` va devenir une liste avec que des `Submit`.
+- `map` permet d'appliquer une fonction à chaque élément d'un tableau ([Documentation](https://rxjs.dev/api/operators/map)). Ici, la fonction retourne `QuestionState.Submit` pour chaque élément.
+
+```ts title="src/components/QuizForm.vue"
+...
+function submit(event: Event): void {
+  event.preventDefault()
+  questionStates.value = questionStates.value.map(() => QuestionState.Submit)
+}
+...
+```
+
+De manière similaire, adapter la fonction `reset` pour mettre tous les états à `Empty` :
+
+<details>
+<summary>Solution</summary>
+
+```ts title="src/components/QuizForm.vue"
+...
+function reset(event: Event): void {
+  event.preventDefault()
+  questionStates.value = questionStates.value.map(() => QuestionState.Empty)
+}
+...
+```
+
+</details>
+
+Pour que le `reset` fonctionne, il faut aussi adapter le `watch` sur `model` dans `QuestionRadio.vue` et `QuestionText.vue` :
+
+- Si l'état est `Empty`, `value` doit redevenir `null`.
+
+<details>
+<summary>Solution</summary>
+
+```ts title="src/components/QuestionRadio.vue et src/components/QuestionText.vue"
+...
+watch(
+  model,
+  (newModel) => {
+    if (newModel === QuestionState.Submit) {
+      model.value = value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong
+    } else if (newModel === QuestionState.Empty) {
+      value.value = null
+    }
+  },
+);
+...
+```
+
+</details>
+
+De retour sur `QuizForm`, adapter `filled` pour qu'il vérifie si toutes les questions sont dans l'état `Fill` :
+
+- `every` retourne `true` si toutes les valeurs du tableau satisfont la condition ([Documentation](https://rxjs.dev/api/operators/every)).
+
+```ts title="src/components/QuizForm.vue"
+...
+const filled = computed<boolean>(() => questionStates.value.every(state => state === QuestionState.Fill))
+...
+```
+
+Afficher le score uniquement si toutes les questions ont été soumises et corrigées :
+
+```html title="src/components/QuizForm.vue"
+<template>
+  <form>
+    ...
+    <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
+  </form>
+</template>
+```
+
+Définir `submitted` (de manière similaire à `filled`) : vérifier si tous les états sont `Correct` ou `Wrong`.
+
+<details>
+<summary>Solution</summary>
+
+```ts title="src/components/QuizForm.vue"
+...
+const submitted = computed<boolean>(() => questionStates.value.every(state => state === QuestionState.Correct || state === QuestionState.Wrong))
+...
+```
+
+</details>
+
+### Réponses immuables
+
+Rendre les réponses immuables (non modifiables) après avoir soumis le quiz :
+
+- Dans `QuestionRadio.vue` et `QuestionText.vue`, les `input` doivent être `disabled` si l'état est `Submit`, `Correct` ou `Wrong`.
+
+```html title="src/components/QuestionRadio.vue et src/components/QuestionText.vue"
+<template>
+  ...
+  <input
+    ...
+    :disabled="
+      model === QuestionState.Submit || 
+      model === QuestionState.Correct || 
+      model === QuestionState.Wrong
+    "
+  />
+  ...
+</template>
+```
+
+:::tip[Exemple]
+
+https://github.com/blueur/quiz/tree/week/4-final
+
+:::
+
 ## Semaine 5
 
 ## Semaine 6
@@ -782,6 +1037,8 @@ npm run build
 - [Semaine 2](https://github.com/blueur/quiz/tree/week/2-final)
 - [Semaine 3](https://github.com/blueur/quiz/tree/week/3-final)
 - [Semaine 4](https://github.com/blueur/quiz/tree/week/4-final)
+- [Semaine 5](https://github.com/blueur/quiz/tree/week/5-final)
+- [Semaine 6](https://github.com/blueur/quiz/tree/week/6-final)
 - [Résultat final](https://blueur.github.io/quiz/)
 
 ## Évaluation
