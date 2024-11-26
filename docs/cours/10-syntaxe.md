@@ -7,7 +7,3 @@
 Comment lire du code Vue.js ?
 
 :::
-
-## Exercices
-
-## Références
