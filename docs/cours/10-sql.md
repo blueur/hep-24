@@ -17,7 +17,7 @@ Comment manipuler les données ?
     - Username : votre nom d'utilisateur (`whoami` pour le retrouver)
     - Password : aucun
     - Port : 5432
-    - Database : comme le username
+    - Database : `postgres`
   - Windows : `choco install postgresql`
     - Username : `postgres`
     - Password : indiqué lors de l'installation
@@ -54,6 +54,7 @@ Comment manipuler les données ?
     - Cliquer sur <i class="ph ph-play"></i> (Execute SQL query) pour exécuter la commande.
     - Cliquer une seconde fois devrait indiquer une erreur car la table existe déjà.
   - Voir la table créée dans le volet "Database navigator" à gauche : nom de la connexion > `Database` > nom de la database > `Schemas` > `public` > `Tables` > `person`.
+    - `F5` pour rafraîchir si la table n'apparaît pas.
 - Insérer des données dans la table `person`.
   - ```sql
     INSERT INTO person (name, email, age)
@@ -64,6 +65,7 @@ Comment manipuler les données ?
       ('Dave', NULL, 30);
     ```
   - Voir les données dans l'onglet "person" > "Data".
+    - `F5` pour rafraîchir si les données n'apparaissent pas.
 - Sélectionner toutes les données de la table `person`.
   <details>
   <summary>Solution</summary>

@@ -729,7 +729,7 @@ Nettoyer le code en enlevant les parties qui ne sont plus nécessaires (l'ancien
 
 :::info[Question rapport]
 
-Proposer une autre manière de calculer le score et comparer les deux méthodes.
+Proposer une autre manière de calculer le score (réécrire la fonction du computed) et comparer les deux méthodes.
 
 :::
 
@@ -772,11 +772,11 @@ Créer un nouveau fichier `src/utils/models.ts` :
 
 ```ts title="src/utils/models.ts"
 export enum QuestionState {
-  Empty,
-  Fill,
-  Submit,
-  Correct,
-  Wrong,
+  Empty = "Empty",
+  Fill = "Fill",
+  Submit = "Submit",
+  Correct = "Correct",
+  Wrong = "Wrong",
 }
 ```
 
@@ -1003,8 +1003,6 @@ https://github.com/blueur/quiz/tree/week/4-final
 ## Semaine 5
 
 ## Semaine 6
-
-## Semaine 7
 
 Voici quelques idées pour améliorer le projet :
 
