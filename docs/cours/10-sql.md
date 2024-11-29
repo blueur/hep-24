@@ -18,6 +18,8 @@ Comment manipuler les données ?
     - Password : aucun
     - Port : 5432
     - Database : `postgres`
+    - pour démarrer PostgreSQL : `brew services start postgresql`
+    - pour arrêter PostgreSQL : `brew services stop postgresql`
   - Windows : `choco install postgresql`
     - Username : `postgres`
     - Password : indiqué lors de l'installation
