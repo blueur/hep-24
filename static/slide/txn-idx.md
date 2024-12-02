@@ -134,6 +134,14 @@ stateDiagram-v2
 
 ---
 
+![](https://upload.wikimedia.org/wikipedia/commons/0/09/Binary_search_vs_Linear_search_example_svg.svg)
+
+<p class="reference">
+  <a href="https://commons.wikimedia.org/wiki/File:Binary_search_vs_Linear_search_example_svg.svg">Jochen Burghardt</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
+</p>
+
+---
+
 ### Complexité
 
 | Opération   | Non ordonné | Ordonné  |
@@ -212,3 +220,83 @@ https://learn.microsoft.com/fr-fr/azure/architecture/patterns/index-table <!-- .
 - &shy;<!-- .element: class="fragment" --> Accélère les **recherches** et les **tris** sur la colonne indexée
 - &shy;<!-- .element: class="fragment" --> **Coût mémoire** supplémentaire pour stocker la table d'index
 - &shy;<!-- .element: class="fragment" --> **Coût de temps** pour l'ajout et la suppression (mise à jour de l'index)
+
+---
+
+### Commandes SQL
+
+- &shy;<!-- .element: class="fragment" --> Créer un index `idx_city` sur la colonne `city` de la table `person` :
+  - ```sql
+    CREATE INDEX idx_city ON person (city);
+    ```
+- &shy;<!-- .element: class="fragment" --> Les requêtes SQL utilisent automatiquement l'index si possible :
+  - ```sql
+    SELECT * FROM person WHERE city = 'Lausanne';
+    ```
+
+---
+
+## Analyse
+
+- &shy;<!-- .element: class="fragment" --> La commande `EXPLAIN` permet d'**analyser** comment une requête SQL sera exécutée
+  - **Plan d'exécution** de la requête
+  - ```sql
+    EXPLAIN SELECT * FROM person WHERE city = 'Lausanne';
+    ```
+
+```plaintext
+QUERY PLAN                                             |
+-------------------------------------------------------+
+Seq Scan on person  (cost=0.00..13.75 rows=2 width=242)|
+  Filter: ((city)::text = 'Lausanne'::text)            |
+```
+
+<!-- .element: class="fragment" -->
+
+- &shy;<!-- .element: class="fragment" --> **Seq Scan** : parcours séquentiel de la table
+  - &shy;<!-- .element: class="fragment" --> **cost** : 0.00..13.75 (coût estimé de l'opération)
+    - &shy;<!-- .element: class="fragment" --> **startup cost** : 0.00 (avant de donner le premier résultat)
+    - &shy;<!-- .element: class="fragment" --> **total cost** : 13.75 (pour donner tous les résultats)
+- &shy;<!-- .element: class="fragment" --> **Filter** : condition de la requête
+
+---
+
+## Analyse
+
+- &shy;<!-- .element: class="fragment" --> La commande `EXPLAIN ANALYZE` y ajoute le **temps d'exécution** de chaque opération
+  - **Plan d'exécution** de la requête
+  - **Temps d'exécution** de chaque opération
+  - ```sql
+    EXPLAIN ANALYZE SELECT * FROM person WHERE city = 'Lausanne';
+    ```
+
+```plaintext
+QUERY PLAN                                                                                       |
+-------------------------------------------------------------------------------------------------+
+Seq Scan on person  (cost=0.00..13.75 rows=2 width=242) (actual time=0.015..0.017 rows=3 loops=1)|
+  Filter: ((city)::text = 'Lausanne'::text)                                                      |
+  Rows Removed by Filter: 5                                                                      |
+Planning Time: 0.053 ms                                                                          |
+Execution Time: 0.029 ms                                                                         |
+```
+
+<!-- .element: class="fragment" -->
+
+---
+
+### Avec index
+
+En ajoutant l'index `idx_city` sur la colonne `city` :
+
+```plaintext
+QUERY PLAN                                                                                            |
+------------------------------------------------------------------------------------------------------+
+Seq Scan on person_cours  (cost=0.00..1.10 rows=1 width=242) (actual time=0.008..0.009 rows=3 loops=1)|
+  Filter: ((city)::text = 'Lausanne'::text)                                                           |
+  Rows Removed by Filter: 5                                                                           |
+Planning Time: 0.052 ms                                                                               |
+Execution Time: 0.016 ms                                                                              |
+```
+
+- &shy;<!-- .element: class="fragment" --> Le **coût** de l'opération est passé de 13.75 à 1.10.
+- &shy;<!-- .element: class="fragment" --> Le **temps d'exécution** est passé de 0.029 ms à 0.016 ms.

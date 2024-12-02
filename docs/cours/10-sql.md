@@ -381,6 +381,16 @@ Reprendre ta table `person` et l'étendre pour gérer des avis de films.
   ```
   </details>
 
+## Bonus
+
+![](https://imgs.xkcd.com/comics/query.png)
+
+Source : https://xkcd.com/1409/
+
+![](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)
+
+Source : https://xkcd.com/327/
+
 ## Références
 
 - https://www.datawithbaraa.com/sql-introduction/
