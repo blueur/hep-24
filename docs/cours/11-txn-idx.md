@@ -83,7 +83,142 @@ Les changements sont visibles après la confirmation de la transaction avec `COM
 
 ### Indexation
 
+Rechercher toutes les données de la table `education` qui sont à Lausanne :
 
+<details>
+<summary>Solution</summary>
+
+```sql
+SELECT * FROM education WHERE geo_name = 'Lausanne';
+```
+
+</details>
+
+Quel est le coût de cette requête ?
+
+<details>
+<summary>Solution</summary>
+
+```sql
+EXPLAIN SELECT * FROM education WHERE geo_name = 'Lausanne';
+```
+
+Le coût est de 62,06.
+
+```plaintext
+QUERY PLAN                                                  |
+------------------------------------------------------------+
+Seq Scan on education e  (cost=0.00..62.06 rows=15 width=55)|
+  Filter: ((geo_name)::text = 'Lausanne'::text)             |
+```
+
+</details>
+
+Comment pourrait-on améliorer les performances de cette requête en utilisant un index ? Quel en serait le gain sur le coût ?
+
+<details>
+<summary>Solution</summary>
+
+Créer un index sur la colonne `geo_name` de la table `education` :
+
+```sql
+CREATE INDEX idx_geo_name ON education (geo_name);
+```
+
+En expliquant de nouveau la requête :
+
+```sql
+EXPLAIN SELECT * FROM education WHERE geo_name = 'Lausanne';
+```
+
+On obtient un coût de 29,82.
+
+```plaintext
+QUERY PLAN                                                                |
+--------------------------------------------------------------------------+
+Bitmap Heap Scan on education  (cost=4.40..29.82 rows=15 width=55)        |
+  Recheck Cond: ((geo_name)::text = 'Lausanne'::text)                     |
+  ->  Bitmap Index Scan on idx_geo_name  (cost=0.00..4.39 rows=15 width=0)|
+        Index Cond: ((geo_name)::text = 'Lausanne'::text)                 |
+```
+
+</details>
+
+Comment supprimer l'index créé précédemment ?
+
+<details>
+<summary>Solution</summary>
+
+```sql
+DROP INDEX idx_geo_name;
+```
+
+</details>
+
+Optimiser la base de données pour la requête suivante :
+
+```sql
+SELECT * FROM education WHERE variable = 'obl_sec1_20' AND geo_name = 'Yverdon-les-Bains';
+```
+
+<details>
+<summary>Indice 1</summary>
+
+Cost = 0.28..8.30
+
+<details>
+<summary>Indice 2</summary>
+
+Il est possible de créer un index sur plusieurs colonnes.
+
+<details>
+<summary>Solution</summary>
+
+Créer un index sur les colonnes `variable` et `geo_name` de la table `education` :
+
+```sql
+CREATE INDEX idx_variable_geo_name ON education (variable, geo_name);
+```
+
+Pourquoi cet index est-il plus performant que deux index séparés ?
+
+<details>
+<summary>Solution 2</summary>
+
+Une fois que la base de données a trouvé les lignes correspondantes à `variable`, elle peut directement chercher les lignes correspondantes à `geo_name` qui sont déjà triées.
+
+</details>
+</details>
+</details>
+</details>
+
+### DBeaver sample database
+
+- Créer le [DBeaver sample database](https://dbeaver.com/docs/dbeaver/Sample-Database/).
+  - Ouvrir DBeaver
+  - Menu `Help` > `Create Sample Base`
+- Observer le diagramme entité-relation
+  - Clic droit sur la base de données > `View Diagrams`
+- Décrire ce que la base de données représente (contexte, entités, relations)
+
+<details>
+<summary>Solution</summary>
+
+La base de données représente une boutique de musique en ligne. Elle contient les entités suivantes :
+
+- `Track` : les musiques disponibles à la vente
+  - Organisé par `Genre`, `Album` (+ `Artist`), `Media_type`
+  - Système de `playlist` pour les musiques favorites
+- `Invoice` : les factures des clients
+  - Contient les `InvoiceLine` pour chaque musique achetée
+  - Lié à `Customer` pour le client
+    - Chaque client a un `Employee` de référence pour le suivi (support)
+
+</details>
+
+### PostgreSQL Exercises
+
+https://pgexercises.com/questions/basic/
 
 ## Références
 

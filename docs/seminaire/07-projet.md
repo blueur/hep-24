@@ -1002,6 +1002,12 @@ https://github.com/blueur/quiz/tree/week/4-final
 
 ## Semaine 5
 
+:::tip[Exemple]
+
+https://github.com/blueur/quiz/tree/week/5-final
+
+:::
+
 ## Semaine 6
 
 Voici quelques idées pour améliorer le projet :
@@ -1036,7 +1042,6 @@ npm run build
 - [Semaine 3](https://github.com/blueur/quiz/tree/week/3-final)
 - [Semaine 4](https://github.com/blueur/quiz/tree/week/4-final)
 - [Semaine 5](https://github.com/blueur/quiz/tree/week/5-final)
-- [Semaine 6](https://github.com/blueur/quiz/tree/week/6-final)
 - [Résultat final](https://blueur.github.io/quiz/)
 
 ## Évaluation
