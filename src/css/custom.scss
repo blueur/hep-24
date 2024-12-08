@@ -4,7 +4,16 @@
  * work well for content-centric websites.
  */
 
-@use "open-color";
+$blue: hsl(205, 100%, 50%);
+$orange: hsl(20, 100%, 50%);
+$red: hsl(0, 100%, 50%);
+$purple: hsl(280, 100%, 50%);
+$green: hsl(120, 50%, 50%);
+$black: hsl(0, 0%, 0%);
+$gray-dark: hsl(0, 0%, 25%);
+$gray: hsl(0, 0%, 50%);
+$gray-light: hsl(0, 0%, 75%);
+$white: hsl(0, 0%, 100%);
 
 /* You can override the default Infima variables here. */
 :root {
@@ -14,45 +23,35 @@
   --ifm-table-cell-padding: 0.5rem;
   font-weight: 500;
 
-  --docusaurus-highlighted-code-line-bg: #{open-color.$oc-gray-4};
-  --ifm-background-color: #{open-color.$oc-white};
-  --ifm-font-color-base: #{open-color.$oc-black};
-  --ifm-color-primary: #{open-color.$oc-blue-7};
-  --ifm-color-primary-dark: #{open-color.$oc-blue-9};
-  --ifm-color-secondary: #{open-color.$oc-gray-7};
-  --ifm-color-secondary-contrast-background: #{open-color.$oc-gray-0};
+  --docusaurus-highlighted-code-line-bg: hsl(0, 0%, 90%);
+  --ifm-background-color: #{$white};
+  --ifm-font-color-base: #{$black};
+  --ifm-color-primary: #{$blue};
+  --ifm-color-primary-dark: hsl(205, 100%, 40%);
+  --ifm-color-secondary: #{$gray};
+  --ifm-color-secondary-contrast-background: hsl(0, 0%, 95%);
   --ifm-color-secondary-dark: var(--ifm-color-secondary);
-  --ifm-color-success: #{open-color.$oc-green-7};
-  --ifm-color-success-contrast-background: #{open-color.$oc-green-0};
+  --ifm-color-success: #{$green};
+  --ifm-color-success-contrast-background: hsl(120, 50%, 95%);
   --ifm-color-success-dark: var(--ifm-color-success);
-  --ifm-color-info: #{open-color.$oc-blue-7};
-  --ifm-color-info-contrast-background: #{open-color.$oc-blue-0};
+  --ifm-color-info: #{$blue};
+  --ifm-color-info-contrast-background: hsl(205, 100%, 95%);
   --ifm-color-info-dark: var(--ifm-color-info);
-  --ifm-color-warning: #{open-color.$oc-yellow-7};
-  --ifm-color-warning-contrast-background: #{open-color.$oc-yellow-0};
+  --ifm-color-warning: #{$orange};
+  --ifm-color-warning-contrast-background: hsl(20, 100%, 95%);
   --ifm-color-warning-dark: var(--ifm-color-warning);
-  --ifm-color-danger: #{open-color.$oc-red-7};
-  --ifm-color-danger-contrast-background: #{open-color.$oc-red-0};
+  --ifm-color-danger: #{$red};
+  --ifm-color-danger-contrast-background: hsl(0, 100%, 95%);
   --ifm-color-danger-dark: var(--ifm-color-danger);
-  --ifm-color-accent: #{open-color.$oc-orange-7};
-  --ifm-color-emphasis: #{open-color.$oc-violet-7};
-  --ifm-color-gray: #{open-color.$oc-gray-6};
+  --ifm-color-accent: #{$orange};
+  --ifm-color-emphasis: #{$purple};
+  --ifm-color-gray: #{$gray};
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  --docusaurus-highlighted-code-line-bg: #{open-color.$oc-gray-7};
-  --ifm-font-color-base: #{open-color.$oc-gray-4};
-  --ifm-color-primary: #{open-color.$oc-blue-6};
-  --ifm-color-primary-dark: #{open-color.$oc-blue-8};
-  --ifm-color-secondary: #{open-color.$oc-gray-6};
-  --ifm-color-secondary-contrast-background: #{open-color.$oc-gray-9};
-  --ifm-color-success: #{open-color.$oc-green-6};
-  --ifm-color-info: #{open-color.$oc-blue-6};
-  --ifm-color-warning: #{open-color.$oc-yellow-6};
-  --ifm-color-danger: #{open-color.$oc-red-6};
-  --ifm-color-accent: #{open-color.$oc-orange-6};
-  --ifm-color-emphasis: #{open-color.$oc-violet-6};
+  --docusaurus-highlighted-code-line-bg: #{$gray-dark};
+  --ifm-font-color-base: #{$gray-light};
 }
 
 div.reveal {

@@ -24,7 +24,7 @@ const config: Config = {
       "docusaurus-plugin-sass",
       {
         sassOptions: {
-          silenceDeprecations: ["legacy-js-api", "import"],
+          silenceDeprecations: ["import"],
           quietDeps: true,
         } satisfies SassOptions<"sync">,
       },
