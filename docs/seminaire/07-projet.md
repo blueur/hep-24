@@ -1002,6 +1002,87 @@ https://github.com/blueur/quiz/tree/week/4-final
 
 ## Semaine 5
 
+### Réponse détaillée
+
+Lors de la correction, on voudrait afficher un texte expliquant la réponse correcte.
+
+- Ajouter une nouvelle propriété `answerDetail` aux `QuestionText` :
+  ```ts title="src/components/QuestionText.vue"
+  const props = defineProps({
+    id: { type: String, required: true },
+    text: { type: String, required: true },
+    answer: { type: String, required: true },
+    // highlight-next-line
+    answerDetail: { type: String, default: "" },
+    placeholder: { type: String, default: "Veuillez saisir une réponse" },
+  });
+  ```
+- Ajouter ceci à la fin du template :
+  ```html title="src/components/QuestionText.vue"
+  <template>
+    ...
+    <div
+      v-if="model === QuestionState.Correct || model === QuestionState.Wrong"
+    >
+      <p v-if="model === QuestionState.Correct" class="text-success">Juste !</p>
+      <p v-else class="text-danger">
+        Faux ! La réponse était : {{ answerText }}
+      </p>
+      <p class="blockquote-footer">{{ props.answerDetail }}</p>
+    </div>
+  </template>
+  ```
+  - `v-if` permet d'afficher une balise HTML si la condition est vraie ([Documentation](https://fr.vuejs.org/guide/essentials/conditional)).
+  - `v-else` est lié au dernier `v-if` et affiche une balise HTML si la condition du `v-if` est fausse.
+  - `class="text-success"` et `class="text-danger"` permettent de changer la couleur du texte avec Bootstrap ([Documentation](https://getbootstrap.com/docs/5.3/utilities/colors/)).
+  - `class="blockquote-footer"` a été utilisé pour afficher les détails ([Documentation](https://getbootstrap.com/docs/5.3/content/typography/#naming-a-source)).
+- Dans `QuizForm.vue`, ajouter la nouvelle propriété `answer-detail` dans les `QuestionText` :
+  ```html title="src/components/QuizForm.vue"
+  <QuestionText answer-detail="Le chat est un mammifère quadrupède." />
+  ```
+- Adapter `QuestionRadio.vue` de manière similaire à `QuestionText.vue`.
+
+:::info[Question rapport]
+
+Ajouter ce `computed` dans `QuestionRadio.vue` :
+
+```ts
+const answerText = computed<string>(
+  () =>
+    props.options.find((option) => option.value === props.answer)?.text ??
+    props.answer,
+);
+```
+
+Remplacer `{{ props.answer }}` par `{{ answerText }}` dans le template.
+
+Expliquer pourquoi on a fait ce changement ainsi que le code du `computed`.
+
+:::
+
+:::info[Question rapport]
+
+Que se passe-t-il lorsqu'on ne met pas de valeur à `answer-detail` ? Est-ce satisfaisant ? Si ce n'est pas le cas, proposer une amélioration.
+
+:::
+
+### Style
+
+Pour changer les couleurs dans un composant, ajouter un [`<style scoped>`](https://fr.vuejs.org/api/sfc-spec.html#style) à la fin du fichier :
+
+```html title="src/components/QuestionText.vue"
+...
+<style scoped>
+  .text-danger {
+    color: purple !important;
+  }
+</style>
+```
+
+- `scoped` permet d'appliquer les styles uniquement au composant actuel ([Documentation](https://fr.vuejs.org/api/sfc-css-features#scoped-css)).
+- `!important` permet de forcer l'application du style ([Documentation](https://developer.mozilla.org/fr/docs/Web/CSS/Specificity)).
+- Aussi possible de créer les noms de classes personnalisés (par exemple, `.answer-correct` et `.answer-wrong`).
+
 :::tip[Exemple]
 
 https://github.com/blueur/quiz/tree/week/5-final
@@ -1010,10 +1091,25 @@ https://github.com/blueur/quiz/tree/week/5-final
 
 ## Semaine 6
 
+### Déploiement
+
+Publier le projet sur GitHub Pages :
+
+- Configurer GitHub Pages dans les paramètres du dépôt :
+  - Sur GitHub, dans le dépôt, aller dans <i className="ph ph-gear"></i> `Settings` > `Pages` > Sous `Build and deployment` puis `Source`, sélectionner `GitHub Actions`.
+    - [Configuration d’une source de publication pour votre site GitHub Pages](https://docs.github.com/fr/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+- Créer un fichier `.github/workflows/deploy.yml` avec le même contenu que ce fichier [`deploy.yml`](https://github.com/blueur/quiz/blob/main/.github/workflows/deploy.yml).
+- GitHub Actions va automatiquement construire le site et le déployer sur GitHub Pages à chaque push sur la branche `main`.
+- Ajouter le lien du site dans le rapport : `https://hepl-bs21inf5.github.io/sem07-projet-{pseudo]/`.
+
+### Améliorations
+
 Voici quelques idées pour améliorer le projet :
 
 - `QuestionCheckbox.vue` : Sélectionner plusieurs réponses.
 - `QuestionSelect.vue` : Sélectionner une réponse dans une liste déroulante.
+- Accepter plusieurs réponses possibles pour `QuestionText.vue` (par exemple, "2" ou "deux").
+- Adapter le Trivia pour pouvoir y jouer.
 
 ## Aides
 
@@ -1024,8 +1120,6 @@ Aidez-vous des documentations officielles pour réaliser le projet :
 - [Vue.js](https://fr.vuejs.org/guide/introduction)
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
-
-Exemple final : https://blueur.github.io/quiz/
 
 ### Vérification
 
