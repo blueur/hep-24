@@ -1148,12 +1148,12 @@ L'évaluation du projet se portera sur les critères suivants :
 - Fonctionnalités
   - [ ] **L'application a les mêmes fonctionnalités que l'exemple.**
   - [ ] **L'application est personnalisée.**
+  - [ ] **L'application a plus de fonctionnalités que l'exemple.**
+  - [ ] _L'application a encore plus de fonctionnalités que l'exemple._
   - [ ] _Bootstrap est correctement utilisé pour rendre l'application responsive._
-  - [ ] _L'application a plus de fonctionnalités que l'exemple._
 - Code
   - [ ] **Le code suit les conventions de codage (formatage, nommage, organisation, &hellip;).**
-  - [ ] **Le code est lisible et maintenable (nommage, commentaires, &hellip;).**
-  - [ ] _Le code est bien structuré (composants, design pattern, &hellip;)._
+  - [ ] _Le code est lisible et maintenable (nommage, commentaires, &hellip;)._
 
 |            Note            | &nbsp;1&nbsp; | &nbsp;2&nbsp; | 2.5 | &nbsp;3&nbsp; | 3.5 | &nbsp;4&nbsp; | 4.5 | &nbsp;5&nbsp; | 5.5 | &nbsp;6&nbsp; |
 | :------------------------: | :-----------: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: |

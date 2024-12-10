@@ -34,15 +34,53 @@ Comment faire pour éviter de perdre des données ?
 
 ---
 
+## Partitionnement
+
+![](https://assets.digitalocean.com/articles/understanding_sharding/DB_image_1_cropped.png) <!-- .element: class="full" -->
+
+https://www.digitalocean.com/community/tutorials/understanding-database-sharding <!-- .element: class="reference" -->
+
+---
+
+### Sharding
+
+![](https://assets.digitalocean.com/articles/understanding_sharding/DB_image_2_cropped.png) <!-- .element: class="full" -->
+
+https://www.digitalocean.com/community/tutorials/understanding-database-sharding <!-- .element: class="reference" -->
+
+---
+
+### Sharding
+
+![](https://assets.digitalocean.com/articles/understanding_sharding/DB_image_3_cropped.png) <!-- .element: class="full" -->
+
+https://www.digitalocean.com/community/tutorials/understanding-database-sharding <!-- .element: class="reference" -->
+
+---
+
+### Partitions
+
+- &shy;<!-- .element: class="fragment" --> _Partitionner_ une base de données : **diviser** les données en **partitions** (ou **shards**) pour les stocker sur plusieurs serveurs.
+  - &shy;<!-- .element: class="fragment" --> **Avantages** :
+    - **Scalabilité** : ajouter des serveurs pour augmenter la capacité en répartissant la charge.
+    - **Disponibilité** : proximité des données pour les requêtes.
+  - &shy;<!-- .element: class="fragment" --> **Inconvénients** :
+    - **Complexité** : gérer les partitions, les requêtes, les mises à jour, etc.
+    - **Consistance** : garantir la cohérence des données.
+- &shy;<!-- .element: class="fragment" --> _Sharding_ : partition **horizontale** (par lignes).
+  - **Clé de sharding** : détermine dans quelle partition stocker la ligne.
+
+---
+
 ## Théorème CAP
 
-- &shy;<!-- .element: class="fragment" --> **Trilemme** : **impossible** de garantir les trois propriétés **simultanément**.
+- &shy;<!-- .element: class="fragment" --> **Trilemme** : **impossible** de garantir les trois propriétés **simultanément** pour un système **distribué**.
 - &shy;<!-- .element: class="fragment" --> <i class="ph ph-checks"></i> **Consistency** (Cohérence)
   - Toutes les requêtes reçoivent la **dernière** mise à jour.
 - &shy;<!-- .element: class="fragment" --> <i class="ph ph-clock-clockwise"></i> **Availability** (Disponibilité)
   - Toutes les requêtes reçoivent une réponse (sans garantie que c'est la dernière version).
-- &shy;<!-- .element: class="fragment" --> <i class="ph ph-network-slash"></i> **Partition tolerance** (Tolérance aux pannes)
-  - Le système continue de fonctionner malgré les pannes réseaux.
+- &shy;<!-- .element: class="fragment" --> <i class="ph ph-network-slash"></i> **Partition tolerance** (Tolérance au partitionnement)
+  - Le système a plusieurs nœuds et continue de fonctionner malgré une déconnexion entre les nœuds.
 
 ---
 
@@ -144,7 +182,10 @@ https://blog.algomaster.io/p/15-types-of-databases <!-- .element: class="referen
 https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nosql/4462433-choisissez-votre-famille-nosql <!-- .element: class="reference" -->
 
 - Organisation des données en **colonnes** plutôt qu'en lignes.
-- Avantageux lorsque qu'il y a des cellules **vides** dans les tables.
+- _Avantages_ :
+  - Rapide pour les **requêtes** sur des **colonnes** (SUM, AVG, MIN, &hellip;).
+  - Pas de cellules **vides** dans les tables.
+  - **Compression** des données plus efficace.
 
 ---
 
@@ -155,7 +196,9 @@ https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nos
 https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nosql/4462433-choisissez-votre-famille-nosql <!-- .element: class="reference" -->
 
 - Stockage de **paires** clé/valeur (comme un **dictionnaire**).
-- **Rapide** pour les **recherches** par clé.
+- _Avantages_ :
+  - Rapide pour les **recherches** par **clé**.
+  - Stockage de données **simples**.
 
 ---
 
@@ -167,6 +210,9 @@ https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nos
 
 - Similaire au stockage clé/valeur, mais les **valeurs** sont formatées en **documents**.
   - **JSON**, **XML**, **BSON**, etc.
+- _Avantages_ :
+  - Stockage de données **complexes** (hiérarchiques).
+  - **Requêtes** sur les **valeurs**.
 
 ---
 
@@ -177,6 +223,9 @@ https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nos
 https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nosql/4462433-choisissez-votre-famille-nosql <!-- .element: class="reference" -->
 
 - Organisation des données sous forme de **graphes** (sommets et arêtes).
+- _Avantages_ :
+  - **Requêtes** sur les **relations** entre les données.
+  - Représentation des **réseaux**.
 
 ---
 
@@ -193,14 +242,20 @@ https://hazelcast.com/glossary/time-series-database/ <!-- .element: class="refer
 
 ---
 
+![](https://user.oc-static.com/upload/2017/05/26/14958217637026_triangleCAP.png) <!-- .element: class="full" -->
+
+https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nosql/4462471-maitrisez-le-theoreme-de-cap <!-- .element: class="reference" -->
+
+---
+
 ### ACID vs BASE
 
 ![](https://user.oc-static.com/upload/2017/06/07/14968372992067_ACID_BASE.png) <!-- .element: class="full-width" -->
 
 https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nosql/4462471-maitrisez-le-theoreme-de-cap <!-- .element: class="reference" -->
 
-- &shy;<!-- .element: class="fragment" --> **ACID** : Atomicité, Cohérence, Isolation, Durabilité.
-- &shy;<!-- .element: class="fragment" --> **BASE** : Basically Available, Soft state, Eventually consistent.
+- &shy;<!-- .element: class="fragment" --> _ACID_ : **A**tomicité, **C**ohérence, **I**solation, **D**urabilité.
+- &shy;<!-- .element: class="fragment" --> _BASE_ : **B**asically **A**vailable, **S**oft state, **E**ventually consistent.
   - Basically Available : toujours disponible.
   - Soft state : pas de garantie de cohérence.
   - Eventually consistent : la cohérence sera atteinte à un moment donné.
