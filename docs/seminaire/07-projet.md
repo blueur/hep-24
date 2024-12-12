@@ -1026,7 +1026,7 @@ Lors de la correction, on voudrait afficher un texte expliquant la réponse corr
     >
       <p v-if="model === QuestionState.Correct" class="text-success">Juste !</p>
       <p v-else class="text-danger">
-        Faux ! La réponse était : {{ answerText }}
+        Faux ! La réponse était : {{ props.answer }}
       </p>
       <p class="blockquote-footer">{{ props.answerDetail }}</p>
     </div>
@@ -1110,6 +1110,21 @@ Voici quelques idées pour améliorer le projet :
 - `QuestionSelect.vue` : Sélectionner une réponse dans une liste déroulante.
 - Accepter plusieurs réponses possibles pour `QuestionText.vue` (par exemple, "2" ou "deux").
 - Adapter le Trivia pour pouvoir y jouer.
+- Ordre aléatoire des choix dans `QuestionRadio.vue`.
+- Ordre aléatoire des questions.
+
+Comme les améliorations ne demandent pas toutes le même travail, elles seront pondérées différemment selon leur complexité (par exemple, l'ordre aléatoire des choix est simple donc il ne comptera que pour 0.5 pour le critère).
+
+:::info[Question rapport]
+
+Expliquer votre démarche pour les améliorations que vous avez choisies :
+
+- Pourquoi avez-vous choisi ces améliorations ?
+- Comment les avez-vous implémentées ?
+- Quels problèmes avez-vous rencontrés ?
+- Quelles améliorations pourriez-vous encore apporter ?
+
+:::
 
 ## Aides
 
