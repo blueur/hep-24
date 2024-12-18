@@ -1124,7 +1124,19 @@ Expliquer votre démarche pour les améliorations que vous avez choisies :
 - Quels problèmes avez-vous rencontrés ?
 - Quelles améliorations pourriez-vous encore apporter ?
 
+Vous devoir pouvoir expliquer votre code afin de valider une amélioration. 
+
 :::
+
+### Nettoyage et vérification
+
+- Vérifier tout le projet et nettoyer les codes qui ne sont plus utilisés.
+- Vérifier que le code est correct localement, on peut construire le projet :
+  ```sh
+  npm run build
+  ```
+- Vérifier que le site est correct en ligne et fonctionne sur plusieurs appareils (ordinateur, téléphone, &hellip;).
+- Vérifier que le rendu du rapport (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>) est correct.
 
 ## Aides
 

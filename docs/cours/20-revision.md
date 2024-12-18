@@ -5,15 +5,15 @@
 L'examen écrit se portera sur les critères suivants :
 
 - Web
-  - [ ] Expliquer l'utilisation de code externe dans un projet.
+  - [ ] Expliquer l'utilisation des outils de développement d'un projet Web.
   - [ ] Critiquer l'utilisation d'un générateur de site statique.
   - [ ] Adapter du code HTML et CSS en Vue.js.
   - [ ] Adapter du code TypeScript en Vue.js.
-  - [ ] Analyser les erreurs d'une application trois tiers.
+  - [ ] Différencier les parties d'une application trois tiers.
 - Base de données
   - [ ] Modéliser une base de données.
   - [ ] Adapter des requêtes SQL.
-  - [ ] Expliquer les transactions et l'indexation d'une base de données.
+  - [ ] Améliorer l'utilisation d'une base de données avec les transactions et les index.
   - [ ] Différencier différents types de bases de données.
 
 |            Note            | &nbsp;1&nbsp; | &nbsp;2&nbsp; | 2.5 | &nbsp;3&nbsp; | 3.5 | &nbsp;4&nbsp; | 4.5 | &nbsp;5&nbsp; | 5.5 | &nbsp;6&nbsp; |
@@ -50,9 +50,21 @@ Regrouper et expliquer les acronymes suivants (détailler chaque lettre quand il
 - URL
 - VCS
 
-## npm & Node.js
+## Outils
+
+Comment sauvegarder et partager du code ?
+
+Pourquoi utiliser du code externe dans un projet ?
+
+Comment ajouter du code externe et quels sont les rôles de npm et Node.js ?
 
 ## SSG
+
+Qu'est-ce qu'un générateur de site statique (SSG) ?
+
+Quels sont les avantages et les inconvénients de cette approche ?
+
+Quels sont les similitudes et les différences entre un SSG et Vue.js ?
 
 ## Vue.js
 
@@ -162,9 +174,93 @@ En utilisant une classe CSS différente pour chaque bouton.
 
 </details>
 
-## Analyse d'erreurs
+## Trois tiers
+
+Qu'est-ce qu'une application trois tiers ?
+
+Pour les cas suivants, indiquer de quel tiers il s'agit :
+
+1. L'affichage des graphiques de statistiques.
+2. Le stockage des réponses d'un questionnaire.
+3. La vérification de l'authentification d'un utilisateur.
+4. Le calcul de la moyenne des notes d'un élève.
+5. L'envoi d'un courriel de confirmation.
+6. Activer le mode sombre de l'application.
+7. La traduction des textes de l'application.
+
+Dans quel tiers se trouve l'application quiz du projet ?
+
+Pourrait-on tricher au quiz ? Si oui, comment et comment l'éviter ?
 
 ## Base de données
+
+Modéliser la base de données d'un système de note dans une école.
+
+- Chaque élève et enseignant a un identifiant, un nom, un prénom et une date de naissance.
+- Chaque cours a un identifiant, un nom, un enseignant et des élèves.
+- Chaque note a une valeur, un élève, un cours et une date.
+
+Il existe déjà une table `personne` avec les colonnes `id`, `nom`, `prenom` et `date_naissance` :
+
+```sql
+CREATE TABLE personne (
+  id CHAR(7) PRIMARY KEY,
+  nom VARCHAR(50) NOT NULL,
+  prenom VARCHAR(50) NOT NULL,
+  date_naissance DATE NOT NULL,
+  FOREIGN KEY (branche_id) REFERENCES branche(id)
+);
+```
+
+Ainsi qu'une table `branche` avec les colonnes `id` et `nom` :
+
+```sql
+CREATE TABLE branche (
+  id CHAR(3) PRIMARY KEY,
+  nom VARCHAR(50) NOT NULL
+);
+```
+
+Écrire les commandes SQL pour créer les autres tables selon votre modèle.
+
+Est-ce une bonne idée d'avoir les enseignants et les élèves dans la même table ? Pourquoi ?
+
+Expliquer ce que fait la commande suivante :
+
+```sql
+SELECT DISTINCT nom FROM personne WHERE prenom LIKE 'A%';
+```
+
+<details>
+<summary>Solution</summary>
+
+Sélectionner les noms distincts des personnes dont le prénom commence par "A".
+
+</details>
+
+Sélectionner les noms et prénoms de toutes les personnes nées après 2000 (y compris).
+
+<details>
+<summary>Solution</summary>
+
+```sql
+SELECT nom, prenom FROM personnes WHERE date_naissance >= '2000-01-01';
+```
+
+</details>
+
+Une élève (id = 'ab42cde') souhaite connaître sa moyenne générale. Écrire la requête SQL pour obtenir cette information.
+
+<details>
+<summary>Solution possible</summary>
+
+```sql
+SELECT AVG(valeur) FROM note WHERE eleve_id = 'ab42cde';
+```
+
+</details>
+
+On remarque que les recherches des notes par date sont lentes. Comment améliorer les performances de la base de données ?
 
 ## Bases de données
 
