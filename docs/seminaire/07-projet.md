@@ -1096,11 +1096,32 @@ https://github.com/blueur/quiz/tree/week/5-final
 Publier le projet sur GitHub Pages :
 
 - Configurer GitHub Pages dans les paramètres du dépôt :
+  - Changer la visibilité du dépôt en public ([Documentation](https://docs.github.com/fr/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility)) : <i className="ph ph-gear"></i> `Settings` > <i className="ph ph-gear"></i> `General` > `Danger Zone` (tout en bas) > `Change visibility`.
   - Sur GitHub, dans le dépôt, aller dans <i className="ph ph-gear"></i> `Settings` > `Pages` > Sous `Build and deployment` puis `Source`, sélectionner `GitHub Actions`.
     - [Configuration d’une source de publication pour votre site GitHub Pages](https://docs.github.com/fr/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 - Créer un fichier `.github/workflows/deploy.yml` avec le même contenu que ce fichier [`deploy.yml`](https://github.com/blueur/quiz/blob/main/.github/workflows/deploy.yml).
 - GitHub Actions va automatiquement construire le site et le déployer sur GitHub Pages à chaque push sur la branche `main`.
-- Ajouter le lien du site dans le rapport : `https://hepl-bs21inf5.github.io/sem07-projet-{pseudo]/`.
+- Ajouter le lien du site dans le rapport : `https://hepl-bs21inf5.github.io/sem07-project-{pseudo]/`.
+- Le lien devrait vous renvoyer vers une page blanche, pour corriger cela, modifier le fichier `vite.config.ts` pour ajouter le chemin de base :
+
+```ts title="vite.config.ts"
+import vue from "@vitejs/plugin-vue";
+import { fileURLToPath, URL } from "node:url";
+import { defineConfig } from "vite";
+import vueDevTools from "vite-plugin-vue-devtools";
+
+// https://vite.dev/config/
+export default defineConfig({
+  // highlight-next-line
+  base: "/sem07-project-{pseudo}/",
+  plugins: [vue(), vueDevTools()],
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+});
+```
 
 ### Améliorations
 
@@ -1124,7 +1145,7 @@ Expliquer votre démarche pour les améliorations que vous avez choisies :
 - Quels problèmes avez-vous rencontrés ?
 - Quelles améliorations pourriez-vous encore apporter ?
 
-Vous devoir pouvoir expliquer votre code afin de valider une amélioration. 
+Vous devoir pouvoir expliquer votre code afin de valider une amélioration.
 
 :::
 
