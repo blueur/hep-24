@@ -9,108 +9,126 @@ import Kroki from "@site/src/components/plugins/kroki";
 import Link from "@site/src/components/plugins/link";
 import Mermaid from "@site/src/components/plugins/mermaid";
 import Toc from "@site/src/components/plugins/toc";
-import { Component, createRef } from "react";
+import { PropsWithChildren, useEffect, useRef } from "react";
+import Reveal from "reveal.js";
 import Markdown from "reveal.js/plugin/markdown/markdown";
 
-export default class Reaveal extends Component<{
-  name: string;
-  full?: boolean;
-  page?: boolean;
-}> {
-  constructor(props: { name: string; full?: boolean; page?: boolean }) {
-    super(props);
-    this.resize = this.resize.bind(this);
-  }
-  revealRef = createRef<HTMLDivElement>();
-  resize() {
-    if (this.props.full) {
-      this.revealRef.current.style.height = `${window.innerHeight}px`;
+/**
+ * https://revealjs.com/react/
+ */
+export default function Reaveal(
+  props: PropsWithChildren<{
+    name: string;
+    full?: boolean;
+    page?: boolean;
+  }>,
+) {
+  const deckDivRef = useRef<HTMLDivElement>();
+  const deckRef = useRef<Reveal.Api | null>(null);
+
+  function resize() {
+    if (props.full) {
+      deckDivRef.current.style.height = `${window.innerHeight}px`;
     }
   }
-  componentDidMount() {
-    import("reveal.js").then((reveal) => {
-      import("reveal.js/plugin/highlight/highlight").then((highlight) => {
-        new reveal.default({
-          width: 1440,
-          height: 900,
-          plugins: [
-            Markdown,
-            highlight.default,
-            Footer,
-            Katex,
-            Kroki,
-            Link,
-            Mermaid,
-            Toc,
-          ],
-          autoAnimateDuration: 0.25,
-          autoAnimateUnmatched: false,
-          controlsLayout: "edges",
-          embedded: !this.props.full,
-          fragments: !this.props.page,
-          hash: true,
-          pdfMaxPagesPerSlide: 1,
-          pdfSeparateFragments: false,
-          scrollActivationWidth: null,
-          slideNumber: "c/t",
-          transition: "fade",
-          transitionSpeed: "fast",
-          mermaid: {
-            sequence: {
-              mirrorActors: false,
-              showSequenceNumbers: true,
-            },
-            theme: "neutral",
-            themeVariables: {
-              fontFamily: "unset",
-            },
-            timeline: {
-              disableMulticolor: true,
-            },
+
+  useEffect(() => {
+    if (deckRef.current) {
+      return;
+    }
+
+    Promise.all([
+      import("reveal.js"),
+      import("reveal.js/plugin/highlight/highlight"),
+    ]).then(([reveal, highlight]) => {
+      deckRef.current = new reveal.default(deckDivRef.current!, {
+        width: 1440,
+        height: 900,
+        plugins: [
+          Markdown,
+          highlight.default,
+          Footer,
+          Katex,
+          Kroki,
+          Link,
+          Mermaid,
+          Toc,
+        ],
+        autoAnimateDuration: 0.25,
+        autoAnimateUnmatched: false,
+        controlsLayout: "edges",
+        embedded: !props.full,
+        fragments: !props.page,
+        hash: true,
+        pdfMaxPagesPerSlide: 1,
+        pdfSeparateFragments: false,
+        scrollActivationWidth: null,
+        slideNumber: "c/t",
+        transition: "fade",
+        transitionSpeed: "fast",
+        mermaid: {
+          sequence: {
+            mirrorActors: false,
+            showSequenceNumbers: true,
           },
-        }).initialize();
+          theme: "neutral",
+          themeVariables: {
+            fontFamily: "unset",
+          },
+          timeline: {
+            disableMulticolor: true,
+          },
+        },
       });
+      deckRef.current.initialize();
     });
-    window.addEventListener("resize", this.resize);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.resize);
-  }
-  render() {
-    const reveal = (
-      <div ref={this.revealRef} className="reveal">
-        <div className="slides">
-          <section
-            data-auto-animate
-            data-markdown={`/slide/${this.props.name}.md`}
-          />
-        </div>
+
+    window.addEventListener("resize", resize);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+
+      try {
+        if (deckRef.current) {
+          deckRef.current.destroy();
+          deckRef.current = null;
+        }
+      } catch (e) {
+        console.warn("Reveal.js destroy call failed.");
+      }
+    };
+  }, []);
+
+  const revealDiv = (
+    <div ref={deckDivRef} className="reveal">
+      <div className="slides">
+        <section data-auto-animate data-markdown={`/slide/${props.name}.md`} />
+      </div>
+    </div>
+  );
+  if (props.full) {
+    return revealDiv;
+  } else {
+    return (
+      <div>
+        {revealDiv}
+        <kbd>F</kbd> pour passer en plein écran ou <kbd>O</kbd> pour afficher la
+        vue d'ensemble.
+        <br />
+        Versions{" "}
+        <a href={`/slides?name=${props.name}&page`} target="_blank">
+          sans animation
+        </a>
+        ,{" "}
+        <a href={`/slides?name=${props.name}`} target="_blank">
+          plein écran
+        </a>
+        ,{" "}
+        <a href={`/slides?name=${props.name}&print-pdf`} target="_blank">
+          imprimable
+        </a>
+        .
       </div>
     );
-    if (this.props.full) {
-      return reveal;
-    } else {
-      return (
-        <div>
-          {reveal}
-          <kbd>F</kbd> pour passer en plein écran ou <kbd>O</kbd> pour afficher
-          la vue d'ensemble.
-          <br />
-          Versions{" "}
-          <a href={`/slides?name=${this.props.name}&page`} target="_blank">
-            sans animation
-          </a>
-          ,{" "}
-          <a href={`/slides?name=${this.props.name}`} target="_blank">
-            plein écran
-          </a>
-          ,{" "}
-          <a href={`/slides?name=${this.props.name}&print-pdf`} target="_blank">
-            imprimable
-          </a>
-          .
-        </div>
-      );
-    }
   }
 }

@@ -508,12 +508,12 @@ Créer une nouvelle vue `TriviaView.vue` dans le dossier `src/views` :
 </template>
 ```
 
-Mettre à jour le fichier `router/index.ts` en ajoutant une nouvelle route :
+Mettre à jour le fichier `router/index.ts` en ajoutant une nouvelle route et en remplaçant `createWebHistory` par `createWebHashHistory` :
 
 ```ts title="src/router/index.ts"
 ...
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     ...
     {
@@ -1185,6 +1185,7 @@ npm run build
 - [Semaine 4](https://github.com/blueur/quiz/tree/week/4-final)
 - [Semaine 5](https://github.com/blueur/quiz/tree/week/5-final)
 - [Résultat final](https://blueur.github.io/quiz/)
+- [Code final](https://github.com/blueur/quiz)
 
 ## Évaluation
 

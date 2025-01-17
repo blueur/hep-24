@@ -49,14 +49,36 @@ Regrouper et expliquer les acronymes suivants (détailler chaque lettre quand il
 - TS
 - URL
 - VCS
+- WWW
 
 ## Outils
 
-Comment sauvegarder et partager du code ?
+Quelle est la bonne pratique pour sauvegarder et partager du code ?
+
+<details>
+<summary>Réponse possible</summary>
+
+Utiliser un gestionnaire de versions comme Git permet de garder un historique des modifications sur plusieurs ordinateurs et GitHub permet de l'héberger en ligne pour le partager.
+
+</details>
 
 Pourquoi utiliser du code externe dans un projet ?
 
-Comment ajouter du code externe et quels sont les rôles de npm et Node.js ?
+<details>
+<summary>Réponse possible</summary>
+
+Pour ne pas réinventer la roue et gagner du temps en utilisant des bibliothèques et des frameworks déjà existants.
+
+</details>
+
+Comment ajouter du code externe dans un projet Web et quels sont les rôles de npm et Node.js ?
+
+<details>
+<summary>Réponse possible</summary>
+
+npm permet d'installer et de gérer du code externe d'un projet Web. Node.js permet d'exécuter du code JavaScript sur un ordinateur. `npm install` permet d'ajouter une dépendance à un projet dans le fichier `package.json`.
+
+</details>
 
 ## SSG
 

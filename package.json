@@ -16,33 +16,33 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.4.0",
-    "@docusaurus/faster": "^3.6.3",
-    "@docusaurus/preset-classic": "^3.6.3",
-    "@docusaurus/theme-mermaid": "^3.6.3",
-    "@fontsource-variable/inconsolata": "^5.1.0",
+    "@docusaurus/faster": "^3.7.0",
+    "@docusaurus/preset-classic": "^3.7.0",
+    "@docusaurus/theme-mermaid": "^3.7.0",
+    "@fontsource-variable/inconsolata": "^5.1.1",
     "@mdx-js/react": "^3.1.0",
     "@phosphor-icons/web": "^2.1.1",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.6",
-    "katex": "^0.16.12",
+    "katex": "^0.16.20",
     "mermaid": "^11.4.1",
     "pako": "^2.1.0",
-    "prism-react-renderer": "^2.4.0",
+    "prism-react-renderer": "^2.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "reveal.js": "^5.1.0",
-    "sass": "^1.82.0"
+    "sass": "^1.83.4"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.4.0",
-    "@docusaurus/tsconfig": "^3.6.3",
+    "@docusaurus/tsconfig": "^3.7.0",
     "@docusaurus/types": "^3.4.0",
     "@types/katex": "^0.16.7",
     "@types/pako": "^2.0.3",
     "@types/reveal.js": "^5.0.4",
     "prettier-plugin-organize-imports": "^4.1.0",
     "remark-kroki": "^0.3.7",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   },
   "browserslist": {
     "production": [

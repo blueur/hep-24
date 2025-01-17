@@ -1,7 +1,7 @@
-import { Component, PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
 
-export default class CurrentCalendar extends Component<PropsWithChildren> {
-  componentDidMount() {
+export default function CurrentCalendar(props: PropsWithChildren) {
+  useEffect(() => {
     const currentDate = new Date();
     const currentDay = currentDate.getDay();
     currentDate.setDate(currentDate.getDate() - currentDay);
@@ -28,8 +28,7 @@ export default class CurrentCalendar extends Component<PropsWithChildren> {
         parent.classList.add("current", className);
         parent.scrollIntoView({ behavior: "smooth" });
       });
-  }
-  render() {
-    return this.props.children;
-  }
+  });
+
+  return props.children;
 }
