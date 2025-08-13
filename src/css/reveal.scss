@@ -1,7 +1,7 @@
 // https://revealjs.com/themes/
 
-@use "reveal.js/css/theme/template/mixins" as *;
-@use "reveal.js/css/theme/template/settings" as *;
+@import "reveal.js/css/theme/template/mixins";
+@import "reveal.js/css/theme/template/settings";
 
 $backgroundColor: var(--ifm-background-color);
 

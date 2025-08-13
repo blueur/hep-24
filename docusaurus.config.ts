@@ -9,16 +9,11 @@ const config: Config = {
   tagline: "Programmation Web et bases de données",
   favicon: "img/favicon.ico",
 
-  url: "https://hep.davidtang.ch",
+  url: "https://hep-24.davidtang.ch",
   baseUrl: "/",
 
-  i18n: {
-    defaultLocale: "fr",
-    locales: ["fr"],
-  },
-  future: {
-    experimental_faster: true,
-  },
+  i18n: { defaultLocale: "fr", locales: ["fr"] },
+  future: { v4: true },
   plugins: [
     [
       "docusaurus-plugin-sass",
@@ -30,9 +25,7 @@ const config: Config = {
       },
     ],
   ],
-  markdown: {
-    mermaid: true,
-  },
+  markdown: { mermaid: true },
   presets: [
     [
       "classic",
@@ -43,13 +36,8 @@ const config: Config = {
           remarkPlugins: [[remarkKroki, { server: "https://kroki.io" }]],
         },
         blog: false,
-        theme: {
-          customCss: "./src/css/custom.scss",
-        },
-        gtag: {
-          trackingID: "G-JKD1JRMKPE",
-          anonymizeIP: true,
-        },
+        theme: { customCss: "./src/css/custom.scss" },
+        gtag: { trackingID: "G-JKD1JRMKPE", anonymizeIP: true },
       } satisfies Preset.Options,
     ],
   ],
@@ -57,10 +45,7 @@ const config: Config = {
   themeConfig: {
     navbar: {
       title: "BS21INF5",
-      logo: {
-        alt: "Logo",
-        src: "img/logo.svg",
-      },
+      logo: { alt: "Logo", src: "img/logo.svg" },
       items: [
         {
           to: "/docs/cours",
@@ -90,20 +75,11 @@ const config: Config = {
       ],
     },
     footer: {
-      copyright: `<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://hep.davidtang.ch/" target="_blank">BS21INF5</a> © 2024 by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://davidtang.ch" target="_blank">David Tang</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0</a></div>`,
+      copyright: `<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://hep-24.davidtang.ch/" target="_blank">BS21INF5</a> © 2024-${new Date().getFullYear()} by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://davidtang.ch" target="_blank">David Tang</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0</a></div>`,
     },
-    docs: {
-      sidebar: {
-        hideable: true,
-      },
-    },
-    mermaid: {
-      theme: { light: "neutral", dark: "dark" },
-    },
-    prism: {
-      theme: prismThemes.oneLight,
-      darkTheme: prismThemes.oneDark,
-    },
+    docs: { sidebar: { hideable: true } },
+    mermaid: { theme: { light: "neutral", dark: "dark" } },
+    prism: { theme: prismThemes.oneLight, darkTheme: prismThemes.oneDark },
   } satisfies Preset.ThemeConfig,
 };
 
