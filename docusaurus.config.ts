@@ -43,6 +43,11 @@ const config: Config = {
   ],
   themes: ["@docusaurus/theme-mermaid"],
   themeConfig: {
+    announcementBar: {
+      content:
+        "Vers la dernière version : <a href='https://hep.davidtang.ch'>hep.davidtang.ch</a>",
+      isCloseable: false,
+    },
     navbar: {
       title: "BS21INF5",
       logo: { alt: "Logo", src: "img/logo.svg" },
