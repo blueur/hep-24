@@ -24,7 +24,7 @@
     "@phosphor-icons/web": "^2.1.2",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.6",
-    "katex": "^0.16.28",
+    "katex": "^0.16.33",
     "mermaid": "^11.12.3",
     "pako": "^2.1.0",
     "prism-react-renderer": "^2.4.1",
